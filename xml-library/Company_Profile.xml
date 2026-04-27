@@ -1,0 +1,50 @@
+<?xml version = '1.0'?>
+<?Label MEXICO|PROFILE|2033223|SUCCESS?>
+<Profile xmlns="profile.fidelio.4.0" profileType="CORPORATE" gender="UNKNOWN" multiProperty="0" miniProfile="0" pseudoProfile="0" replaceAddress="0">
+   <profileID>4700016</profileID>
+   <creatorCode>SUPERVISOR</creatorCode>
+   <createdDate>2009-08-15T13:21:23.000</createdDate>
+   <lastUpdaterCode>ORS</lastUpdaterCode>
+   <lastUpdated>2009-08-15T13:46:08.000</lastUpdated>
+   <genericName>OXISAMPLE</genericName>
+   <IndividualName>
+      <nameSur>OXISAMPLE</nameSur>
+   </IndividualName>
+   <PostalAddresses>
+      <PostalAddress addressType="B">
+         <address1>34526 hiller Road</address1>
+         <city>Naples</city>
+         <postalCode>34105</postalCode>
+         <countryCode>USA</countryCode>
+         <mfPrimaryYN>Y</mfPrimaryYN>
+         <mfAddressLanguage>E</mfAddressLanguage>
+         <cleansed>0</cleansed>
+      </PostalAddress>
+   </PostalAddresses>
+   <mfResort>MEXICO</mfResort>
+   <mfResortProfileID>6233755</mfResortProfileID>
+   <mfNameCode>2431952</mfNameCode>
+   <mfAllowMail>YES</mfAllowMail>
+   <mfAllowEMail>NO</mfAllowEMail>
+   <mfGuestPriv>NO</mfGuestPriv>
+   <mfAllowPhone>0</mfAllowPhone>
+   <mfAllowSMS>0</mfAllowSMS>
+   <Keywords>
+      <Keyword type="CLU" value="123246544" action="UPDATE"/>
+   </Keywords>
+   <SalesExtention>
+      <roomsPotential>A</roomsPotential>
+      <scope>002</scope>
+      <scopeCity>AKD</scopeCity>
+      <territory>LOC</territory>
+   </SalesExtention>
+   <PrivacyOption>
+      <mfAllowMail>Y</mfAllowMail>
+      <mfAllowEMail>N</mfAllowEMail>
+      <mfAllowPhone>0</mfAllowPhone>
+      <mfAllowSMS>0</mfAllowSMS>
+      <mfAllowHistory>1</mfAllowHistory>
+      <mfAllowMarketResearch>1</mfAllowMarketResearch>
+      <mfAllowThirdParty>1</mfAllowThirdParty>
+   </PrivacyOption>
+</Profile>

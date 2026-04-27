@@ -1,0 +1,6 @@
+<?xml version = '1.0'?>
+<?Label MEXICO|MESSAGEREQUEST|1706344|NEW?>
+<MessageRequest xmlns="messagerequest.fidelio.3.0">
+   <messageType>PROFILE</messageType>
+   <keyId>6233752</keyId>
+</MessageRequest>

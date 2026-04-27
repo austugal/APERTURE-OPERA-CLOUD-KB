@@ -1,0 +1,31 @@
+<?xml version = '1.0'?>
+<?Label MEXICO|PROFILE|2033183|SUCCESS?>
+<Profile xmlns="profile.fidelio.4.0" profileType="GROUP" gender="UNKNOWN" multiProperty="0" miniProfile="0" pseudoProfile="0" replaceAddress="0">
+   <creatorCode>SUPERVISOR</creatorCode>
+   <createdDate>2009-08-15T11:48:30.000</createdDate>
+   <lastUpdaterCode>SUPERVISOR</lastUpdaterCode>
+   <lastUpdated>2009-08-15T11:48:30.000</lastUpdated>
+   <genericName>Doc Sample Block</genericName>
+   <IndividualName>
+      <nameSur>Doc Sample Block</nameSur>
+   </IndividualName>
+   <primaryLanguageID>E</primaryLanguageID>
+   <PostalAddresses>
+      <PostalAddress addressType="B">
+         <countryCode>MX</countryCode>
+         <mfPrimaryYN>Y</mfPrimaryYN>
+         <mfAddressLanguage>E</mfAddressLanguage>
+         <cleansed>0</cleansed>
+      </PostalAddress>
+   </PostalAddresses>
+   <mfResort>MEXICO</mfResort>
+   <mfResortProfileID>6233754</mfResortProfileID>
+   <mfAllowMail>YES</mfAllowMail>
+   <SalesExtention/>
+   <PrivacyOption>
+      <mfAllowMail>Y</mfAllowMail>
+      <mfAllowHistory>0</mfAllowHistory>
+      <mfAllowMarketResearch>1</mfAllowMarketResearch>
+      <mfAllowThirdParty>1</mfAllowThirdParty>
+   </PrivacyOption>
+</Profile>

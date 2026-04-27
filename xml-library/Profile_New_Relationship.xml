@@ -1,0 +1,140 @@
+<?xml version = '1.0'?>
+<?Label MEXICO|PROFILE|2033259|SUCCESS?>
+<Profile xmlns="profile.fidelio.4.0" profileType="CONTACT" gender="UNKNOWN" multiProperty="0" miniProfile="0" pseudoProfile="0" replaceAddress="0">
+   <profileID>4700019</profileID>
+   <creatorCode>SUPERVISOR</creatorCode>
+   <createdDate>2009-08-15T14:35:35.000</createdDate>
+   <lastUpdaterCode>SUPERVISOR</lastUpdaterCode>
+   <lastUpdated>2009-08-15T14:36:53.000</lastUpdated>
+   <preferredRatePlanCode>JRATE</preferredRatePlanCode>
+   <genericName>Sample</genericName>
+   <IndividualName>
+      <namePrefix>Mr</namePrefix>
+      <nameFirst>Contact</nameFirst>
+      <nameSur>Sample</nameSur>
+      <nameTitle>Tester</nameTitle>
+      <nameOrdered>Mr Sample</nameOrdered>
+   </IndividualName>
+   <dateOfBirth>1975-07-18</dateOfBirth>
+   <primaryLanguageID>E</primaryLanguageID>
+   <Memberships>
+      <Membership>
+         <programCode>PC</programCode>
+         <accountID>213213213213213213</accountID>
+         <startDate>2007-07-18</startDate>
+         <nameOnCard>CONTACT SAMPLE</nameOnCard>
+         <displaySequence>1</displaySequence>
+      </Membership>
+   </Memberships>
+   <PostalAddresses>
+      <PostalAddress addressType="H">
+         <address1> 56574 Sample street</address1>
+         <city>Ft myers</city>
+         <postalCode>33967</postalCode>
+         <countryCode>AG</countryCode>
+         <mfPrimaryYN>Y</mfPrimaryYN>
+         <mfAddressLanguage>E</mfAddressLanguage>
+         <cleansed>0</cleansed>
+      </PostalAddress>
+   </PostalAddresses>
+   <SpecialRequests>
+      <SpecialRequest mfSpecialRequestType="WIN">
+         <requestCode>RED</requestCode>
+         <requestComments>Blends</requestComments>
+      </SpecialRequest>
+   </SpecialRequests>
+   <mfResort>MEXICO</mfResort>
+   <mfResortProfileID>6233760</mfResortProfileID>
+   <mfNameCode>2431954</mfNameCode>
+   <mfAllowMail>YES</mfAllowMail>
+   <mfAllowEMail>NO</mfAllowEMail>
+   <mfGuestPriv>NO</mfGuestPriv>
+   <Udfs>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC01</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC02</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC20</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC28</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC31</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC32</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC37</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC38</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFD02</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+   </Udfs>
+   <mfNegotiatedRates>
+      <NegotiatedRate>
+         <mfResort>MEXICO</mfResort>
+         <rateCode>JRATE</rateCode>
+         <rateBeginDate>2007-05-23</rateBeginDate>
+         <rateEndDate>2011-07-18</rateEndDate>
+      </NegotiatedRate>
+   </mfNegotiatedRates>
+   <mfAllowPhone>0</mfAllowPhone>
+   <mfAllowSMS>0</mfAllowSMS>
+   <YieldAdjustments>
+      <Adjustment>
+         <adjustmentCode>NT</adjustmentCode>
+         <mfResort>MEXICO</mfResort>
+      </Adjustment>
+   </YieldAdjustments>
+   <Keywords>
+      <Keyword type="KEY" value="WORD" action="UPDATE"/>
+   </Keywords>
+   <SalesExtention>
+      <territory>LOC</territory>
+   </SalesExtention>
+   <PrivacyOption>
+      <mfAllowMail>Y</mfAllowMail>
+      <mfAllowEMail>N</mfAllowEMail>
+      <mfAllowPhone>0</mfAllowPhone>
+      <mfAllowSMS>0</mfAllowSMS>
+      <mfAllowHistory>1</mfAllowHistory>
+      <mfAllowMarketResearch>1</mfAllowMarketResearch>
+      <mfAllowThirdParty>1</mfAllowThirdParty>
+   </PrivacyOption>
+   <department>UAT</department>
+</Profile>

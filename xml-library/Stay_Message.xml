@@ -1,0 +1,70 @@
+<?xml version = '1.0'?>
+<?Label MEXICO|STAY|2033271|SUCCESS?>
+<Stay xmlns="stay.fidelio.3.0">
+   <HotelReference>
+      <hotelCode>MEXICO</hotelCode>
+   </HotelReference>
+   <resortBookNo>1528462</resortBookNo>
+   <pmsGuestId>5655736</pmsGuestId>
+   <actualArrivalDate>2007-07-17T00:00:00.000</actualArrivalDate>
+   <actualDepartureDate>2007-07-18T00:00:00.000</actualDepartureDate>
+   <bookDate>2007-07-17T00:00:00.000</bookDate>
+   <bookedDepartureDate>2007-07-18T00:00:00.000</bookedDepartureDate>
+   <bookedArrivalDate>2007-07-17T00:00:00.000</bookedArrivalDate>
+   <compYN>N</compYN>
+   <adults>1</adults>
+   <children>0</children>
+   <crsBookNo>4671768</crsBookNo>
+   <pmsRoomCategory>CK</pmsRoomCategory>
+   <roomNumber>NS</roomNumber>
+   <pmsRateCode>FREDMEX</pmsRateCode>
+   <pmsRate currencyCode="MXN">
+      <valueNum>100</valueNum>
+   </pmsRate>
+   <sourceCode>CRS</sourceCode>
+   <marketCode>NEW</marketCode>
+   <paymentMethod>CA</paymentMethod>
+   <rateCurrencyCode>MXN</rateCurrencyCode>
+   <Udfs>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>RESERVATION_NAME</pmsTableName>
+            <pmsColumnName>RESV_STATUS</pmsColumnName>
+         </UdfDefinition>
+         <udfValue>NO SHOW</udfValue>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>RESERVATION_NAME</pmsTableName>
+            <pmsColumnName>UDFC30</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>RESERVATION_NAME</pmsTableName>
+            <pmsColumnName>UDFC31</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>INTERFACE_SHARE_INFO</pmsTableName>
+            <pmsColumnName>SHARE_NO</pmsColumnName>
+         </UdfDefinition>
+         <udfValue>1455415</udfValue>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>INTERFACE_SHARE_INFO</pmsTableName>
+            <pmsColumnName>NUMBER_NIGHTS</pmsColumnName>
+         </UdfDefinition>
+         <udfValue>1</udfValue>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>INTERFACE_SHARE_INFO</pmsTableName>
+            <pmsColumnName>PRIMARY_SHARER</pmsColumnName>
+         </UdfDefinition>
+         <udfValue>Y</udfValue>
+      </Udf>
+   </Udfs>
+</Stay>

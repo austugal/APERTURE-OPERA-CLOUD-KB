@@ -1,0 +1,37 @@
+<?xml version = '1.0'?>
+<?Label MEXICO|PROFILE|1706349|NEW?>
+<Profile xmlns="profile.fidelio.4.0" profileType="GROUP" gender="UNKNOWN" multiProperty="0" miniProfile="0" pseudoProfile="0" replaceAddress="0">
+   <profileID>4700015</profileID>
+   <creatorCode>OXI-OPERA</creatorCode>
+   <createdDate>2009-08-15T11:49:24.000</createdDate>
+   <lastUpdaterCode>OXI-OPERA</lastUpdaterCode>
+   <lastUpdated>2009-08-15T11:49:24.000</lastUpdated>
+   <commissionPlanCode>NON</commissionPlanCode>
+   <mfCommissionCurrencyCode>USD</mfCommissionCurrencyCode>
+   <genericName>Doc Sample Block</genericName>
+   <IndividualName>
+      <nameSur>Doc Sample Block</nameSur>
+      <nameOrdered>E</nameOrdered>
+   </IndividualName>
+   <primaryLanguageID>E</primaryLanguageID>
+   <PostalAddresses>
+      <PostalAddress addressType="B">
+         <countryCode>MX</countryCode>
+         <mfPrimaryYN>Y</mfPrimaryYN>
+         <mfAddressLanguage>E</mfAddressLanguage>
+         <cleansed>0</cleansed>
+      </PostalAddress>
+   </PostalAddresses>
+   <mfResort>MEXICO</mfResort>
+   <mfResortProfileID>6233754</mfResortProfileID>
+   <mfNameCode>2431950</mfNameCode>
+   <mfAllowMail>YES</mfAllowMail>
+   <SalesExtention/>
+   <PrivacyOption>
+      <mfAllowMail>Y</mfAllowMail>
+      <mfAllowHistory>0</mfAllowHistory>
+      <mfAllowMarketResearch>1</mfAllowMarketResearch>
+      <mfAllowThirdParty>1</mfAllowThirdParty>
+   </PrivacyOption>
+   <sfaAttachments>0</sfaAttachments>
+</Profile>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aperture · OPERA Cloud Reference & Tools</title>
+<meta name="description" content="Curated Oracle Hospitality OPERA Cloud documentation, video tutorials, and integration XML samples. Independent reference library for hotel technology professionals.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+<!-- CINEMATIC BOOT INTRO -->
+<div id="intro">
+
+  <!-- TOP STATUS BAR -->
+  <div class="boot-topbar">
+    <div class="left">
+      <span class="accent">● APERTURE</span>
+      <span>v0.2 · IN DEVELOPMENT</span>
+    </div>
+    <div class="right">
+      <span id="boot-clock">--:--:-- WET · LISBON</span>
+    </div>
+  </div>
+
+  <!-- THREE-COLUMN STAGE -->
+  <div class="boot-stage">
+
+    <!-- LEFT COLUMN - COORDS + META -->
+    <div class="boot-left">
+      <span class="label">— Origin</span>
+      <span class="value accent">LISBON · PORTUGAL</span>
+      <span class="value" id="boot-coords">38.7223° N · 9.1393° W</span>
+
+      <span class="label">— Reference</span>
+      <span class="value">ORACLE OPERA CLOUD</span>
+      <span class="value">v25.5 · OCTOBER 2025</span>
+
+      <span class="label">— Coverage</span>
+      <span class="value">EMEA · IBERIA CLUSTER</span>
+      <span class="value">PT · ES · UK · DE · FR · AE</span>
+
+      <span class="label">— Region</span>
+      <span class="value">EU-FRANKFURT-1 · EU-MADRID-1</span>
+    </div>
+
+    <!-- CENTRE - GLOBE + BRAND -->
+    <div class="boot-centre">
+      <canvas id="boot-globe" width="320" height="320"></canvas>
+      <div class="boot-brand">
+        <div class="boot-brand-name">Aperture<span class="dot">.</span></div>
+        <div class="boot-brand-tag">Independent OPERA Cloud Reference</div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN - STATUS LIST -->
+    <div class="boot-right">
+      <div class="boot-status-head">— SYSTEM STATUS</div>
+      <div id="status-list"></div>
+    </div>
+
+  </div>
+
+  <!-- BOTTOM BAR - SYSTEM INFO + ENTER -->
+  <div class="boot-bottom">
+    <div class="boot-system-info" id="boot-system">
+      APERTURE ENGINE · v0.2<br>
+      OPERA CLOUD · v25.5 REFERENCE<br>
+      BUILD ----
+    </div>
+    <button id="intro-enter" class="intro-enter" disabled>
+      <span class="intro-pulse"></span>
+      Enter library
+    </button>
+    <div class="boot-system-info" style="text-align: right;">
+      © 2026 APERTURE<br>
+      INDEPENDENT REFERENCE<br>
+      NOT AFFILIATED WITH ORACLE
+    </div>
+  </div>
+
+</div>
+
+<!-- TOP BAR -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark"></div>
+      <span class="name">Aperture<span class="dot">.</span></span>
+    </a>
+    <div class="topbar-meta">
+      <span class="pill">REFERENCE LIBRARY</span>
+      <span>v0.2 · IN DEVELOPMENT</span>
+    </div>
+  </div>
+</header>
+
+<!-- MENU -->
+<nav class="menubar">
+  <div class="menubar-inner">
+    <a href="index.html" class="menu-link active">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      Home
+    </a>
+    <a href="modules.html" class="menu-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      Modules
+    </a>
+    <a href="services.html" class="menu-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+      Services
+    </a>
+    <a href="resources.html" class="menu-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      Documentation
+    </a>
+    <a href="videos.html" class="menu-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+      Videos
+    </a>
+    <a href="xml-library.html" class="menu-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6 M16 13H8 M16 17H8"/></svg>
+      XML Samples
+    </a>
+    <div class="menubar-actions">
+      <a href="#waitlist" class="btn btn-accent" style="padding: 6px 14px; font-size: 12px;">Early access</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Independent OPERA Cloud reference library
+      </div>
+      <h1>Reference,<br>tools, <span class="accent">expertise.</span></h1>
+      <p class="lead">A growing reference library for Oracle Hospitality OPERA Cloud and OPERA 5 — curated documentation, official video tutorials, integration XML samples, and senior consulting services. Independent. Iberia-based. EMEA-focused.</p>
+      <div class="ctas">
+        <a href="modules.html" class="btn btn-primary">
+          Browse modules
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="services.html" class="btn btn-secondary">View services</a>
+        <a href="#waitlist" class="btn btn-secondary">Early access</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT TILES (PMS dashboard style) -->
+  <div class="tiles">
+    <div class="tile span-3">
+      <div class="stat">
+        <div class="stat-icon teal">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </div>
+        <div>
+          <div class="stat-num">12</div>
+          <div class="stat-label">Modules covered</div>
+        </div>
+      </div>
+    </div>
+    <div class="tile span-3">
+      <div class="stat">
+        <div class="stat-icon green">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z M14 2v6h6"/></svg>
+        </div>
+        <div>
+          <div class="stat-num">15</div>
+          <div class="stat-label">Oracle docs indexed</div>
+        </div>
+      </div>
+    </div>
+    <div class="tile span-3">
+      <div class="stat">
+        <div class="stat-icon purple">
+          <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <div>
+          <div class="stat-num">60+</div>
+          <div class="stat-label">Video tutorials</div>
+        </div>
+      </div>
+    </div>
+    <div class="tile span-3">
+      <div class="stat">
+        <div class="stat-icon orange">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div>
+          <div class="stat-num">16</div>
+          <div class="stat-label">XML samples</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIBRARY ENTRY POINTS -->
+  <div class="section-head">
+    <h2>The <span class="accent">library.</span></h2>
+    <span class="count">FIVE SECTIONS</span>
+  </div>
+  <p class="section-intro">Five sections, one reference. Browse OPERA Cloud modules organised by area. Read curated Oracle documentation. Watch official video tutorials indexed by topic. Download integration XML samples. Engage senior consultancy on demand.</p>
+
+  <div class="tiles">
+    <a href="modules.html" class="tile span-4 module-tile">
+      <div class="head">
+        <div class="icon teal">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </div>
+        <h3>OPERA Cloud Modules</h3>
+      </div>
+      <p class="desc">Twelve PMS modules with menu paths. Three integration platforms: OHIP, OXI, IFC8. Full fiscal coverage for Portugal and Spain including police exports, INE, Modelo 347, Catalonia and Basque variants.</p>
+      <div class="foot">
+        <span>MODULES + INTEGRATIONS + FISCAL</span>
+        <span class="badge">→</span>
+      </div>
+    </a>
+
+    <a href="services.html" class="tile span-4 module-tile">
+      <div class="head">
+        <div class="icon orange">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        </div>
+        <h3>Consulting Services</h3>
+      </div>
+      <p class="desc">Hands-on senior expertise. Implementation, fiscal compliance for Portugal and Spain, OHIP and OXI integration, channel migration, POS and payment interfaces, training and migrations from OPERA 5.</p>
+      <div class="foot">
+        <span>NINE OFFERINGS · THREE TIERS</span>
+        <span class="badge">→</span>
+      </div>
+    </a>
+
+    <a href="resources.html" class="tile span-4 module-tile">
+      <div class="head">
+        <div class="icon green">
+          <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+        </div>
+        <h3>Documentation</h3>
+      </div>
+      <p class="desc">Curated index of Oracle Hospitality user guides, OXI manuals, OHIP references, fiscal compliance docs. Every link goes directly to docs.oracle.com — no mirroring, no rehosting.</p>
+      <div class="foot">
+        <span>15+ ORACLE DOCS</span>
+        <span class="badge">→</span>
+      </div>
+    </a>
+
+    <a href="videos.html" class="tile span-6 module-tile">
+      <div class="head">
+        <div class="icon purple">
+          <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/></svg>
+        </div>
+        <h3>Video Tutorials</h3>
+      </div>
+      <p class="desc">Oracle's official OPERA Cloud video catalogue, indexed by workflow. Check-in, check-out, billing, housekeeping, financials, reports. Every video opens Oracle's official player on apexapps.oracle.com.</p>
+      <div class="foot">
+        <span>60+ ORACLE VIDEOS · INDEXED BY TOPIC</span>
+        <span class="badge">→</span>
+      </div>
+    </a>
+
+    <a href="xml-library.html" class="tile span-6 module-tile">
+      <div class="head">
+        <div class="icon orange">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <h3>XML Integration Samples</h3>
+      </div>
+      <p class="desc">Sixteen reference XMLs in the profile.fidelio.4.0 namespace covering profiles, blocks, reservations, stay messages, resync requests. View in browser, download individually, or grab the full library zip.</p>
+      <div class="foot">
+        <span>16 SAMPLES · DOWNLOADABLE</span>
+        <span class="badge">→</span>
+      </div>
+    </a>
+  </div>
+
+  <!-- ROADMAP / UPCOMING -->
+  <div class="section-head">
+    <h2>On the <span class="accent">roadmap.</span></h2>
+    <span class="count">UPCOMING · NOT YET BUILT</span>
+  </div>
+  <p class="section-intro">A list of products we plan to build. None of these exist yet. We are gathering interest before committing development time. If something here would solve a problem at your property, join the early access list and tell us — we prioritise the loudest signals.</p>
+
+  <div class="tiles">
+    <div class="module-tile tile span-4">
+      <div class="head">
+        <div class="icon amber"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+        <h3>Iberia Fiscal Pack</h3>
+      </div>
+      <p class="desc">A planned compliance toolkit covering SAF-T Portugal monthly export plus all Spain fiscal exports — SII, eFolio, ES_POLICE, ES_INE, Modelo 347, BAS-Viajeros for Basque Country, CAT-Viajeros for Catalonia.</p>
+      <div class="foot">
+        <span>FISCAL · PT + ES</span>
+        <span class="badge upcoming">PLANNED</span>
+      </div>
+    </div>
+
+    <div class="module-tile tile span-4">
+      <div class="head">
+        <div class="icon amber"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
+        <h3>OHIP Bridge</h3>
+      </div>
+      <p class="desc">A planned middleware layer to handle OHIP authentication, streaming subscriptions, business event filtering and exponential backoff. Replaces the auth and resilience layer most teams rebuild from scratch.</p>
+      <div class="foot">
+        <span>OHIP · STREAMING · OAUTH</span>
+        <span class="badge upcoming">PLANNED</span>
+      </div>
+    </div>
+
+    <div class="module-tile tile span-4">
+      <div class="head">
+        <div class="icon amber"><svg viewBox="0 0 24 24"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="10"/></svg></div>
+        <h3>Night Audit Co-Pilot</h3>
+      </div>
+      <p class="desc">A planned AI assistant that reads night audit output, flags variances against a 30-day baseline, distinguishes posting errors from configuration drift and writes the resolution playbook for the front desk.</p>
+      <div class="foot">
+        <span>AI · NIGHT AUDIT</span>
+        <span class="badge upcoming">PLANNED</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAITLIST -->
+  <section class="form-card" id="waitlist">
+    <p class="eyebrow">— Early access</p>
+    <h2>Be among the first<br>fifty properties.</h2>
+    <p>We are gathering interest from operators before we build. Founding-cohort price will be locked permanently. Direct line to the engineering team. Vote on what gets built first.</p>
+    <form onsubmit="handleWaitlist(event)">
+      <div class="form-row">
+        <input type="text" placeholder="Your name" class="form-input" required>
+        <input type="email" placeholder="Work email" class="form-input" required>
+      </div>
+      <div class="form-row">
+        <input type="text" placeholder="Property or group name" class="form-input" required>
+        <select class="form-input">
+          <option>PMS in use</option>
+          <option>OPERA Cloud</option>
+          <option>OPERA 5</option>
+          <option>Migrating to Cloud</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <textarea placeholder="What's the one OPERA headache you'd like solved?" class="form-input" rows="3"></textarea>
+      <div class="form-foot">
+        <span class="form-counter">38 of 50 founding seats remaining</span>
+        <button type="submit" class="btn btn-accent">
+          Reserve my seat
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </form>
+  </section>
+
+</div>
+
+<!-- FOOTER (legal-heavy) -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <div class="brand-mark"></div>
+          <span class="name">Aperture<span class="dot">.</span></span>
+        </a>
+        <p class="blurb">An independent reference library and consulting practice for Oracle Hospitality OPERA Cloud and OPERA 5. We help operators in EMEA configure, migrate, integrate and operate their property management systems.</p>
+      </div>
+      <div>
+        <h4>Library</h4>
+        <ul>
+          <li><a href="modules.html">Modules</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="resources.html">Documentation</a></li>
+          <li><a href="videos.html">Videos</a></li>
+          <li><a href="xml-library.html">XML Samples</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Oracle Resources</h4>
+        <ul>
+          <li><a href="https://docs.oracle.com/en/industries/hospitality/" target="_blank" rel="noopener">Oracle Hospitality docs ↗</a></li>
+          <li><a href="https://learn.oracle.com" target="_blank" rel="noopener">Oracle MyLearn ↗</a></li>
+          <li><a href="https://www.oracle.com/hospitality/" target="_blank" rel="noopener">Oracle Hospitality ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal & Trademark</h4>
+        <div class="footer-legal">
+          <p><strong>Independent product.</strong> Aperture is not affiliated with, endorsed by, sponsored by, or otherwise connected to Oracle Corporation or any of its subsidiaries.</p>
+          <p><strong>Trademarks.</strong> ORACLE®, OPERA®, OPERA Cloud®, OHIP®, OXI®, IFC8®, MICROS®, Simphony®, and Oracle Hospitality® are registered trademarks of Oracle Corporation. All other product and company names are trademarks or registered trademarks of their respective holders.</p>
+          <p><strong>Documentation.</strong> All Oracle documentation, video tutorials, technical specifications, and proprietary information referenced on this site remain the exclusive intellectual property of Oracle Corporation. Aperture provides indexed links to Oracle's official sources hosted at docs.oracle.com and apexapps.oracle.com — we do not mirror, rehost, or redistribute Oracle content.</p>
+          <p><strong>No warranty.</strong> Information on this site is provided "as is" without warranty of any kind. Field commentary, opinions, and integration patterns reflect Aperture's independent professional experience and do not represent the views of Oracle Corporation. Always verify against current official Oracle documentation before applying to a production environment.</p>
+          <p><strong>XML samples.</strong> Reference XML samples in the profile.fidelio.4.0 namespace are provided for educational and integration-development purposes only. Sample data is anonymised. Not warranted for production use.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 APERTURE · INDEPENDENT REFERENCE</div>
+      <div>v0.2 · IN DEVELOPMENT</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+function handleWaitlist(e) {
+  e.preventDefault();
+  var btn = e.target.querySelector('button[type="submit"]');
+  btn.innerHTML = '✓ Seat reserved · We will be in touch';
+  btn.disabled = true;
+  btn.style.opacity = '0.7';
+}
+</script>
+<script src="assets/intro.js"></script>
+
+</body>
+</html>

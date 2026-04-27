@@ -1,0 +1,253 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<?Label GSDH|PROFILE|1947492|SUCCESS?><Profile xmlns="profile.fidelio.5.0" profileType="GUEST" gender="UNKNOWN" multiProperty="0" miniProfile="0" pseudoProfile="0" replaceAddress="0">
+   <profileID>50201</profileID>
+   <creatorCode>SUPERVISOR</creatorCode>
+   <createdDate>2006-06-06T11:10:05.000</createdDate>
+   <lastUpdaterCode>SUPERVISOR</lastUpdaterCode>
+   <lastUpdated>2013-05-02T16:54:32.000</lastUpdated>
+   <genericName>Morgenstern</genericName>
+   <IndividualName>
+      <nameFirst>Eric1</nameFirst>
+      <nameSur>Morgenstern</nameSur>
+   </IndividualName>
+   <corporatePosition>GEFY CO</corporatePosition>
+   <primaryLanguageID>E</primaryLanguageID>
+   <Documents>
+      <Document>
+         <nationality>E</nationality>
+      </Document>
+   </Documents>
+   <CreditCards>
+      <CreditCard>
+         <creditCardCode>AX</creditCardCode>
+         <creditCardHolderName>Eric1 Morgenstern</creditCardHolderName>
+         <creditCardNumber>373344556677889</creditCardNumber>
+         <creditCardExpire>2015-12-31</creditCardExpire>
+         <mfPrimaryYN>Y</mfPrimaryYN>
+      </CreditCard>
+      <CreditCard>
+         <creditCardCode>MC</creditCardCode>
+         <creditCardHolderName>Eric1 Morgenstern</creditCardHolderName>
+         <creditCardNumber>5454545454545454</creditCardNumber>
+         <creditCardExpire>2012-12-31</creditCardExpire>
+         <mfPrimaryYN>N</mfPrimaryYN>
+      </CreditCard>
+      <CreditCard>
+         <creditCardCode>VA</creditCardCode>
+         <creditCardHolderName>Eric1 Morgenstern</creditCardHolderName>
+         <creditCardNumber>4012888888881881</creditCardNumber>
+         <creditCardExpire>2013-04-30</creditCardExpire>
+         <mfPrimaryYN>N</mfPrimaryYN>
+      </CreditCard>
+   </CreditCards>
+   <ElectronicAddresses>
+      <ElectronicAddress electronicAddressType="EMAIL">
+         <eAddress>emorgenstern@micros.com</eAddress>
+         <mfPrimaryYN>Y</mfPrimaryYN>
+         <confirmation>0</confirmation>
+      </ElectronicAddress>
+   </ElectronicAddresses>
+   <Memberships>
+      <Membership>
+         <programCode>ENCORE</programCode>
+         <accountID>4808263</accountID>
+         <startDate>2009-09-03</startDate>
+         <nameOnCard>ERIC1 MORGENSTERN</nameOnCard>
+         <displaySequence>2</displaySequence>
+         <pointIndicator>0</pointIndicator>
+         <enrollmentSource>N</enrollmentSource>
+         <enrolledAt>N</enrolledAt>
+      </Membership>
+      <Membership>
+         <programCode>OCIS</programCode>
+         <accountID>66760990</accountID>
+         <levelCode>GOLD</levelCode>
+         <expireDate>2010-12-31</expireDate>
+         <startDate>2004-07-23</startDate>
+         <nameOnCard>ERIC1 MORGENSTERN</nameOnCard>
+         <displaySequence>1</displaySequence>
+         <enrollmentCode>WEB</enrollmentCode>
+         <pointIndicator>1</pointIndicator>
+         <enrollmentSource>ON THE WEB</enrollmentSource>
+         <enrolledAt>MICROS WEBSITE</enrolledAt>
+      </Membership>
+   </Memberships>
+   <PostalAddresses>
+      <PostalAddress addressType="BUSINESS">
+         <address1>7031 Columbia Gateway Drive</address1>
+         <address2>OGTS - 2nd Floor</address2>
+         <city>Columbia</city>
+         <stateCode>MD</stateCode>
+         <postalCode>21046</postalCode>
+         <countryCode>US</countryCode>
+         <mfPrimaryYN>Y</mfPrimaryYN>
+         <mfAddressLanguage>E</mfAddressLanguage>
+         <cleansed>0</cleansed>
+         <barCode>THISISABARCODE1234FORMAT</barCode>
+      </PostalAddress>
+      <PostalAddress addressType="HOME">
+         <address1>2640 Parkway De la Puerta De oro</address1>
+         <address2>Habitación 315</address2>
+         <city>Nápoles</city>
+         <stateCode>FL</stateCode>
+         <postalCode>34105</postalCode>
+         <countryCode>US</countryCode>
+         <mfPrimaryYN>N</mfPrimaryYN>
+         <mfAddressLanguage>S</mfAddressLanguage>
+         <cleansed>0</cleansed>
+      </PostalAddress>
+      <PostalAddress addressType="HOME">
+         <countryCode>US</countryCode>
+         <mfPrimaryYN>N</mfPrimaryYN>
+         <mfAddressLanguage>E</mfAddressLanguage>
+         <cleansed>0</cleansed>
+      </PostalAddress>
+   </PostalAddresses>
+   <PhoneNumbers>
+      <PhoneNumber phoneNumberType="BUSINESS">
+         <phoneNumber>412-447-1253</phoneNumber>
+         <mfPrimaryYN>Y</mfPrimaryYN>
+         <confirmation>0</confirmation>
+      </PhoneNumber>
+   </PhoneNumbers>
+   <SpecialRequests>
+      <SpecialRequest mfSpecialRequestType="FEA">
+         <requestCode>NS</requestCode>
+      </SpecialRequest>
+   </SpecialRequests>
+   <Comments>
+      <Comment>
+         <commentOriginatorCode>SUPERVISOR</commentOriginatorCode>
+         <lastUpdated>2013-05-02T16:55:48.000</lastUpdated>
+         <commentStr>Backgound NOtes</commentStr>
+         <commentType>BKG</commentType>
+         <commentTitle>Profile Backgrd Note</commentTitle>
+      </Comment>
+      <Comment>
+         <commentOriginatorCode>SUPERVISOR</commentOriginatorCode>
+         <lastUpdated>2013-05-02T16:55:44.000</lastUpdated>
+         <commentStr>Global Background Note</commentStr>
+         <commentType>BKG</commentType>
+         <commentTitle>Background Notes</commentTitle>
+      </Comment>
+      <Comment>
+         <commentOriginatorCode>SUPERVISOR</commentOriginatorCode>
+         <lastUpdated>2013-05-02T16:55:57.000</lastUpdated>
+         <commentStr>GSDH General Note</commentStr>
+         <commentType>GEN</commentType>
+         <commentTitle>GENERAL NOTES</commentTitle>
+      </Comment>
+   </Comments>
+   <mfResort>GSDH</mfResort>
+   <mfResortProfileID>18082</mfResortProfileID>
+   <mfVipStatus>2</mfVipStatus>
+   <mfAllowMail>YES</mfAllowMail>
+   <mfAllowEMail>NO</mfAllowEMail>
+   <mfGuestPriv>NO</mfGuestPriv>
+   <mfAllowPhone>1</mfAllowPhone>
+   <mfAllowSMS>0</mfAllowSMS>
+   <SalesExtention>
+      <actionCode>SPA</actionCode>
+      <businessSegment>LR</businessSegment>
+   </SalesExtention>
+   <PrivacyOption>
+      <mfAllowMail>Y</mfAllowMail>
+      <mfAllowEMail>N</mfAllowEMail>
+      <mfAllowPhone>1</mfAllowPhone>
+      <mfAllowSMS>0</mfAllowSMS>
+      <mfAllowHistory>1</mfAllowHistory>
+      <mfAllowMarketResearch>0</mfAllowMarketResearch>
+      <mfAllowThirdParty>0</mfAllowThirdParty>
+   </PrivacyOption>
+   <ResortList>FSDH</ResortList>
+   <ResortList>GSDH</ResortList>
+   <MultiResortEntities>
+      <MultiResortEntity included="1">
+         <entity>ROUTING_INSTRUCTIONS</entity>
+      </MultiResortEntity>
+      <MultiResortEntity included="1">
+         <entity>CREDIT_CARDS</entity>
+      </MultiResortEntity>
+      <MultiResortEntity included="0">
+         <entity>RESORT_ARS</entity>
+      </MultiResortEntity>
+      <MultiResortEntity included="1">
+         <entity>COMMENTS</entity>
+      </MultiResortEntity>
+      <MultiResortEntity included="1">
+         <entity>PREFERENCES</entity>
+      </MultiResortEntity>
+      <MultiResortEntity included="1">
+         <entity>NEGOTIATED_RATES</entity>
+      </MultiResortEntity>
+      <MultiResortEntity included="1">
+         <entity>RESORT_NEG_RATES</entity>
+      </MultiResortEntity>
+      <MultiResortEntity included="1">
+         <entity>CHANNEL_ACCESS_CODES</entity>
+      </MultiResortEntity>
+      <MultiResortEntity included="1">
+         <entity>YIELD_ADJUSTMENTS</entity>
+      </MultiResortEntity>
+      <MultiResortEntity included="0">
+         <entity>RELATIONSHIPS</entity>
+      </MultiResortEntity>
+   </MultiResortEntities>
+   <ResortComments>
+      <ResortComment>
+         <Comment>
+            <commentOriginatorCode>SUPERVISOR</commentOriginatorCode>
+            <guestViewable>1</guestViewable>
+            <lastUpdated>2013-05-02T16:55:48.000</lastUpdated>
+            <commentStr>Backgound NOtes</commentStr>
+            <commentType>BKG</commentType>
+            <commentTitle>Profile Backgrd Note</commentTitle>
+         </Comment>
+      </ResortComment>
+      <ResortComment>
+         <Comment>
+            <commentOriginatorCode>SUPERVISOR</commentOriginatorCode>
+            <guestViewable>1</guestViewable>
+            <lastUpdated>2013-05-02T16:55:44.000</lastUpdated>
+            <commentStr>Global Background Note</commentStr>
+            <commentType>BKG</commentType>
+            <commentTitle>Background Notes</commentTitle>
+         </Comment>
+      </ResortComment>
+      <ResortComment>
+         <mfResort>GSDH</mfResort>
+         <Comment>
+            <commentOriginatorCode>SUPERVISOR</commentOriginatorCode>
+            <guestViewable>1</guestViewable>
+            <lastUpdated>2013-05-02T16:55:57.000</lastUpdated>
+            <commentStr>GSDH General Note</commentStr>
+            <commentType>GEN</commentType>
+            <commentTitle>GENERAL NOTES</commentTitle>
+         </Comment>
+      </ResortComment>
+   </ResortComments>
+   <ResortSpecialRequests>
+      <SpecialRequest mfSpecialRequestType="FEA">
+         <requestCode>NS</requestCode>
+      </SpecialRequest>
+   </ResortSpecialRequests>
+   <WebAccounts>
+      <WebAccount>
+         <loginName>EMORGENSTERN</loginName>
+         <password>lGo17E/imFU=</password>
+         <secQuestion>Hp4riAzXmuw=</secQuestion>
+         <secAnswer>yjraoU8Yov0=</secAnswer>
+         <lastLoginDate>2010-10-20T09:21:29.000</lastLoginDate>
+         <insertSource>OWS</insertSource>
+         <passwordChangeDate>2012-05-01T16:29:26.000</passwordChangeDate>
+         <pwdSystemGenerated>0</pwdSystemGenerated>
+      </WebAccount>
+   </WebAccounts>
+   <ResortNegotiatedRates>
+      <NegotiatedRate>
+         <mfResort>FSDH</mfResort>
+         <rateCode>MEMBER</rateCode>
+         <rateBeginDate>2007-03-05</rateBeginDate>
+      </NegotiatedRate>
+   </ResortNegotiatedRates>
+</Profile>

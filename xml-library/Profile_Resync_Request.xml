@@ -1,0 +1,111 @@
+<?xml version = '1.0'?>
+<?Label MEXICO|PROFILE|1706344|SUCCESS?>
+<Profile xmlns="profile.fidelio.4.0" profileType="GUEST" gender="UNKNOWN" multiProperty="0" miniProfile="0" pseudoProfile="0" replaceAddress="0">
+   <creatorCode>SUPERVISOR</creatorCode>
+   <createdDate>2009-08-15T11:27:11.000</createdDate>
+   <lastUpdaterCode>SUPERVISOR</lastUpdaterCode>
+   <lastUpdated>2009-08-15T11:27:13.000</lastUpdated>
+   <genericName>Rader</genericName>
+   <IndividualName>
+      <namePrefix>Mr</namePrefix>
+      <nameFirst>Sample</nameFirst>
+      <nameSur>Rader</nameSur>
+      <nameOrdered>Mr Rader</nameOrdered>
+   </IndividualName>
+   <primaryLanguageID>E</primaryLanguageID>
+   <CreditCards>
+      <CreditCard>
+         <creditCardCode>AX</creditCardCode>
+         <creditCardNumber>XXXXXXXXXXXXXXX</creditCardNumber>
+         <creditCardExpire>XXXX</creditCardExpire>
+         <mfPrimaryYN>Y</mfPrimaryYN>
+      </CreditCard>
+   </CreditCards>
+   <PostalAddresses>
+      <PostalAddress addressType="H">
+         <countryCode>MX</countryCode>
+         <mfPrimaryYN>Y</mfPrimaryYN>
+         <mfAddressLanguage>E</mfAddressLanguage>
+         <cleansed>0</cleansed>
+      </PostalAddress>
+   </PostalAddresses>
+   <PhoneNumbers>
+      <PhoneNumber phoneNumberType="HOME">
+         <phoneNumber>23985698745</phoneNumber>
+         <mfPrimaryYN>Y</mfPrimaryYN>
+         <confirmation>0</confirmation>
+      </PhoneNumber>
+   </PhoneNumbers>
+   <SpecialRequests>
+      <SpecialRequest mfSpecialRequestType="SPE">
+         <requestCode>COT</requestCode>
+         <requestComments>Baby Cot</requestComments>
+      </SpecialRequest>
+   </SpecialRequests>
+   <mfResort>MEXICO</mfResort>
+   <mfResortProfileID>6233752</mfResortProfileID>
+   <mfAllowMail>YES</mfAllowMail>
+   <Udfs>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC01</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC02</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC20</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC28</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC31</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC32</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC37</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFC38</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+      <Udf xmlns="udf.fidelio.2.0">
+         <UdfDefinition xmlns="udfdefinition.fidelio.2.0">
+            <pmsTableName>NAME</pmsTableName>
+            <pmsColumnName>UDFD02</pmsColumnName>
+         </UdfDefinition>
+      </Udf>
+   </Udfs>
+   <SalesExtention/>
+   <PrivacyOption>
+      <mfAllowMail>Y</mfAllowMail>
+      <mfAllowHistory>0</mfAllowHistory>
+      <mfAllowMarketResearch>1</mfAllowMarketResearch>
+      <mfAllowThirdParty>1</mfAllowThirdParty>
+   </PrivacyOption>
+</Profile>
