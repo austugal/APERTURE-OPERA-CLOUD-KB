@@ -12,6 +12,15 @@
 </head>
 <body class="intro-active">
 
+<!-- Netlify static form registration (hidden, required for Netlify to detect form fields at build time) -->
+<form name="aperture-waitlist" netlify netlify-honeypot="bot-field" hidden>
+  <input type="text" name="name" />
+  <input type="email" name="email" />
+  <input type="text" name="property" />
+  <input type="text" name="pms" />
+  <textarea name="goal"></textarea>
+</form>
+
 <!-- CINEMATIC BOOT INTRO -->
 <div id="intro">
 
@@ -405,26 +414,36 @@
   <!-- WAITLIST -->
   <section class="form-card" id="waitlist">
     <p class="eyebrow">— Early access</p>
-    <h2>Be among the first<br>fifty properties.</h2>
-    <p>We are gathering interest from operators before we build. Founding-cohort price will be locked permanently. Direct line to the engineering team. Vote on what gets built first.</p>
-    <form onsubmit="handleWaitlist(event)">
+    <h2>Get on the<br>founding list.</h2>
+    <p>We are gathering signals from operators before we build the paid toolkits. Founding-cohort pricing will be locked permanently for everyone on this list. Direct line to engineering. Vote on which tools we build first. We reply to every message within 48 hours.</p>
+
+    <form name="aperture-waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleWaitlist(event)">
+      <input type="hidden" name="form-name" value="aperture-waitlist">
+      <p style="display:none;"><label>Do not fill this out: <input name="bot-field"></label></p>
+
       <div class="form-row">
-        <input type="text" placeholder="Your name" class="form-input" required>
-        <input type="email" placeholder="Work email" class="form-input" required>
+        <input type="text" name="name" placeholder="Your name" class="form-input" required>
+        <input type="email" name="email" placeholder="Work email" class="form-input" required>
       </div>
       <div class="form-row">
-        <input type="text" placeholder="Property or group name" class="form-input" required>
-        <select class="form-input">
-          <option>PMS in use</option>
-          <option>OPERA Cloud</option>
-          <option>OPERA 5</option>
-          <option>Migrating to Cloud</option>
-          <option>Other</option>
+        <input type="text" name="property" placeholder="Property or group name" class="form-input" required>
+        <select name="pms" class="form-input" required>
+          <option value="">PMS in use</option>
+          <option value="opera_cloud">OPERA Cloud</option>
+          <option value="opera_5_migrating">OPERA 5 (migrating to Cloud)</option>
+          <option value="opera_5_staying">OPERA 5 (no migration plan yet)</option>
+          <option value="protel">Protel</option>
+          <option value="mews">Mews</option>
+          <option value="cloudbeds">Cloudbeds</option>
+          <option value="hotsoft">HotSoft</option>
+          <option value="other">Other</option>
+          <option value="evaluating">Evaluating options</option>
         </select>
       </div>
-      <textarea placeholder="What's the one OPERA headache you'd like solved?" class="form-input" rows="3"></textarea>
+      <textarea name="goal" placeholder="What is the one thing you would like OPERA Cloud to do better at your property? Configuration, integration, fiscal, reporting, training, anything." class="form-input" rows="3"></textarea>
+
       <div class="form-foot">
-        <span class="form-counter">38 of 50 founding seats remaining</span>
+        <span class="form-counter">Founding cohort · Pricing locked permanently · Reply within 48h</span>
         <button type="submit" class="btn btn-accent">
           Reserve my seat
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -504,10 +523,51 @@
 <script>
 function handleWaitlist(e) {
   e.preventDefault();
-  var btn = e.target.querySelector('button[type="submit"]');
-  btn.innerHTML = '✓ Seat reserved · We will be in touch';
+  var form = e.target;
+  var btn = form.querySelector('button[type="submit"]');
+  var foot = form.querySelector('.form-foot');
+  var origLabel = btn.innerHTML;
+
+  btn.innerHTML = 'Sending...';
   btn.disabled = true;
   btn.style.opacity = '0.7';
+
+  // Build form data (Netlify Forms expects form-encoded with form-name)
+  var formData = new FormData(form);
+  var encoded = new URLSearchParams();
+  formData.forEach(function(v, k) { encoded.append(k, v); });
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: encoded.toString()
+  })
+  .then(function(r) {
+    if (!r.ok) throw new Error('submit failed');
+    // Replace the form with a confirmation panel
+    form.innerHTML = '<div style="padding: 32px; text-align: center; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; background: rgba(0,122,138,0.08);">' +
+      '<div style="font-family: \'Instrument Serif\', Georgia, serif; font-size: 36px; color: #fff; margin-bottom: 12px;">You are on the list.</div>' +
+      '<p style="color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.6; max-width: 480px; margin: 0 auto;">Tiago will reply within 48 hours from a Lisbon timezone. Founding-cohort pricing is now locked for your account. We will not share your details with anyone.</p>' +
+      '<div style="margin-top: 20px; font-family: \'JetBrains Mono\', monospace; font-size: 11px; letter-spacing: 0.1em; color: rgba(255,255,255,0.4); text-transform: uppercase;">Confirmation logged · ' + new Date().toISOString().slice(0, 16).replace('T', ' ') + ' UTC</div>' +
+    '</div>';
+  })
+  .catch(function(err) {
+    btn.innerHTML = origLabel;
+    btn.disabled = false;
+    btn.style.opacity = '1';
+    if (foot) {
+      var msg = foot.querySelector('.form-error');
+      if (!msg) {
+        msg = document.createElement('span');
+        msg.className = 'form-error';
+        msg.style.color = '#ff8a65';
+        msg.style.fontSize = '12px';
+        msg.style.marginRight = '12px';
+        foot.insertBefore(msg, btn);
+      }
+      msg.textContent = 'Could not send. Email tiago@aperture.consulting directly.';
+    }
+  });
 }
 </script>
 <script src="assets/intro.js"></script>
