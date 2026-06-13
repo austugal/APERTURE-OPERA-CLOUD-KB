@@ -473,5 +473,76 @@
 
 <script src="assets/intro.js"></script>
 
+<!-- ===== OPERA COPILOT FLOATING BUTTON ===== -->
+<style>
+#oc-fab{
+  position:fixed;bottom:24px;right:24px;z-index:9000;
+  display:flex;flex-direction:column;align-items:flex-end;gap:8px;
+}
+.oc-fab-btn{
+  display:flex;align-items:center;gap:10px;
+  padding:11px 18px 11px 14px;border-radius:28px;cursor:pointer;
+  background:linear-gradient(135deg,rgba(12,8,2,.97),rgba(20,12,2,.97));
+  border:1px solid rgba(249,115,22,.45);
+  box-shadow:0 0 20px rgba(249,115,22,.25),0 4px 20px rgba(0,0,0,.55);
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;
+  letter-spacing:1.5px;color:#f97316;white-space:nowrap;
+  transition:all .2s;
+  animation:ocpulse 3.5s ease-in-out infinite;
+}
+.oc-fab-btn:hover{
+  border-color:rgba(249,115,22,.8);
+  box-shadow:0 0 32px rgba(249,115,22,.4),0 6px 24px rgba(0,0,0,.6);
+  transform:translateY(-2px);
+}
+@keyframes ocpulse{
+  0%,100%{box-shadow:0 0 20px rgba(249,115,22,.25),0 4px 20px rgba(0,0,0,.55)}
+  50%{box-shadow:0 0 32px rgba(249,115,22,.4),0 4px 20px rgba(0,0,0,.55)}
+}
+.oc-dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;
+  background:#10b981;box-shadow:0 0 7px #10b981;
+  animation:ocdot 2.2s ease-in-out infinite;
+}
+@keyframes ocdot{0%,100%{opacity:1}50%{opacity:.2}}
+.oc-fab-menu{
+  display:none;flex-direction:column;gap:5px;align-items:flex-end;
+  animation:ocIn .15s ease;
+}
+@keyframes ocIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.oc-menu-item{
+  padding:8px 16px;border-radius:8px;cursor:pointer;white-space:nowrap;
+  background:rgba(8,6,2,.97);border:1px solid rgba(249,115,22,.2);
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;color:#f97316;
+  transition:all .15s;box-shadow:0 2px 12px rgba(0,0,0,.5);
+}
+.oc-menu-item:hover{background:rgba(249,115,22,.08);border-color:rgba(249,115,22,.5)}
+.oc-menu-note{
+  font-size:8px;color:rgba(249,115,22,.45);letter-spacing:.5px;
+  text-align:right;padding-right:4px;font-family:'JetBrains Mono',monospace;
+}
+#oc-fab.open .oc-fab-menu{display:flex;}
+</style>
+
+<div id="oc-fab">
+  <div class="oc-fab-menu">
+    <div class="oc-menu-note">requires local server on port 8765</div>
+    <div class="oc-menu-item" onclick="window.open('http://localhost:8765','_blank','noopener')">🏨 &nbsp;Open OPERA Copilot</div>
+    <div class="oc-menu-item" onclick="ocCloseMenu();document.querySelector('.agent-hub-section')&&document.querySelector('.agent-hub-section').scrollIntoView({behavior:'smooth'})">⬡ &nbsp;Agent Hub on this page</div>
+  </div>
+  <div class="oc-fab-btn" onclick="ocToggleMenu()">
+    <span class="oc-dot"></span>
+    OPERA COPILOT
+  </div>
+</div>
+
+<script>
+function ocToggleMenu(){document.getElementById('oc-fab').classList.toggle('open');}
+function ocCloseMenu(){document.getElementById('oc-fab').classList.remove('open');}
+document.addEventListener('click',function(e){
+  if(!document.getElementById('oc-fab').contains(e.target))ocCloseMenu();
+});
+</script>
+
 </body>
 </html>
