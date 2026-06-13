@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aperture · Agent Hub</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #f1f5f9;
+  --panel: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #f97316;
+  --teal: #0d9488;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--text);
+  font-size: 13px;
+}
+
+/* ── TOP BAR ── */
+.topbar {
+  height: 44px;
+  background: #0f172a;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 12px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #1e293b;
+}
+.tb-logo {
+  font-size: 12px;
+  font-weight: 700;
+  color: #f97316;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.tb-sep { color: #334155; font-size: 14px; }
+.tb-title { color: #94a3b8; font-size: 12px; }
+.tb-nav { display: flex; gap: 2px; margin-left: 20px; }
+.tb-nav a {
+  color: #64748b;
+  text-decoration: none;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: all 0.15s;
+}
+.tb-nav a:hover { color: #cbd5e1; background: #1e293b; }
+.tb-search {
+  flex: 1;
+  max-width: 300px;
+  margin-left: auto;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 5px 12px;
+  color: #cbd5e1;
+  font-size: 12px;
+  outline: none;
+}
+.tb-search::placeholder { color: #475569; }
+.tb-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #64748b;
+  margin-left: 12px;
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* ── MAIN ── */
+.main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ── SCENE AREA ── */
+.scene-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background: #f8fafc;
+}
+#canvas3d { width: 100%; height: 100%; display: block; }
+.scene-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 500;
+  pointer-events: none;
+}
+.scene-hint {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 10px;
+  color: #94a3b8;
+  pointer-events: none;
+}
+#labels { position: absolute; inset: 0; pointer-events: none; }
+.zone-label {
+  position: absolute;
+  background: rgba(255,255,255,0.88);
+  border: 1px solid rgba(148,163,184,0.4);
+  border-radius: 3px;
+  padding: 2px 5px;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #475569;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+.scene-btns {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  gap: 6px;
+}
+.scene-btn {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 4px 9px;
+  font-size: 11px;
+  cursor: pointer;
+  color: #64748b;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+.scene-btn:hover { background: #fff; color: #0f172a; border-color: #cbd5e1; }
+
+/* ── RIGHT PANEL ── */
+.right-panel {
+  width: 320px;
+  flex-shrink: 0;
+  background: var(--panel);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.rp-section {
+  border-bottom: 1px solid var(--border);
+  padding: 13px 15px;
+  flex-shrink: 0;
+}
+.rp-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 11px;
+}
+
+/* Stats row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 11px;
+}
+.stat-card {
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 8px;
+  text-align: center;
+}
+.stat-val { font-size: 20px; font-weight: 700; line-height: 1; color: var(--text); }
+.stat-lbl { font-size: 9px; color: var(--muted); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+/* Activity canvas */
+.activity-wrap {
+  background: #0f172a;
+  border-radius: 5px;
+  position: relative;
+  height: 72px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.activity-title {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  font-size: 9px;
+  color: #334155;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  z-index: 1;
+}
+#act-canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* Progress bars */
+.pb-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+.pb-lbl { font-size: 11px; color: var(--muted); width: 88px; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pb-track { flex: 1; height: 3px; background: #e2e8f0; border-radius: 2px; overflow: hidden; }
+.pb-fill { height: 100%; border-radius: 2px; transition: width 0.8s ease; }
+.pb-pct { font-size: 10px; color: var(--muted); width: 26px; text-align: right; flex-shrink: 0; }
+
+/* Work items */
+.work-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 15px;
+  padding-top: 13px;
+}
+.wi-head {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.wi-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.wi-row:hover { opacity: 0.75; }
+.wi-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 3px; }
+.wi-body { flex: 1; min-width: 0; }
+.wi-task { font-size: 11px; line-height: 1.35; color: var(--text); }
+.wi-meta { font-size: 10px; color: var(--muted); margin-top: 2px; }
+.wi-badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 5px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* ── BOTTOM STRIP ── */
+.bottom-strip {
+  height: 150px;
+  flex-shrink: 0;
+  background: #0f172a;
+  border-top: 1px solid #1e293b;
+  display: flex;
+  flex-direction: column;
+}
+.bs-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 15px;
+  border-bottom: 1px solid #1e293b;
+  flex-shrink: 0;
+}
+.bs-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #475569; }
+.bs-select {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  color: #cbd5e1;
+  font-size: 11px;
+  padding: 2px 7px;
+  outline: none;
+  font-family: inherit;
+}
+.bs-count { margin-left: auto; font-size: 10px; color: #334155; }
+.bs-cols {
+  display: grid;
+  grid-template-columns: 150px 1fr 80px 72px 66px 88px 70px;
+  padding: 5px 15px;
+  border-bottom: 1px solid #1e293b;
+  flex-shrink: 0;
+}
+.bs-ch {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #334155;
+}
+.bs-body { flex: 1; overflow-y: auto; }
+.bs-row {
+  display: grid;
+  grid-template-columns: 150px 1fr 80px 72px 66px 88px 70px;
+  padding: 6px 15px;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.bs-row:hover { background: #1e293b; }
+.bs-row.selected { background: #172554; }
+.bs-agent {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #cbd5e1;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.agent-pip {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.bs-cell {
+  font-size: 10px;
+  color: #64748b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 6px;
+}
+.bs-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+.bs-pb { height: 3px; background: #1e293b; border-radius: 2px; overflow: hidden; width: 50px; }
+.bs-pb-fill { height: 100%; border-radius: 2px; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 3px; height: 3px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <span class="tb-logo">Aperture</span>
+  <span class="tb-sep">/</span>
+  <span class="tb-title">Agent Hub</span>
+  <nav class="tb-nav">
+    <a href="index.html">Library</a>
+    <a href="modules.html">Modules</a>
+    <a href="services.html">Services</a>
+  </nav>
+  <input class="tb-search" type="text" placeholder="Search agents, tasks, logs…">
+  <div class="tb-status">
+    <div class="status-dot"></div>
+    <span>6 agents · localhost</span>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- 3D SCENE -->
+  <div class="scene-wrap">
+    <div class="scene-badge">Opera Agent Workspace · Local Session</div>
+    <div class="scene-hint">Alt + drag to orbit</div>
+    <canvas id="canvas3d"></canvas>
+    <div id="labels"></div>
+    <div class="scene-btns">
+      <button class="scene-btn" id="btn-reset">Reset</button>
+      <button class="scene-btn" id="btn-top">Top</button>
+      <button class="scene-btn" id="btn-iso">Iso</button>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <div class="rp-section">
+      <div class="rp-title">System Overview</div>
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-val" style="color:#10b981">6</div>
+          <div class="stat-lbl">Active</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" id="stat-tasks">1247</div>
+          <div class="stat-lbl">Tasks Done</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val" style="color:#f59e0b">2</div>
+          <div class="stat-lbl">Pending</div>
+        </div>
+      </div>
+      <div class="activity-wrap">
+        <div class="activity-title">Activity · 24h</div>
+        <canvas id="act-canvas"></canvas>
+      </div>
+      <div id="pb-list"></div>
+    </div>
+
+    <div class="work-scroll">
+      <div class="wi-head">OPERA Work Items</div>
+      <div id="wi-list"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BOTTOM STRIP -->
+<div class="bottom-strip">
+  <div class="bs-header">
+    <span class="bs-label">Agents</span>
+    <select class="bs-select" id="filter-sel">
+      <option value="all">All Agents</option>
+      <option value="running">Running</option>
+      <option value="idle">Idle</option>
+    </select>
+    <span class="bs-count" id="strip-count">6 of 6</span>
+  </div>
+  <div class="bs-cols">
+    <div class="bs-ch">Agent</div>
+    <div class="bs-ch">Task</div>
+    <div class="bs-ch">Feature</div>
+    <div class="bs-ch">Runtime</div>
+    <div class="bs-ch">Tokens</div>
+    <div class="bs-ch">Status</div>
+    <div class="bs-ch">Progress</div>
+  </div>
+  <div class="bs-body" id="bs-rows"></div>
+</div>
+
+<script>
+// ════════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════════
+const AGENTS = [
+  {
+    id: 'night-audit',
+    name: 'Night Audit',
+    color: '#3b82f6', hex: 0x3b82f6,
+    pos: { x: 0, z: 0 },
+    seated: true,
+    task: 'Variance detection scan · End of Day',
+    feature: 'End of Day',
+    runtime: [2, 14, 33],
+    tokens: '48.2k',
+    status: 'running',
+    progress: 72,
+    zone: 'Desk 01',
+  },
+  {
+    id: 'rate-code',
+    name: 'Rate Code',
+    color: '#f97316', hex: 0xf97316,
+    pos: { x: -2.5, z: -2 },
+    seated: false,
+    task: 'Rate drift · BAR vs FLEX · 14 codes',
+    feature: 'Rate Mgmt',
+    runtime: [0, 47, 12],
+    tokens: '12.1k',
+    status: 'running',
+    progress: 38,
+    zone: 'Whiteboard',
+  },
+  {
+    id: 'saft-pt',
+    name: 'SAF-T Portugal',
+    color: '#10b981', hex: 0x10b981,
+    pos: { x: 0.5, z: 1.2 },
+    seated: false,
+    task: 'Pre-validation · Q2 export',
+    feature: 'Fiscal',
+    runtime: [1, 2, 44],
+    tokens: '31.7k',
+    status: 'running',
+    progress: 55,
+    zone: 'Center Floor',
+  },
+  {
+    id: 'ohip',
+    name: 'OHIP Integration',
+    color: '#8b5cf6', hex: 0x8b5cf6,
+    pos: { x: 3.2, z: 0.2 },
+    seated: false,
+    task: 'Streaming health check · all channels',
+    feature: 'Interfaces',
+    runtime: [0, 8, 19],
+    tokens: '3.4k',
+    status: 'running',
+    progress: 21,
+    zone: 'Kanban Wall',
+  },
+  {
+    id: 'fiscal-es',
+    name: 'Fiscal Spain',
+    color: '#f59e0b', hex: 0xf59e0b,
+    pos: { x: 2.2, z: 2.5 },
+    seated: false,
+    task: 'SII invoice queue · Jun batch',
+    feature: 'Fiscal',
+    runtime: [0, 33, 5],
+    tokens: '19.8k',
+    status: 'idle',
+    progress: 100,
+    zone: 'Security Gate',
+  },
+  {
+    id: 'reports',
+    name: 'R&A Reports',
+    color: '#ef4444', hex: 0xef4444,
+    pos: { x: -3.2, z: 2.2 },
+    seated: true,
+    task: 'Revenue summary · MTD · +8.3% vs LY',
+    feature: 'Reporting',
+    runtime: [0, 18, 50],
+    tokens: '8.9k',
+    status: 'idle',
+    progress: 89,
+    zone: 'Lounge',
+  },
+];
+
+const WORK_ITEMS = [
+  { agent: 'night-audit', text: 'Night Audit variance: Room 512 · €140 folio gap', meta: '2h 14m ago', badge: 'ALERT', badgeColor: '#fef2f2', badgeText: '#ef4444', dot: '#ef4444' },
+  { agent: 'rate-code',  text: 'BAR rate drift · 14 codes flagged for review', meta: '47min ago', badge: 'WARN', badgeColor: '#fffbeb', badgeText: '#f59e0b', dot: '#f97316' },
+  { agent: 'saft-pt',   text: 'SAF-T Q2 pre-validation in progress', meta: '1h 02m ago', badge: 'RUNNING', badgeColor: '#eff6ff', badgeText: '#3b82f6', dot: '#10b981' },
+  { agent: 'ohip',      text: 'OHIP streaming: all channels healthy', meta: '8min ago', badge: 'OK', badgeColor: '#f0fdf4', badgeText: '#10b981', dot: '#8b5cf6' },
+  { agent: 'fiscal-es', text: 'SII batch complete · 847 invoices submitted', meta: '33min ago', badge: 'DONE', badgeColor: '#faf5ff', badgeText: '#8b5cf6', dot: '#f59e0b' },
+  { agent: 'reports',   text: 'MTD Revenue: €284,120 · +8.3% vs LY', meta: '18min ago', badge: 'DONE', badgeColor: '#f0fdf4', badgeText: '#10b981', dot: '#ef4444' },
+];
+
+// ════════════════════════════════════════════
+// THREE.JS
+// ════════════════════════════════════════════
+const canvas = document.getElementById('canvas3d');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.setClearColor(0xf1f5f9);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xf1f5f9);
+scene.fog = new THREE.Fog(0xf1f5f9, 28, 45);
+
+// Isometric orthographic camera
+const VIEW = 8.5;
+let camAspect = 1;
+const camera = new THREE.OrthographicCamera(-VIEW, VIEW, VIEW, -VIEW, 0.01, 120);
+camera.position.set(14, 14, 14);
+camera.lookAt(0, 0.5, 0);
+
+// Lights
+const amb = new THREE.AmbientLight(0xffffff, 0.65);
+scene.add(amb);
+const sun = new THREE.DirectionalLight(0xffffff, 0.85);
+sun.position.set(12, 18, 10);
+sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+sun.shadow.camera.left = sun.shadow.camera.bottom = -18;
+sun.shadow.camera.right = sun.shadow.camera.top = 18;
+sun.shadow.camera.far = 60;
+scene.add(sun);
+const fill = new THREE.DirectionalLight(0xaac4e8, 0.3);
+fill.position.set(-8, 6, -6);
+scene.add(fill);
+
+// ── Helper functions ──
+function M(geo, color, opts = {}) {
+  return new THREE.MeshLambertMaterial({ color, ...opts });
+}
+function box(w, h, d, color, x, y, z, ry = 0, opts = {}) {
+  const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), M(color, opts));
+  m.position.set(x, y, z);
+  m.rotation.y = ry;
+  m.castShadow = true;
+  m.receiveShadow = true;
+  scene.add(m);
+  return m;
+}
+function cyl(rt, rb, h, segs, color, x, y, z, opts = {}) {
+  const m = new THREE.Mesh(new THREE.CylinderGeometry(rt, rb, h, segs), M(color, opts));
+  m.position.set(x, y, z);
+  m.castShadow = true;
+  scene.add(m);
+  return m;
+}
+function sph(r, color, x, y, z, opts = {}) {
+  const m = new THREE.Mesh(new THREE.SphereGeometry(r, 12, 8), M(color, opts));
+  m.position.set(x, y, z);
+  m.castShadow = true;
+  scene.add(m);
+  return m;
+}
+
+// ── FLOOR ──
+const floor = new THREE.Mesh(
+  new THREE.PlaneGeometry(18, 18),
+  new THREE.MeshLambertMaterial({ color: 0xf8fafc })
+);
+floor.rotation.x = -Math.PI / 2;
+floor.receiveShadow = true;
+scene.add(floor);
+
+const grid = new THREE.GridHelper(18, 18, 0xdde4ed, 0xdde4ed);
+grid.material.opacity = 0.5;
+grid.material.transparent = true;
+scene.add(grid);
+
+// ── WALLS ──
+// Back wall (Z-)
+const bw = box(18, 6, 0.08, 0xf0f4f8, 0, 3, -9);
+bw.receiveShadow = true;
+// Left wall (X-)
+const lw = box(18, 6, 0.08, 0xf0f4f8, -9, 3, 0, Math.PI / 2);
+lw.receiveShadow = true;
+// Baseboards
+box(18, 0.1, 0.06, 0xd1d9e6, 0, 0.05, -8.96);
+box(18, 0.1, 0.06, 0xd1d9e6, -8.96, 0.05, 0, Math.PI / 2);
+
+// ── VAULT (back-left corner) ──
+box(2.6, 3, 1.8, 0xc1c9d6, -6.5, 1.5, -7.5);
+box(1.8, 2.5, 0.1, 0xa0aab8, -6.5, 1.5, -6.6);
+// Vault door handle (torus)
+const tor = new THREE.Mesh(
+  new THREE.TorusGeometry(0.28, 0.055, 8, 20),
+  new THREE.MeshLambertMaterial({ color: 0x7b8fa3 })
+);
+tor.position.set(-6.5, 1.5, -6.53);
+scene.add(tor);
+// Rivets
+for (let i = 0; i < 4; i++) {
+  const a = (i / 4) * Math.PI * 2;
+  sph(0.04, 0x8fa0b0, -6.5 + Math.cos(a) * 0.28, 1.5 + Math.sin(a) * 0.28, -6.52);
+}
+
+// ── WHITEBOARD (back wall, center-left) ──
+box(3.2, 2.2, 0.07, 0xfbfcff, -2.5, 2.4, -8.95);
+// White lines
+for (let i = 0; i < 5; i++) {
+  box(2.5, 0.045, 0.01, i === 0 ? 0x3b82f6 : i === 1 ? 0x10b981 : 0x3b82f6, -2.5, 1.65 + i * 0.33, -8.88);
+}
+// Frame
+box(3.3, 2.3, 0.05, 0xe2e8f0, -2.5, 2.4, -8.97);
+// Marker tray
+box(3.2, 0.07, 0.16, 0xcfd8e3, -2.5, 1.3, -8.88);
+// Eraser
+box(0.22, 0.06, 0.09, 0xffd700, -2.1, 1.37, -8.83);
+
+// ── DESK 01 (center) ──
+box(3.0, 0.1, 1.4, 0x92400e, 0, 0.75, 0);
+for (let lx of [-1.35, 1.35]) for (let lz of [-0.6, 0.6]) cyl(0.055, 0.055, 0.75, 6, 0x78350f, lx, 0.375, lz);
+// Monitors
+function monitor(x, y, z) {
+  box(0.06, 0.28, 0.06, 0x1e293b, x, y, z);          // stand
+  box(0.8, 0.5, 0.04, 0x0f172a, x, y + 0.38, z);     // frame
+  box(0.72, 0.43, 0.02, 0x1e3a5f, x, y + 0.38, z - 0.01); // screen
+}
+monitor(-0.65, 0.95, -0.15);
+monitor(0.65, 0.95, -0.15);
+// Keyboard
+box(0.7, 0.018, 0.25, 0x374151, 0, 0.81, 0.35);
+// Coffee mug
+cyl(0.055, 0.05, 0.1, 8, 0xf97316, 0.9, 0.81, -0.1);
+// Chair
+box(0.65, 0.07, 0.65, 0x1e293b, 0, 0.45, 1.05);
+box(0.65, 0.75, 0.06, 0x1e293b, 0, 0.82, 1.35);
+cyl(0.06, 0.06, 0.45, 6, 0x0f172a, 0, 0.22, 1.05);
+cyl(0.03, 0.03, 0.22, 6, 0x334155, -0.28, 0.56, 1.08);
+cyl(0.03, 0.03, 0.22, 6, 0x334155, 0.28, 0.56, 1.08);
+
+// ── KANBAN WALL (right side) ──
+box(2.6, 3.2, 0.18, 0x1e3a5f, 6.5, 1.8, -0.5);
+box(2.3, 2.8, 0.06, 0x0ea5e9, 6.5, 1.8, -0.42, 0, { transparent: true, opacity: 0.2 });
+// Column dividers
+const kCols = [0xfbbf24, 0x3b82f6, 0x10b981];
+for (let c = 0; c < 3; c++) {
+  box(0.65, 2.4, 0.02, kCols[c], 5.65 + c * 0.76, 1.75, -0.41, 0, { transparent: true, opacity: 0.6 });
+  for (let r = 0; r < 3; r++) {
+    box(0.55, 0.28, 0.02, 0xffffff, 5.65 + c * 0.76, 2.2 - r * 0.65, -0.4);
+  }
+}
+// Glow (animated)
+const kanbanGlow = new THREE.Mesh(
+  new THREE.BoxGeometry(3.0, 3.6, 0.5),
+  new THREE.MeshBasicMaterial({ color: 0x0ea5e9, transparent: true, opacity: 0.04 })
+);
+kanbanGlow.position.set(6.5, 1.8, -0.5);
+scene.add(kanbanGlow);
+
+// ── SECURITY GATE (right-center) ──
+cyl(0.09, 0.09, 1.5, 10, 0xa0aab8, 3.0, 0.75, 3.2);
+cyl(0.09, 0.09, 1.5, 10, 0xa0aab8, 4.0, 0.75, 3.2);
+box(0.9, 0.05, 0.05, 0x94a3b8, 3.5, 1.2, 3.2);
+box(0.9, 0.05, 0.05, 0x94a3b8, 3.5, 0.85, 3.2);
+box(0.95, 1.05, 0.05, 0x1e293b, 3.5, 0.58, 3.2);
+box(0.7, 0.035, 0.02, 0x10b981, 3.5, 1.0, 3.18);
+// Card reader
+box(0.12, 0.18, 0.07, 0x0f172a, 4.12, 0.9, 3.0);
+box(0.08, 0.06, 0.02, 0x10b981, 4.12, 0.88, 2.95);
+
+// ── LOUNGE (left-front) ──
+// Sofa
+box(2.6, 0.45, 1.0, 0x4b5563, -5, 0.22, 3.2);
+box(2.6, 0.72, 0.1, 0x4b5563, -5, 0.58, 3.7);
+box(0.1, 0.65, 1.0, 0x4b5563, -6.25, 0.5, 3.2);
+box(0.1, 0.65, 1.0, 0x4b5563, -3.75, 0.5, 3.2);
+// Cushions
+box(0.95, 0.1, 0.68, 0x6b7280, -5.55, 0.49, 3.2);
+box(0.95, 0.1, 0.68, 0x6b7280, -4.45, 0.49, 3.2);
+// Coffee table
+box(1.2, 0.07, 0.7, 0xb45309, -5, 0.04, 2.0);
+cyl(0.04, 0.04, 0.5, 6, 0x92400e, -5, 0.04, 2.0);
+// Laptop on table
+box(0.55, 0.018, 0.4, 0x374151, -5, 0.08, 2.0);
+box(0.55, 0.35, 0.015, 0x1e293b, -5, 0.26, 1.8);
+// Small screen glow
+box(0.46, 0.28, 0.01, 0x1e3a5f, -5, 0.26, 1.79);
+
+// ── PLANT (corner) ──
+cyl(0.16, 0.22, 0.35, 8, 0x7c3aed, -7.5, 0.175, -7.5);
+sph(0.44, 0x166534, -7.5, 0.73, -7.5);
+sph(0.3, 0x15803d, -7.2, 0.88, -7.2);
+sph(0.24, 0x14532d, -7.8, 0.82, -7.6);
+// Stem
+cyl(0.02, 0.02, 0.4, 4, 0x15803d, -7.5, 0.55, -7.5);
+
+// ════════════════════════════════════════════
+// AGENT CHARACTERS
+// ════════════════════════════════════════════
+const agentGroups = [];
+const pickMeshes = [];   // raycasting targets
+
+function buildAgent(a) {
+  const g = new THREE.Group();
+  const c = a.hex;
+
+  // ── Legs / feet ──
+  if (!a.seated) {
+    const legMat = new THREE.MeshLambertMaterial({ color: 0x1f2937 });
+    const legGeo = new THREE.CylinderGeometry(0.075, 0.075, 0.38, 8);
+    const legL = new THREE.Mesh(legGeo, legMat);
+    legL.position.set(-0.11, 0.19, 0);
+    legL.castShadow = true;
+    g.add(legL);
+    const legR = new THREE.Mesh(legGeo, legMat);
+    legR.position.set(0.11, 0.19, 0);
+    legR.castShadow = true;
+    g.add(legR);
+    // Feet
+    const footMat = new THREE.MeshLambertMaterial({ color: 0x0f172a });
+    const fGeo = new THREE.BoxGeometry(0.13, 0.06, 0.2);
+    const fL = new THREE.Mesh(fGeo, footMat);
+    fL.position.set(-0.11, 0.015, 0.05);
+    g.add(fL);
+    const fR = new THREE.Mesh(fGeo, footMat);
+    fR.position.set(0.11, 0.015, 0.05);
+    g.add(fR);
+  } else {
+    // Seated legs — horizontal
+    const sLegMat = new THREE.MeshLambertMaterial({ color: 0x1f2937 });
+    const sLGeo = new THREE.CylinderGeometry(0.075, 0.075, 0.45, 8);
+    const sLL = new THREE.Mesh(sLGeo, sLegMat);
+    sLL.rotation.z = Math.PI / 2;
+    sLL.position.set(-0.11, 0.32, 0.22);
+    g.add(sLL);
+    const sLR = new THREE.Mesh(sLGeo, sLegMat);
+    sLR.rotation.z = Math.PI / 2;
+    sLR.position.set(0.11, 0.32, 0.22);
+    g.add(sLR);
+  }
+
+  // ── Body ──
+  const bodyY = a.seated ? 0.62 : 0.57;
+  const bodyH = a.seated ? 0.42 : 0.52;
+  const body = new THREE.Mesh(
+    new THREE.CylinderGeometry(0.19, 0.16, bodyH, 10),
+    new THREE.MeshLambertMaterial({ color: c })
+  );
+  body.position.set(0, bodyY, 0);
+  body.castShadow = true;
+  g.add(body);
+
+  // ── Arms ──
+  const armMat = new THREE.MeshLambertMaterial({ color: c });
+  const armGeo = new THREE.CylinderGeometry(0.06, 0.055, 0.3, 6);
+  const armL = new THREE.Mesh(armGeo, armMat);
+  armL.rotation.z = 0.45;
+  armL.position.set(-0.28, bodyY, 0);
+  g.add(armL);
+  const armR = new THREE.Mesh(armGeo, armMat);
+  armR.rotation.z = -0.45;
+  armR.position.set(0.28, bodyY, 0);
+  g.add(armR);
+  // Hands
+  sph(0.07, c, 0, 0, 0);  // placeholder — hands on scene directly
+
+  // ── Head ──
+  const headY = a.seated ? 1.08 : 1.18;
+  const head = new THREE.Mesh(
+    new THREE.SphereGeometry(0.21, 12, 10),
+    new THREE.MeshLambertMaterial({ color: 0xfde68a })
+  );
+  head.position.set(0, headY, 0);
+  head.castShadow = true;
+  g.add(head);
+
+  // Eyes
+  const eyeGeo = new THREE.SphereGeometry(0.042, 8, 6);
+  const eyeMat = new THREE.MeshLambertMaterial({ color: 0x1e3a5f });
+  const eyeL = new THREE.Mesh(eyeGeo, eyeMat);
+  eyeL.position.set(-0.09, headY, -0.18);
+  g.add(eyeL);
+  const eyeR = new THREE.Mesh(eyeGeo, eyeMat);
+  eyeR.position.set(0.09, headY, -0.18);
+  g.add(eyeR);
+  // Highlight dot
+  const hlGeo = new THREE.SphereGeometry(0.018, 5, 4);
+  const hlMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
+  const hlL = new THREE.Mesh(hlGeo, hlMat);
+  hlL.position.set(-0.075, headY + 0.02, -0.2);
+  g.add(hlL);
+
+  // ── Plumbob diamond ──
+  const pbY = headY + 0.48;
+  const pbGeo = new THREE.OctahedronGeometry(0.13, 0);
+  const pbMat = new THREE.MeshLambertMaterial({
+    color: c,
+    emissive: c,
+    emissiveIntensity: 0.5
+  });
+  const pb = new THREE.Mesh(pbGeo, pbMat);
+  pb.position.set(0, pbY, 0);
+  g.add(pb);
+  g.userData.plumbob = pb;
+
+  // ── Wire from head to plumbob ──
+  const pts = [new THREE.Vector3(0, headY + 0.22, 0), new THREE.Vector3(0, pbY - 0.15, 0)];
+  const wire = new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints(pts),
+    new THREE.LineBasicMaterial({ color: 0x94a3b8, transparent: true, opacity: 0.5 })
+  );
+  g.add(wire);
+
+  // Position the group
+  g.position.set(a.pos.x, a.seated ? 0.42 : 0, a.pos.z);
+  g.userData.agent = a;
+  g.userData.bobOffset = Math.random() * Math.PI * 2;
+
+  scene.add(g);
+  agentGroups.push(g);
+
+  // Register all meshes as pickable
+  g.traverse(child => {
+    if (child.isMesh) {
+      child.userData.agentGroup = g;
+      pickMeshes.push(child);
+    }
+  });
+
+  return g;
+}
+
+AGENTS.forEach(a => buildAgent(a));
+
+// ── Selection ring ──
+const ringGeo = new THREE.RingGeometry(0.32, 0.41, 28);
+const ringMat = new THREE.MeshBasicMaterial({ side: THREE.DoubleSide, transparent: true, opacity: 0 });
+const selRing = new THREE.Mesh(ringGeo, ringMat);
+selRing.rotation.x = -Math.PI / 2;
+selRing.position.y = 0.012;
+scene.add(selRing);
+
+let selectedId = null;
+
+function selectAgent(agent, group) {
+  selectedId = agent.id;
+  selRing.position.x = group.position.x;
+  selRing.position.z = group.position.z;
+  selRing.material.color = new THREE.Color(agent.hex);
+  selRing.material.opacity = 0.9;
+  // Update strip
+  document.querySelectorAll('.bs-row').forEach(r => {
+    r.classList.toggle('selected', r.dataset.id === agent.id);
+  });
+}
+
+// ── Raycaster ──
+const ray = new THREE.Raycaster();
+const mouse2 = new THREE.Vector2();
+canvas.addEventListener('click', e => {
+  const r = canvas.getBoundingClientRect();
+  mouse2.x = ((e.clientX - r.left) / r.width) * 2 - 1;
+  mouse2.y = -((e.clientY - r.top) / r.height) * 2 + 1;
+  ray.setFromCamera(mouse2, camera);
+  const hits = ray.intersectObjects(pickMeshes, false);
+  if (hits.length) {
+    const grp = hits[0].object.userData.agentGroup;
+    if (grp) selectAgent(grp.userData.agent, grp);
+  }
+});
+
+// ════════════════════════════════════════════
+// RESIZE
+// ════════════════════════════════════════════
+function onResize() {
+  const w = canvas.parentElement.clientWidth;
+  const h = canvas.parentElement.clientHeight;
+  renderer.setSize(w, h, false);
+  camAspect = w / h;
+  camera.left = -VIEW * camAspect;
+  camera.right = VIEW * camAspect;
+  camera.top = VIEW;
+  camera.bottom = -VIEW;
+  camera.updateProjectionMatrix();
+}
+onResize();
+window.addEventListener('resize', onResize);
+
+// ════════════════════════════════════════════
+// ORBIT (Alt + drag)
+// ════════════════════════════════════════════
+let orb = false, orbStart = { x: 0, y: 0 };
+let orbH = Math.PI / 4, orbV = Math.atan(1 / Math.sqrt(2));
+const ORB_R = Math.sqrt(14 * 14 * 3);
+
+function camFromOrbit() {
+  camera.position.x = ORB_R * Math.cos(orbV) * Math.sin(orbH);
+  camera.position.y = ORB_R * Math.sin(orbV);
+  camera.position.z = ORB_R * Math.cos(orbV) * Math.cos(orbH);
+  camera.lookAt(0, 0.5, 0);
+}
+canvas.addEventListener('mousedown', e => { if (e.altKey) { orb = true; orbStart = { x: e.clientX, y: e.clientY }; } });
+window.addEventListener('mouseup', () => { orb = false; });
+window.addEventListener('mousemove', e => {
+  if (!orb) return;
+  orbH -= (e.clientX - orbStart.x) * 0.006;
+  orbV = Math.max(0.1, Math.min(1.35, orbV - (e.clientY - orbStart.y) * 0.006));
+  orbStart = { x: e.clientX, y: e.clientY };
+  camFromOrbit();
+});
+
+document.getElementById('btn-reset').addEventListener('click', () => {
+  orbH = Math.PI / 4; orbV = Math.atan(1 / Math.sqrt(2));
+  camera.position.set(14, 14, 14);
+  camera.lookAt(0, 0.5, 0);
+});
+document.getElementById('btn-top').addEventListener('click', () => {
+  camera.position.set(0, 28, 0.01);
+  camera.lookAt(0, 0, 0);
+});
+document.getElementById('btn-iso').addEventListener('click', () => {
+  orbH = Math.PI / 4; orbV = Math.atan(1 / Math.sqrt(2));
+  camFromOrbit();
+});
+
+// ════════════════════════════════════════════
+// ZONE LABELS
+// ════════════════════════════════════════════
+const ZONES = [
+  { p: new THREE.Vector3(-6.5, 3.1, -7.5), label: 'VAULT' },
+  { p: new THREE.Vector3(-2.5, 3.6, -8.9), label: 'WHITEBOARD' },
+  { p: new THREE.Vector3(0, 1.6, 0), label: 'DESK 01' },
+  { p: new THREE.Vector3(6.5, 3.5, -0.5), label: 'KANBAN' },
+  { p: new THREE.Vector3(3.5, 1.8, 3.2), label: 'GATE' },
+  { p: new THREE.Vector3(-5, 0.9, 2.5), label: 'LOUNGE' },
+];
+const labelsDiv = document.getElementById('labels');
+const labelEls = ZONES.map(z => {
+  const el = document.createElement('div');
+  el.className = 'zone-label';
+  el.textContent = z.label;
+  labelsDiv.appendChild(el);
+  return { el, p: z.p };
+});
+
+function updateLabels() {
+  const r = canvas.getBoundingClientRect();
+  labelEls.forEach(({ el, p }) => {
+    const v = p.clone().project(camera);
+    if (v.z > 1) { el.style.display = 'none'; return; }
+    el.style.display = '';
+    el.style.left = ((v.x + 1) / 2 * r.width) + 'px';
+    el.style.top = ((-v.y + 1) / 2 * r.height) + 'px';
+  });
+}
+
+// ════════════════════════════════════════════
+// ANIMATION
+// ════════════════════════════════════════════
+let t = 0;
+function animate() {
+  requestAnimationFrame(animate);
+  t += 0.015;
+
+  agentGroups.forEach(g => {
+    const a = g.userData.agent;
+    const off = g.userData.bobOffset;
+    const speed = a.status === 'running' ? 1.4 : 0.6;
+    const amp = a.status === 'running' ? 0.045 : 0.018;
+    const baseY = a.seated ? 0.42 : 0;
+    g.position.y = baseY + Math.sin(t * speed + off) * amp;
+    if (g.userData.plumbob) {
+      g.userData.plumbob.rotation.y = t * (a.status === 'running' ? 2.8 : 0.9) + off;
+      // Pulse emissive
+      const ei = 0.35 + Math.sin(t * 2 + off) * 0.2;
+      g.userData.plumbob.material.emissiveIntensity = ei;
+    }
+    if (!a.seated) {
+      g.rotation.y = Math.sin(t * 0.4 + off) * 0.12;
+    }
+  });
+
+  // Kanban glow
+  kanbanGlow.material.opacity = 0.03 + Math.sin(t * 1.2) * 0.015;
+
+  renderer.render(scene, camera);
+  updateLabels();
+}
+animate();
+
+// ════════════════════════════════════════════
+// RIGHT PANEL — PROGRESS BARS
+// ════════════════════════════════════════════
+const pbList = document.getElementById('pb-list');
+AGENTS.forEach(a => {
+  const d = document.createElement('div');
+  d.className = 'pb-row';
+  d.innerHTML = `
+    <span class="pb-lbl">${a.name}</span>
+    <div class="pb-track"><div class="pb-fill" style="width:${a.progress}%;background:${a.color}"></div></div>
+    <span class="pb-pct">${a.progress}%</span>
+  `;
+  pbList.appendChild(d);
+});
+
+// Activity dot map
+const actC = document.getElementById('act-canvas');
+function drawAct() {
+  const pw = actC.parentElement.clientWidth;
+  const ph = actC.parentElement.clientHeight;
+  actC.width = pw; actC.height = ph;
+  const ctx = actC.getContext('2d');
+  const cols = 52, rows = 7;
+  const dw = (pw - 18) / cols, dh = (ph - 22) / rows;
+  for (let c = 0; c < cols; c++) {
+    for (let r = 0; r < rows; r++) {
+      if (Math.random() > (c > 44 ? 0.25 : 0.55)) {
+        const ai = Math.floor(Math.random() * AGENTS.length);
+        ctx.globalAlpha = 0.5 + Math.random() * 0.5;
+        ctx.fillStyle = AGENTS[ai].color;
+        ctx.beginPath();
+        ctx.arc(9 + c * dw + dw / 2, 20 + r * dh + dh / 2, 1.8, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+  }
+  ctx.globalAlpha = 1;
+}
+setTimeout(drawAct, 100);
+
+// ════════════════════════════════════════════
+// WORK ITEMS
+// ════════════════════════════════════════════
+const wiList = document.getElementById('wi-list');
+WORK_ITEMS.forEach(wi => {
+  const agent = AGENTS.find(a => a.id === wi.agent);
+  const d = document.createElement('div');
+  d.className = 'wi-row';
+  d.dataset.id = wi.agent;
+  d.innerHTML = `
+    <div class="wi-dot" style="background:${wi.dot}"></div>
+    <div class="wi-body">
+      <div class="wi-task">${wi.text}</div>
+      <div class="wi-meta">${agent ? agent.name : ''} · ${wi.meta}</div>
+    </div>
+    <span class="wi-badge" style="background:${wi.badgeColor};color:${wi.badgeText}">${wi.badge}</span>
+  `;
+  d.addEventListener('click', () => {
+    const grp = agentGroups.find(g => g.userData.agent.id === wi.agent);
+    if (grp) selectAgent(grp.userData.agent, grp);
+  });
+  wiList.appendChild(d);
+});
+
+// ════════════════════════════════════════════
+// BOTTOM STRIP
+// ════════════════════════════════════════════
+const bsRows = document.getElementById('bs-rows');
+const sSt = {
+  running: { bg: '#1e3a5f', color: '#60a5fa', sym: '●' },
+  idle:    { bg: '#1c2230', color: '#475569', sym: '○' },
+};
+
+function renderStrip(filter = 'all') {
+  bsRows.innerHTML = '';
+  const list = AGENTS.filter(a => filter === 'all' || a.status === filter);
+  document.getElementById('strip-count').textContent = `${list.length} of ${AGENTS.length}`;
+  list.forEach(a => {
+    const s = sSt[a.status];
+    const d = document.createElement('div');
+    d.className = 'bs-row' + (selectedId === a.id ? ' selected' : '');
+    d.dataset.id = a.id;
+    d.innerHTML = `
+      <div class="bs-agent"><div class="agent-pip" style="background:${a.color}"></div>${a.name}</div>
+      <div class="bs-cell">${a.task}</div>
+      <div class="bs-cell">${a.feature}</div>
+      <div class="bs-cell" style="font-family:monospace;font-size:10px" data-runtime="${a.id}">${fmtTime(a.runtime)}</div>
+      <div class="bs-cell">${a.tokens}</div>
+      <div class="bs-cell"><span class="bs-status" style="background:${s.bg};color:${s.color}">${s.sym} ${a.status.toUpperCase()}</span></div>
+      <div class="bs-cell"><div class="bs-pb"><div class="bs-pb-fill" style="width:${a.progress}%;background:${a.color}"></div></div></div>
+    `;
+    d.addEventListener('click', () => {
+      const grp = agentGroups.find(g => g.userData.agent.id === a.id);
+      if (grp) selectAgent(a, grp);
+    });
+    bsRows.appendChild(d);
+  });
+}
+renderStrip();
+document.getElementById('filter-sel').addEventListener('change', e => renderStrip(e.target.value));
+
+function fmtTime(parts) {
+  return parts.map(p => String(p).padStart(2, '0')).join(':');
+}
+
+// Runtime tickers
+setInterval(() => {
+  AGENTS.forEach(a => {
+    if (a.status !== 'running') return;
+    a.runtime[2]++;
+    if (a.runtime[2] >= 60) { a.runtime[2] = 0; a.runtime[1]++; }
+    if (a.runtime[1] >= 60) { a.runtime[1] = 0; a.runtime[0]++; }
+    const el = document.querySelector(`[data-runtime="${a.id}"]`);
+    if (el) el.textContent = fmtTime(a.runtime);
+  });
+}, 1000);
+
+// Tasks done counter
+let tasksDone = 1247;
+const tdEl = document.getElementById('stat-tasks');
+setInterval(() => {
+  if (Math.random() > 0.65) { tasksDone++; tdEl.textContent = tasksDone; }
+}, 2800);
+</script>
+</body>
+</html>
