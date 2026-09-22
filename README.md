@@ -3,7 +3,7 @@
 Independent OPERA Cloud reference library and consulting site.
 
 ## Deploy
-Drag this folder to https://app.netlify.com/drop
+Git-linked to Netlify. Every push to `main` deploys to https://aperture-operacloud.netlify.app. `netlify.toml` sets `publish = "."`. Do not drag and drop: a manual deploy is overwritten by the next push.
 
 ## Files
 - index.html · Homepage with intro overlay + dashboard
