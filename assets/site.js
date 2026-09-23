@@ -5,3 +5,4 @@ function handleWaitlist(e) {
   btn.disabled = true;
   btn.style.opacity = '0.7';
 }
+

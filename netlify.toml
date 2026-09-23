@@ -1,5 +1,6 @@
 [build]
-  publish = "."
+  publish = "dist"
+  command = "node scripts/build.mjs"
 
 [[headers]]
   for = "/*"
@@ -22,3 +23,13 @@
   from = "/tutorials"
   to = "/videos.html"
   status = 301
+
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/copilot"
+  to = "/copilot.html"
+  status = 200

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loading · Aperture OPERA Reference</title>
+<title>Reference availability · Aperture</title>
 <meta name="description" content="OPERA Cloud reference document viewer. Aperture independent reference library.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,8 +191,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M9 7h6 M9 11h6 M9 15h4"/></svg>
       Reference Library
     </a>
-    <div class="menubar-actions">
-      <a href="https://github.com/austugal/opera-references" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 6px 14px; font-size: 12px;">GitHub ↗</a>
+    <div class="menubar-actions"><a href="copilot.html" class="btn btn-secondary">Ask OPERA Copilot</a>
     </div>
   </div>
 </nav>
@@ -207,7 +206,7 @@
   </div>
 
   <div id="doc-body" class="doc-content">
-    <div class="doc-loading">Loading document...</div>
+    <h1 id="reference-title">Reference availability</h1><p>This detailed guide is not currently published on Aperture. Browse the public documentation or ask Copilot for guidance from its available reference index.</p><p>Copilot does not have access to this private guide.</p><div class="ctas"><a href="resources.html" class="btn btn-primary">Browse documentation</a><a href="copilot.html" class="btn btn-secondary">Ask OPERA Copilot</a></div>
   </div>
 
   <div id="doc-meta" class="doc-content" style="padding-top: 0;"></div>
@@ -218,62 +217,12 @@
   <div class="footer-inner">
     <div class="footer-bottom">
       <div>© 2026 APERTURE · INDEPENDENT REFERENCE</div>
-      <div>Source: <a href="https://github.com/austugal/opera-references" target="_blank" rel="noopener" style="color: var(--accent);">github.com/austugal/opera-references</a></div>
+      <div><a href="resources.html">Public documentation</a></div>
     </div>
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
-<script>
-  (function() {
-    var params = new URLSearchParams(window.location.search);
-    var file = params.get('file');
-    var body = document.getElementById('doc-body');
-    var metaEl = document.getElementById('doc-meta');
-
-    var allowed = [
-      'README.md',
-      'cutover-guide.md',
-      'ideas-g3-continuous-pricing.md',
-      'ssd-interface-service-account.md',
-      'advance-deposit-city-tax-fiscal.md',
-      'training-catalogue.md',
-      'training-schedule-40h.md'
-    ];
-
-    if (!file || allowed.indexOf(file) === -1) {
-      body.innerHTML = '<div class="doc-error"><strong>Document not found.</strong>The requested reference is not in the library. <br><br><a href="opera-library.html">Return to the library index</a>.</div>';
-      document.title = 'Not found · Aperture OPERA Reference';
-      return;
-    }
-
-    var rawUrl = 'https://raw.githubusercontent.com/austugal/opera-references/main/' + file;
-    var ghUrl = 'https://github.com/austugal/opera-references/blob/main/' + file;
-
-    fetch(rawUrl)
-      .then(function(r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.text();
-      })
-      .then(function(md) {
-        marked.setOptions({ gfm: true, breaks: false, headerIds: true });
-        body.innerHTML = marked.parse(md);
-
-        var firstH1 = body.querySelector('h1');
-        if (firstH1) {
-          document.title = firstH1.textContent + ' · Aperture OPERA Reference';
-        }
-
-        metaEl.innerHTML = '<div class="doc-meta">' +
-          '<span>Source: <a href="' + ghUrl + '" target="_blank" rel="noopener">' + file + ' on GitHub</a></span>' +
-          '<span>Licence: CC BY-NC-SA 4.0</span>' +
-        '</div>';
-      })
-      .catch(function(err) {
-        body.innerHTML = '<div class="doc-error"><strong>Failed to load document.</strong>' + err.message + '<br><br>You can read it directly on <a href="' + ghUrl + '" target="_blank" rel="noopener">GitHub</a>.</div>';
-      });
-  })();
-</script>
+<script src="assets/reference-availability.js" defer></script>
 
 </body>
 </html>
