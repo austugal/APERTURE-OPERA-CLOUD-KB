@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loading · Aperture OPERA Reference</title>
+<title>Reference availability · Aperture</title>
 <meta name="description" content="OPERA Cloud reference document viewer. Aperture independent reference library.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,8 +191,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M9 7h6 M9 11h6 M9 15h4"/></svg>
       Reference Library
     </a>
-    <div class="menubar-actions">
-      <a href="https://github.com/austugal/APERTURE-OPERA-CLOUD-KB" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 6px 14px; font-size: 12px;">GitHub ↗</a>
+    <div class="menubar-actions"><a href="copilot.html" class="btn btn-secondary">Ask OPERA Copilot</a>
     </div>
   </div>
 </nav>
@@ -207,7 +206,7 @@
   </div>
 
   <div id="doc-body" class="doc-content">
-    <div class="doc-loading">Loading document...</div>
+    <h1 id="reference-title">Reference availability</h1><p>This detailed guide is not currently published on Aperture. Browse the public documentation or ask Copilot for guidance from its available reference index.</p><p>Copilot does not have access to this private guide.</p><div class="ctas"><a href="resources.html" class="btn btn-primary">Browse documentation</a><a href="copilot.html" class="btn btn-secondary">Ask OPERA Copilot</a></div>
   </div>
 
   <div id="doc-meta" class="doc-content" style="padding-top: 0;"></div>
@@ -218,7 +217,7 @@
   <div class="footer-inner">
     <div class="footer-bottom">
       <div>© 2026 APERTURE · INDEPENDENT REFERENCE</div>
-      <div>Source: <a href="https://github.com/austugal/APERTURE-OPERA-CLOUD-KB" target="_blank" rel="noopener" style="color: var(--accent);">github.com/austugal/APERTURE-OPERA-CLOUD-KB</a></div>
+      <div><a href="resources.html">Public documentation</a></div>
     </div>
   </div>
 </footer>
@@ -248,7 +247,7 @@
     }
 
     var rawUrl = 'reference-docs/' + file;
-    var ghUrl = 'https://github.com/austugal/APERTURE-OPERA-CLOUD-KB/blob/main/reference-docs/' + file;
+// source served same-origin from reference-docs/
 
     fetch(rawUrl)
       .then(function(r) {
@@ -265,12 +264,12 @@
         }
 
         metaEl.innerHTML = '<div class="doc-meta">' +
-          '<span>Source: <a href="' + ghUrl + '" target="_blank" rel="noopener">' + file + ' on GitHub</a></span>' +
+          '<span>Source: <a href="' + rawUrl + '" target="_blank" rel="noopener">' + file + '</a></span>' +
           '<span>Licence: CC BY-NC-SA 4.0</span>' +
         '</div>';
       })
       .catch(function(err) {
-        body.innerHTML = '<div class="doc-error"><strong>Failed to load document.</strong>' + err.message + '<br><br>You can read it directly on <a href="' + ghUrl + '" target="_blank" rel="noopener">GitHub</a>.</div>';
+        body.innerHTML = '<div class="doc-error"><strong>Failed to load document.</strong>' + err.message + '<br><br><a href="opera-library.html">Return to the library index</a> or <a href="copilot.html">ask OPERA Copilot</a>.</div>';
       });
   })();
 </script>

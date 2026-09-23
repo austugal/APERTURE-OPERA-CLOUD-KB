@@ -8,8 +8,12 @@
     return;
   }
 
+  // Optional animation must never block the public library.
+  if (intro.style.display === 'none') return;
   // Skip if already entered this session
-  if (sessionStorage.getItem('apertureEntered') === '1') {
+  var entered = false;
+  try { entered = sessionStorage.getItem('apertureEntered') === '1'; } catch (e) {}
+  if (entered) {
     intro.style.display = 'none';
     document.body.classList.remove('intro-active');
     return;
@@ -291,7 +295,7 @@
   // 6. ENTER FUNCTION - bulletproof
   // ============================================
   function enterSite() {
-    sessionStorage.setItem('apertureEntered', '1');
+    try { sessionStorage.setItem('apertureEntered', '1'); } catch (e) {}
     initAudio();
     playWhoosh();
     intro.classList.add('fading');
@@ -329,3 +333,4 @@
   // First user interaction unlocks audio
   document.addEventListener('click', initAudio, { once: true });
 })();
+

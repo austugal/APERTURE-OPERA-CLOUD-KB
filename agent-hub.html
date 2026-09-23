@@ -370,7 +370,7 @@ body {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 2px; }
 </style>
-</head>
+<style>@media(max-width:800px){body{height:auto!important;overflow:auto!important}.topbar{flex-wrap:wrap;height:auto!important;padding:14px;gap:10px}.tb-search{display:none}.main{display:block!important;height:auto!important}.scene-wrap{height:360px!important}.right-panel{width:100%!important}.bottom-strip{height:300px!important;overflow:auto}.bs-cols,.bs-row{min-width:760px}}</style></head>
 <body>
 
 <!-- TOP BAR -->
@@ -380,13 +380,13 @@ body {
   <span class="tb-title">Agent Hub</span>
   <nav class="tb-nav">
     <a href="index.html">Library</a>
-    <a href="modules.html">Modules</a>
+    <a href="copilot.html">OPERA Copilot</a>
     <a href="services.html">Services</a>
   </nav>
-  <input class="tb-search" type="text" placeholder="Search agents, tasks, logs…">
+  <span class="tb-search">Illustrative data only</span>
   <div class="tb-status">
     <div class="status-dot"></div>
-    <span>6 agents · localhost</span>
+    <span>6 agents · SIMULATED DEMO</span>
   </div>
 </div>
 
@@ -395,7 +395,7 @@ body {
 
   <!-- 3D SCENE -->
   <div class="scene-wrap">
-    <div class="scene-badge">Opera Agent Workspace · Local Session</div>
+    <div class="scene-badge">Interactive demo · No hotel connection</div>
     <div class="scene-hint">Alt + drag to orbit</div>
     <canvas id="canvas3d"></canvas>
     <div id="labels"></div>
@@ -565,6 +565,10 @@ const WORK_ITEMS = [
 // ════════════════════════════════════════════
 // THREE.JS
 // ════════════════════════════════════════════
+let selectedId = null;
+const agentGroups = [];
+let selectAgent = function() {};
+try {
 const canvas = document.getElementById('canvas3d');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -761,7 +765,7 @@ cyl(0.02, 0.02, 0.4, 4, 0x15803d, -7.5, 0.55, -7.5);
 // ════════════════════════════════════════════
 // AGENT CHARACTERS
 // ════════════════════════════════════════════
-const agentGroups = [];
+
 const pickMeshes = [];   // raycasting targets
 
 function buildAgent(a) {
@@ -904,9 +908,9 @@ selRing.rotation.x = -Math.PI / 2;
 selRing.position.y = 0.012;
 scene.add(selRing);
 
-let selectedId = null;
 
-function selectAgent(agent, group) {
+
+selectAgent = function(agent, group) {
   selectedId = agent.id;
   selRing.position.x = group.position.x;
   selRing.position.z = group.position.z;
@@ -1053,6 +1057,11 @@ function animate() {
 animate();
 
 // ════════════════════════════════════════════
+} catch (error) {
+  const wrap=document.querySelector('.scene-wrap');
+  wrap.textContent='3D view unavailable in this browser. The demo agent list is available below. For technical questions, open OPERA Copilot.';
+  wrap.style.padding='36px';
+}
 // RIGHT PANEL — PROGRESS BARS
 // ════════════════════════════════════════════
 const pbList = document.getElementById('pb-list');
@@ -1178,3 +1187,4 @@ setInterval(() => {
 </script>
 </body>
 </html>
+
