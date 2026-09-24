@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAF-T Validator · Aperture</title>
+<meta name="description" content="Pre-check a Portuguese SAF-T (PT) 1.04_01 file in the browser: header, NIF, ATCUD, exemption codes, totals and series continuity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef1f4;--surface:#fff;--ink:#14212b;--muted:#5b6b77;--line:#d6dde2;--accent:#0b6e79;--accent-ink:#fff;--chip:#e5eef0;--bad:#b3261e;--warn:#9a5200;--ok:#157347;--mono:'JetBrains Mono',ui-monospace,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f161b;--surface:#172128;--ink:#e6edf1;--muted:#9aabb6;--line:#2a3943;--accent:#3fb5c1;--accent-ink:#06282c;--chip:#1f2e36;--bad:#ff8a80;--warn:#f0a44b;--ok:#6fd49a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,sans-serif}
+a{color:var(--accent)}
+header.top{display:flex;align-items:center;gap:20px;padding:14px 24px;background:var(--surface);border-bottom:1px solid var(--line);flex-wrap:wrap}
+header.top .brand{font-weight:700;text-decoration:none;color:var(--ink);font-size:17px}
+header.top nav{display:flex;gap:16px;flex-wrap:wrap}
+header.top nav a{text-decoration:none;color:var(--muted);font-size:14px}
+header.top nav a:hover,header.top nav a[aria-current]{color:var(--accent)}
+main{max-width:1080px;margin:0 auto;padding:28px 24px 80px}
+.eyebrow{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0}
+h1{font-size:32px;margin:4px 0 8px;letter-spacing:-.01em}
+h2{font-size:20px;margin:0 0 10px}
+.lead{color:var(--muted);max-width:760px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;margin:18px 0}
+.drop{border:2px dashed var(--line);border-radius:12px;padding:34px;text-align:center;background:var(--surface);cursor:pointer;transition:border-color .15s}
+.drop.over,.drop:hover{border-color:var(--accent)}
+.drop strong{display:block;font-size:17px;margin-bottom:4px}
+.btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);padding:8px 14px;border-radius:8px;font:inherit;font-size:14px;cursor:pointer;text-decoration:none;display:inline-block}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.verdict{display:flex;align-items:center;gap:14px;font-size:18px;font-weight:600}
+.badge{border-radius:999px;padding:4px 12px;font-size:13px;font-weight:600}
+.badge.ok{background:rgba(21,115,71,.14);color:var(--ok)}.badge.bad{background:rgba(179,38,30,.12);color:var(--bad)}.badge.warn{background:rgba(154,82,0,.13);color:var(--warn)}
+.stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:14px}
+.stat{border:1px solid var(--line);border-radius:10px;padding:12px}
+.stat b{display:block;font-size:16px;line-height:1.3;word-break:break-word}.stat span{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+td.lvl{white-space:nowrap}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.filters button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.note{font-size:13px;color:var(--muted)}
+ul.checks{columns:2;column-gap:28px;padding-left:18px;margin:0}
+ul.checks li{margin-bottom:6px;break-inside:avoid}
+code{font-family:var(--mono);font-size:13px}
+@media (max-width:700px){ul.checks{columns:1}main{padding:20px 16px 60px}h1{font-size:26px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="index.html">Aperture.</a>
+  <nav aria-label="Main navigation">
+    <a href="opera-library.html">Library</a>
+    <a href="index.html">Home</a>
+    <a href="saft.html" aria-current="page">SAF-T Validator</a>
+    <a href="opera-doc.html?file=ifc8-guides-index.md">IFC8 Guides</a>
+    <a href="copilot.html">Copilot</a>
+  </nav>
+</header>
+<main>
+  <p class="eyebrow">Portugal fiscal</p>
+  <h1>SAF-T (PT) Validator</h1>
+  <p class="lead">Pre-check a SAF-T (PT) 1.04_01 file before it goes to AT. The file is read in your browser and never uploaded. Each finding points to the OPERA Cloud setting that usually causes it.</p>
+
+  <div class="drop" id="drop" tabindex="0" role="button" aria-label="Choose a SAF-T XML file">
+    <strong>Drop a SAF-T XML file here</strong>
+    <span class="note">or click to choose a file. Nothing leaves this browser.</span>
+  </div>
+  <input type="file" id="file" accept=".xml,text/xml" hidden>
+  <div class="row">
+    <span class="note">Try a synthetic sample:</span>
+    <button class="btn" data-sample="samples/saft-pt-demo-valid.xml">Clean file</button>
+    <button class="btn" data-sample="samples/saft-pt-demo-errors.xml">File with errors</button>
+    <a class="btn" href="opera-doc.html?file=saft-pt-export-customisation.md">Export build and customisation guide</a>
+  </div>
+
+  <section id="result" hidden>
+    <div class="card">
+      <div class="verdict" id="verdict"></div>
+      <div class="stats" id="stats"></div>
+    </div>
+    <div class="card">
+      <h2>Findings</h2>
+      <div class="filters" id="filters"></div>
+      <table><thead><tr><th>Level</th><th>Area</th><th>Finding</th></tr></thead><tbody id="rows"></tbody></table>
+      <div class="row"><button class="btn" id="exportCsv">Download findings (.csv)</button></div>
+    </div>
+  </section>
+
+  <div class="card">
+    <h2>What it checks</h2>
+    <ul class="checks">
+      <li>Well-formed XML, <code>AuditFile</code> root and the 1.04_01 namespace</li>
+      <li>Every mandatory header field, EUR currency, accounting basis</li>
+      <li>Company and software NIFs with the check digit</li>
+      <li>Software certificate number present and not 0</li>
+      <li>Customers, products and the tax table in MasterFiles</li>
+      <li>InvoiceNo format <code>TYPE SERIES/NUMBER</code> and document types</li>
+      <li>ATCUD present, not 0, at least 8 characters plus sequence</li>
+      <li>Hash present, invoice dates inside the file period</li>
+      <li>Every document customer and product exists in MasterFiles</li>
+      <li>Exemption code and reason on every 0% IVA line</li>
+      <li>Line net totals, GrossTotal = NetTotal + TaxPayable</li>
+      <li>NumberOfEntries, TotalDebit and TotalCredit, excluding cancelled documents</li>
+      <li>Credit notes carry references to the original document</li>
+      <li>Duplicates and gaps in each series</li>
+      <li>Payment mechanism codes in the Payments section</li>
+    </ul>
+    <p class="note">A pre-check against the SAF-T (PT) 1.04_01 structure and Portuguese invoicing rules. It does not verify signatures and does not replace the AT validation service on the e-fatura portal.</p>
+  </div>
+</main>
+<script src="assets/saft-validator.js"></script>
+<script>
+(function(){
+  const drop=document.getElementById('drop'), file=document.getElementById('file');
+  let lastFindings=[], filter='all';
+  const esc=s=>String(s);
+  function el(tag,cls,text){const e=document.createElement(tag); if(cls) e.className=cls; if(text!=null) e.textContent=text; return e;}
+  function run(text,name){
+    let res; try{ res=SaftValidator.validate(text); }catch(e){ res={findings:[{level:'error',area:'File',msg:'Could not read the file: '+e.message}],stats:{}}; }
+    lastFindings=res.findings; const s=res.stats;
+    const errs=res.findings.filter(f=>f.level==='error').length, warns=res.findings.filter(f=>f.level==='warning').length;
+    const v=document.getElementById('verdict'); v.textContent='';
+    v.append(el('span','badge '+(errs?'bad':warns?'warn':'ok'),errs?errs+' errors':warns?'Warnings only':'No issues found'), el('span',null,name));
+    const st=document.getElementById('stats'); st.textContent='';
+    const add=(label,val)=>{ if(val===undefined||val==='') return; const d=el('div','stat'); d.append(el('b',null,esc(val)),el('span',null,label)); st.append(d); };
+    add('Company',s.company); add('NIF',s.nif); add('Period',s.period); add('Certificate',s.certificate);
+    add('Documents',s.invoices); add('Lines',s.lines); add('Series',s.series);
+    if(s.byType) add('By type',Object.entries(s.byType).map(([k,n])=>k+' '+n).join(' · '));
+    if(s.totalCredit!==undefined) add('Total credit',Number(s.totalCredit).toFixed(2)+' €'); if(s.totalDebit!==undefined) add('Total debit',Number(s.totalDebit).toFixed(2)+' €');
+    add('Customers',s.customers); add('Tax table entries',s.taxEntries);
+    add('Errors',errs); add('Warnings',warns);
+    const fl=document.getElementById('filters'); fl.textContent='';
+    [['all','All '+res.findings.length],['error','Errors '+errs],['warning','Warnings '+warns]].forEach(([k,label])=>{ const b=el('button','btn',label); b.setAttribute('aria-pressed',String(filter===k)); b.onclick=()=>{filter=k; run(text,name);}; fl.append(b); });
+    const rows=document.getElementById('rows'); rows.textContent='';
+    const list=res.findings.filter(f=>filter==='all'||f.level===filter);
+    if(!list.length){ const tr=el('tr'); const td=el('td',null,'Nothing to show.'); td.colSpan=3; tr.append(td); rows.append(tr); }
+    list.forEach(f=>{ const tr=el('tr'); tr.append(el('td','lvl'), el('td',null,f.area), el('td',null,f.msg)); tr.firstChild.append(el('span','badge '+(f.level==='error'?'bad':'warn'),f.level)); rows.append(tr); });
+    document.getElementById('result').hidden=false; document.getElementById('result').scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function readFile(f){ const r=new FileReader(); r.onload=()=>{ filter='all'; run(r.result,f.name); }; r.readAsText(f); }
+  drop.onclick=()=>file.click(); drop.onkeydown=e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); file.click(); } };
+  file.onchange=()=>{ if(file.files[0]) readFile(file.files[0]); file.value=''; };
+  ['dragenter','dragover'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault(); drop.classList.add('over');}));
+  ['dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault(); drop.classList.remove('over');}));
+  drop.addEventListener('drop',e=>{ const f=e.dataTransfer.files[0]; if(f) readFile(f); });
+  document.querySelectorAll('[data-sample]').forEach(b=>b.onclick=async()=>{ try{ const r=await fetch(b.dataset.sample); filter='all'; run(await r.text(), b.dataset.sample.split('/').pop()); }catch(e){ alert('Sample could not be loaded.'); } });
+  document.getElementById('exportCsv').onclick=()=>{ const csv='Level,Area,Finding\n'+lastFindings.map(f=>[f.level,f.area,f.msg].map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(',')).join('\n'); const a=document.createElement('a'); a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'})); a.download='saft-findings.csv'; document.body.append(a); a.click(); a.remove(); };
+})();
+</script>
+</body>
+</html>

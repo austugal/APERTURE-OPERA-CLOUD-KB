@@ -1,0 +1,332 @@
+[
+ {
+  "file": "01-user-guide-index.md",
+  "title": "OPERA Cloud Complete User Guide",
+  "desc": "Comprehensive knowledge base for OPERA Cloud v24.2 / v25.x",
+  "cat": "Training"
+ },
+ {
+  "file": "01a-getting-started.md",
+  "title": "Getting Started with OPERA Cloud",
+  "desc": "Complete guide for accessing and using OPERA Cloud for the first time.",
+  "cat": "Training"
+ },
+ {
+  "file": "02-inventory-administration-complete.md",
+  "title": "Inventory Administration Complete Reference",
+  "desc": "Comprehensive configuration procedures for room inventory, accommodation, function spaces, and facilities management in OPERA Cloud.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "02b-booking-administration-complete.md",
+  "title": "Booking Administration Complete Reference",
+  "desc": "Comprehensive configuration for reservations, blocks, rules, and guest communication in OPERA Cloud.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "02c-front-desk-complete.md",
+  "title": "Front Desk Operations Complete Reference",
+  "desc": "Comprehensive procedures for guest check-in, check-out, room assignment, and daily front desk management in OPERA Cloud.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "03-financial-complete.md",
+  "title": "Financial Administration Complete Reference",
+  "desc": "Comprehensive financial configuration and management procedures for OPERA Cloud.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "03a-administration-complete.md",
+  "title": "Administration Complete Reference",
+  "desc": "Comprehensive administration, configuration, and system management for OPERA Cloud across all modules.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "04-role-manager-complete.md",
+  "title": "Role Manager & Security - Complete Reference",
+  "desc": "Comprehensive guide to user roles, permissions, and security in OPERA Cloud.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "05-toolbox-complete.md",
+  "title": "Toolbox & System Utilities - Complete Reference",
+  "desc": "Comprehensive guide to OPERA Cloud system utilities, maintenance, and administrative tools.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "06-exchange-integration-guide.md",
+  "title": "OPERA Cloud Exchange & Integration Guide",
+  "desc": "Complete reference for OPERA Cloud integrations with external systems.",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "07-glossary.md",
+  "title": "OPERA Cloud Glossary",
+  "desc": "Complete terminology reference for OPERA Cloud system.",
+  "cat": "Training"
+ },
+ {
+  "file": "advance-deposit-city-tax-fiscal.md",
+  "title": "Advance Deposit Handling, Parameters, and City Tax Configuration — Portugal Fiscal",
+  "desc": "Source: Internal OPERA configuration document covering Advanced Deposit Handling , Advanced Tax Handling for Deposits, and City Tax configuration. Content originally in OPERA 5 screenshots, applies in equivalent form to ",
+  "cat": "Fiscal and compliance"
+ },
+ {
+  "file": "bi-publisher-folio-customization.md",
+  "title": "BI Publisher Folio Customisation",
+  "desc": "OPERA Cloud document outputs are produced from RTF templates processed by Oracle BI Publisher. Customisation involves editing the RTF template in Microsoft Word, inserting BI Publisher merge codes and conditional logic, ",
+  "cat": "Configuration"
+ },
+ {
+  "file": "certified-integrations-ohip.md",
+  "title": "Oracle-Certified Integrations for OPERA Cloud",
+  "desc": "This document explains the Oracle Hospitality partner certification framework, the validation programmes that authorise an integration to be listed on Oracle Cloud Marketplace, and the typical partner ecosystem categorie",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "channel-manager-integration-overview.md",
+  "title": "Channel Manager Integration Overview",
+  "desc": "A channel manager is a software platform that distributes a property's rates, availability and inventory to OTAs, GDS, metasearch and direct booking channels, while collecting reservations from those channels and returni",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "community-tooling.md",
+  "title": "Community Tooling for OPERA Cloud",
+  "desc": "This file catalogues third-party, community-maintained tools that interact with OPERA Cloud APIs. None of the tools listed here are certified, endorsed or supported by Oracle. They are included for engineer awareness onl",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "cutover-guide.md",
+  "title": "OPERA Cutover Guide — Reference Extract",
+  "desc": "Source: Oracle OPERA Cutover Guide for OPERA Cloud / OPERA 5, v1.02, January 2022. Authors: N. Ferrara , M. Engel , N. Ferrara .",
+  "cat": "Delivery and go-live"
+ },
+ {
+  "file": "daily-night-audit-checklist.md",
+  "title": "Daily Night Audit Checklist",
+  "desc": "Step-by-step checklist for the Night Auditor running OPERA Cloud end-of-day. Designed as a printable single-page reference for property staff. Each section must complete before the next begins.",
+  "cat": "Delivery and go-live"
+ },
+ {
+  "file": "emea-fiscal-watch.md",
+  "title": "EMEA Country Fiscal Watch",
+  "desc": "Country-by-country OPERA Cloud fiscal changes that change how a property is configured, migrated or upgraded. Verified against Oracle release readiness guides, September 2026. Oracle's country Fiscal Reference Guides sit",
+  "cat": "Fiscal and compliance"
+ },
+ {
+  "file": "france-fiscal.md",
+  "title": "France Fiscal Reference for OPERA Cloud",
+  "desc": "Scope: what an OPERA Cloud implementation in France has to get right on VAT, fiscal documents, city tax and the 2026 legal changes. Verified 23 September 2026.",
+  "cat": "Fiscal and compliance"
+ },
+ {
+  "file": "hypercare-checklist.md",
+  "title": "Hypercare Checklist",
+  "desc": "Hypercare is the period immediately following go-live where the implementation team remains in stand-by mode with elevated coverage to identify and resolve issues before steady-state support takes over. Standard hypercar",
+  "cat": "Delivery and go-live"
+ },
+ {
+  "file": "ideas-g3-continuous-pricing.md",
+  "title": "IDeaS G3 RMS Continuous Pricing — OPERA Cloud Configuration",
+  "desc": "Source: partner RMS integration documentation for IDeaS G3 Continuous Pricing, 2022. Authored for OPERA Cloud PMS integration.",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "ifc8-controller-installation.md",
+  "title": "IFC Controller and IFC8 Installation for OPERA Cloud",
+  "desc": "Step-by-step installation of the OPERA IFC Controller and IFC8 at a property connected to OPERA Cloud.",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "ifc8-guides-index.md",
+  "title": "IFC8 Interface Guides",
+  "desc": "Step-by-step guides for connecting hotel systems to OPERA Cloud through IFC8. Start with the controller installation, then follow the guide for the interface type.",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "ifc8-interface-architecture.md",
+  "title": "IFC8 Interface Architecture",
+  "desc": "IFC8 is Oracle Hospitality's generic interface gateway for property-level integrations. It is a locally-installed application that mediates between OPERA and devices or systems within the property network, including POS,",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "ifc8-key-card.md",
+  "title": "IFC8 Key Card Systems",
+  "desc": "Step-by-step setup of a key card system with OPERA Cloud through IFC8: encoders, new and duplicate keys, key expiry, room moves and mobile keys.",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "ifc8-pbx-call-accounting.md",
+  "title": "IFC8 PBX and Call Accounting (Voxtel and Similar)",
+  "desc": "Step-by-step setup of a telephone switch or call accounting system, such as Voxtel, with OPERA Cloud through IFC8. Covers check-in and check-out, name and language, room status from the phone, wake-up calls, do not distu",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "ifc8-pos.md",
+  "title": "IFC8 POS Interfaces",
+  "desc": "Step-by-step setup of a third-party point of sale system posting to OPERA Cloud through IFC8: guest lookup, room charges, revenue centre mapping and posting control.",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "loyalty-membership-configuration.md",
+  "title": "Loyalty and Membership Configuration",
+  "desc": "OPERA Cloud Loyalty is the integrated loyalty programme module. It manages member profiles, tier structures, point accrual rules, redemption and award handling, and tier benefits. Properties can run their own programme v",
+  "cat": "Configuration"
+ },
+ {
+  "file": "migration-tools-overview.md",
+  "title": "OPERA Cloud Migration Tools Overview",
+  "desc": "Oracle ships several distinct tools for loading configuration and transactional data into OPERA Cloud. Each has a specific use case, owner, scope, and limit. This document maps what each one does, when to use which, and ",
+  "cat": "Delivery and go-live"
+ },
+ {
+  "file": "mobile-configuration-guide.md",
+  "title": "OPERA Mobile Applications Configuration Guide",
+  "desc": "Mobile applications extend OPERA PMS functionality to smartphones and tablets, enabling hotel staff to manage operations from anywhere.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "monthly-financial-close-checklist.md",
+  "title": "Monthly Financial Close Checklist",
+  "desc": "End-of-month procedures for OPERA Cloud properties. Covers AR reconciliation, statistics validation, fiscal export submission and back office reconciliation. Designed for Director of Finance and Night Audit teams to run ",
+  "cat": "Delivery and go-live"
+ },
+ {
+  "file": "night-audit-procedures.md",
+  "title": "OPERA Cloud Night Audit Procedures",
+  "desc": "The Night Audit is the daily closing process that transitions the system from one business date to the next. It validates revenue, posts recurring charges, advances the business date, and produces statistical and financi",
+  "cat": "Delivery and go-live"
+ },
+ {
+  "file": "ohip-api-reference.md",
+  "title": "Oracle OHIP REST API Reference",
+  "desc": "Curated pointers to the official Oracle Hospitality Integration Platform sources and their accompanying tooling. All material referenced here is published by Oracle under the Universal Permissive License v 1.0 unless sta",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "ohip-business-events-reference.md",
+  "title": "OHIP Business Events Reference",
+  "desc": "Business Events are real-time notifications published by OPERA Cloud when operational changes occur . Integration partners subscribe via OHIP and consume these events to keep their systems in sync without polling.",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "opera-cloud-26x-fiscal-changes.md",
+  "title": "OPERA Cloud 26.x Fiscal Changes",
+  "desc": "Fiscal and country-specific changes across OPERA Cloud 26.1, 26.2 and 26.3.",
+  "cat": "Fiscal and compliance"
+ },
+ {
+  "file": "opera-cloud-central.md",
+  "title": "OPERA Cloud Central — Enterprise Layer Reference",
+  "desc": "OPERA Cloud Central is the above-property layer of the OPERA Cloud platform. It centralises data and functionality from OPERA Cloud modules under one unified user interface and one login, built on a central database shar",
+  "cat": "Configuration"
+ },
+ {
+  "file": "opera-cloud-release-notes-tracker.md",
+  "title": "OPERA Cloud Release Notes Tracker",
+  "desc": "Index of OPERA Cloud quarterly releases with major changes per version. Living document. Use this as a starting reference and consult the official Oracle release notes for the authoritative detail per version.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "opera-controls-reference.md",
+  "title": "OPERA Controls Reference",
+  "desc": "OPERA Controls are the property-level functional toggles, parameters and settings that determine system behaviour across every module. Controls are organised in groups corresponding to functional areas. Each group contai",
+  "cat": "Configuration"
+ },
+ {
+  "file": "opera5-to-opera-cloud-migration-overview.md",
+  "title": "OPERA 5 to OPERA Cloud Migration Overview",
+  "desc": "The global migration from OPERA 5 to OPERA Cloud is in progress across the Oracle Hospitality customer base. This document covers the migration pathway, the tools involved, data scope, training implications and the paral",
+  "cat": "Delivery and go-live"
+ },
+ {
+  "file": "oxi-overview.md",
+  "title": "OXI (OPERA Xchange Interface) Overview",
+  "desc": "OXI is the legacy XML-based message broker that handles bidirectional interface communication for OPERA. It predates OHIP and is being progressively superseded by OHIP REST APIs and Business Events for OPERA Cloud integr",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "piw-property-information-worksheet-guide.md",
+  "title": "Property Information Worksheet (PIW) Guide",
+  "desc": "The PIW is the standard Oracle pre-implementation Excel workbook that captures the configuration choices for a property before any technical configuration begins. It is the authoritative source for the build phase. Error",
+  "cat": "Delivery and go-live"
+ },
+ {
+  "file": "portugal-fiscal-master.md",
+  "title": "Portugal Fiscal Master Configuration",
+  "desc": "Configuration framework for OPERA Cloud properties operating in Portugal. This guide is organised as a 14-layer dependency model. Each layer depends on the previous being complete. Skipping the sequence causes missing me",
+  "cat": "Fiscal and compliance"
+ },
+ {
+  "file": "pre-go-live-readiness-checklist.md",
+  "title": "Pre Go-Live Readiness Checklist",
+  "desc": "Verification checklist for the days immediately preceding OPERA Cloud cutover. The checklist serves as the formal gate that authorises cutover execution.",
+  "cat": "Delivery and go-live"
+ },
+ {
+  "file": "release-watch.md",
+  "title": "OPERA Cloud Release Watch",
+  "desc": "What Oracle has published about OPERA Cloud, OHIP and the partner ecosystem, in one place. Verified 23 September 2026.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "reporting-analytics-overview.md",
+  "title": "OPERA Cloud Reporting and Analytics Overview",
+  "desc": "OPERA Cloud Reporting and Analytics is the integrated reporting platform built on Oracle BI Publisher and Oracle Analytics. It provides standard reports out of the box, custom report capability, ad hoc analyses and sched",
+  "cat": "Configuration"
+ },
+ {
+  "file": "revenue-management-integration-overview.md",
+  "title": "Revenue Management System (RMS) Integration Overview",
+  "desc": "A Revenue Management System generates forward-looking rate and inventory recommendations based on demand, competitor pricing, historical patterns and strategic constraints. The RMS integrates with OPERA Cloud to receive ",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "saft-pt-export-customisation.md",
+  "title": "SAF-T (PT) Export: Build, Mapping and Customisation in OPERA Cloud",
+  "desc": "How the Portuguese SAF-T export is built in OPERA Cloud, which mappings feed which XML tags, the traps that make AT reject a file, and how to check an export before it leaves the property. Verified September 2026.",
+  "cat": "Fiscal and compliance"
+ },
+ {
+  "file": "sales-catering-osem-overview.md",
+  "title": "Sales and Event Management (OSEM) Overview",
+  "desc": "OPERA Cloud Sales and Event Management is the module covering catering, event sales, function space management, banquet event orders and group sales workflow. It is a separately licensed module that integrates with OPERA",
+  "cat": "Configuration"
+ },
+ {
+  "file": "spain-fiscal-sii.md",
+  "title": "Spain Fiscal Configuration (SII and SAF-T ES)",
+  "desc": "Configuration framework for OPERA Cloud properties operating in Spain. Covers SII real-time invoice submission, regional police exports, INE statistics, Modelo 347, and F1 through F6 invoice classifications per AEAT spec",
+  "cat": "Fiscal and compliance"
+ },
+ {
+  "file": "ssd-interface-service-account.md",
+  "title": "SSD Interface Service Account — Manage and Troubleshooting Guide",
+  "desc": "Source: Oracle Hospitality Shared Security Domain Interface Service Account: Manage and Troubleshooting Guide, SSD 20.1, October 2021. Revision history: May 2020 initial, August 2021 End Date description revised.",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "support-troubleshooting-guide.md",
+  "title": "OPERA PMS Support and Troubleshooting Guide",
+  "desc": "Operational guide for diagnosing and resolving common OPERA PMS issues.",
+  "cat": "Delivery and go-live"
+ },
+ {
+  "file": "training-catalogue.md",
+  "title": "Oracle OPERA Cloud Training Course Catalogue",
+  "desc": "Source: Oracle OPERA Cloud Training Courses official list.",
+  "cat": "Training"
+ },
+ {
+  "file": "training-schedule-40h.md",
+  "title": "OPERA Cloud PMS Training Schedule — 40 Hours / 5 Days",
+  "desc": "Source: Official Oracle PMS Training and Q&A schedule, 40-hour delivery over 5 consecutive days.",
+  "cat": "Training"
+ },
+ {
+  "file": "workstation-setup-guide.md",
+  "title": "OPERA PMS Workstation Setup and Configuration",
+  "desc": "Complete guide for configuring Windows workstations to run OPERA PMS client applications .",
+  "cat": "Delivery and go-live"
+ }
+]

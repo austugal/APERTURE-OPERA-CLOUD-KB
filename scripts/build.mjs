@@ -1,3 +1,4 @@
+import './library.mjs';
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, cpSync, existsSync } from 'node:fs';
 function clean(s) { return s.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/&amp;/g,'&').replace(/&nbsp;/g,' ').replace(/&[a-z]+;/g,' ').replace(/\s+/g,' ').trim(); }
 const records = [];
@@ -18,13 +19,13 @@ if (existsSync('reference-docs')) {
   for (const f of readdirSync('reference-docs').filter(f => f.endsWith('.md') && f !== 'README.md')) {
     const md = readFileSync('reference-docs/' + f, 'utf8');
     const docTitle = (md.match(/^#\s+(.+)$/m) || [,''])[1].trim() || f;
-    const parts = md.split(/^(?=##\s)/m);
+    const parts = md.split(/^(?=#{2,3}\s)/m);
     for (const part of parts) {
-      const head = (part.match(/^##\s+(.+)$/m) || [,''])[1].trim();
+      const head = (part.match(/^#{2,3}\s+(.+)$/m) || [,''])[1].trim();
       const text = part.replace(/[#*`>|_-]+/g,' ').replace(/\s+/g,' ').trim();
       if (text.length < 60) continue;
       const links = [...part.matchAll(/(https:\/\/docs\.oracle\.com\/[^\s)>\]"]+)/g)].map(x=>x[1]);
-      records.push({title: head ? `${docTitle}: ${head}` : docTitle, text: text.slice(0,1800), url: '/opera-doc.html?file=' + f, links:[...new Set(links)].slice(0,3)});
+      records.push({title: head ? `${docTitle}: ${head}` : docTitle, text: text.slice(0,2400), url: '/opera-doc.html?file=' + f, links:[...new Set(links)].slice(0,3)});
     }
   }
 }
@@ -33,5 +34,7 @@ writeFileSync('assets/copilot-data.json',JSON.stringify(records));
 writeFileSync('netlify/functions/_knowledge.json',JSON.stringify(records));
 mkdirSync('dist',{recursive:true});
 for(const f of readdirSync('.')) if(f.endsWith('.html') || f.endsWith('.zip') || f === 'robots.txt' || f === 'sitemap.xml') cpSync(f,'dist/'+f);
-for(const d of ['assets','xml-library','reference-docs']) if (existsSync(d)) cpSync(d,'dist/'+d,{recursive:true});
+for(const d of ['assets','xml-library','reference-docs','samples']) if (existsSync(d)) cpSync(d,'dist/'+d,{recursive:true});
+writeFileSync('dist/_redirects', ['/docs /resources.html 301', '/library /resources.html 301', '/tutorials /videos.html 301'].join('\n') + '\n');
+writeFileSync('dist/_headers', ['/*', '  X-Frame-Options: SAMEORIGIN', '  X-Content-Type-Options: nosniff', '  Referrer-Policy: strict-origin-when-cross-origin'].join('\n') + '\n');
 console.log(`Built public site with ${records.length} reference sections.`);

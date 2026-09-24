@@ -1,0 +1,14 @@
+name = "aperture-operacloud"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-09-01"
+
+[ai]
+binding = "AI"
+
+[[kv_namespaces]]
+binding = "USAGE"
+id = "289ca12ae35b447c8891d41aa6bf4802"
+
+[vars]
+COPILOT_DAILY_CAP = "60"
+CAP_PREFIX = "aperture-ai-"

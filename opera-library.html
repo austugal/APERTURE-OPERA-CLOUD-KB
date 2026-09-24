@@ -39,6 +39,10 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6 M16 13H8 M16 17H8"/></svg>
       XML Samples
     </a>
+    <a href="saft.html" class="menu-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      SAF-T Validator
+    </a>
     <a href="opera-library.html" class="menu-link active">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M9 7h6 M9 11h6 M9 15h4"/></svg>
       Reference Library
@@ -65,97 +69,76 @@
 
   <div class="section-head">
     <h2>Explore <span class="accent">topics</span></h2>
-    <span class="count">SIX TOPIC OVERVIEWS</span>
+    <span class="count">55 DOCUMENTS</span>
   </div>
   <p class="section-intro">Open a document to read it in full, or ask OPERA Copilot. Copilot answers from these documents plus the module and documentation pages, and cites its sources.</p>
-<label for="topic-filter">Find a topic</label><input id="topic-filter" type="search" placeholder="Try training, fiscal, cutover or interfaces" style="display:block;width:100%;max-width:640px;padding:14px;margin:8px 0 12px;border:1px solid #b7c7cc;border-radius:8px;font:inherit"><p id="topic-count" role="status" aria-live="polite">6 topics</p><p id="topic-empty" hidden>No matching topics. Try a broader term or <a href="copilot.html">ask Copilot</a>.</p>
+<label for="topic-filter">Find a topic</label><input id="topic-filter" type="search" placeholder="Try training, fiscal, cutover or interfaces" style="display:block;width:100%;max-width:640px;padding:14px;margin:8px 0 12px;border:1px solid #b7c7cc;border-radius:8px;font:inherit"><p id="topic-count" role="status" aria-live="polite">55 documents</p><p id="topic-empty" hidden>No matching topics. Try a broader term or <a href="copilot.html">ask Copilot</a>.</p>
 
   <div class="tiles">
+    <h3 class="span-12 lib-cat" style="grid-column:1/-1;margin:24px 0 4px;font-size:15px;letter-spacing:.08em;text-transform:uppercase">Fiscal and compliance · 7</h3>
+    <a href="opera-doc.html?file=advance-deposit-city-tax-fiscal.md" class="tile span-6 module-tile"><div class="head"><h3>Advance Deposit Handling, Parameters, and City Tax Configuration — Portugal Fiscal</h3></div><p class="desc">Source: Internal OPERA configuration document covering Advanced Deposit Handling , Advanced Tax Handling for Deposits, and City Tax configuration. Content originally in OPERA 5 screenshots, applies in equivalent form to </p><div class="foot"><span>FISCAL AND COMPLIANCE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=emea-fiscal-watch.md" class="tile span-6 module-tile"><div class="head"><h3>EMEA Country Fiscal Watch</h3></div><p class="desc">Country-by-country OPERA Cloud fiscal changes that change how a property is configured, migrated or upgraded. Verified against Oracle release readiness guides, September 2026. Oracle's country Fiscal Reference Guides sit</p><div class="foot"><span>FISCAL AND COMPLIANCE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=france-fiscal.md" class="tile span-6 module-tile"><div class="head"><h3>France Fiscal Reference for OPERA Cloud</h3></div><p class="desc">Scope: what an OPERA Cloud implementation in France has to get right on VAT, fiscal documents, city tax and the 2026 legal changes. Verified 23 September 2026.</p><div class="foot"><span>FISCAL AND COMPLIANCE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=opera-cloud-26x-fiscal-changes.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Cloud 26.x Fiscal Changes</h3></div><p class="desc">Fiscal and country-specific changes across OPERA Cloud 26.1, 26.2 and 26.3.</p><div class="foot"><span>FISCAL AND COMPLIANCE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=portugal-fiscal-master.md" class="tile span-6 module-tile"><div class="head"><h3>Portugal Fiscal Master Configuration</h3></div><p class="desc">Configuration framework for OPERA Cloud properties operating in Portugal. This guide is organised as a 14-layer dependency model. Each layer depends on the previous being complete. Skipping the sequence causes missing me</p><div class="foot"><span>FISCAL AND COMPLIANCE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=saft-pt-export-customisation.md" class="tile span-6 module-tile"><div class="head"><h3>SAF-T (PT) Export: Build, Mapping and Customisation in OPERA Cloud</h3></div><p class="desc">How the Portuguese SAF-T export is built in OPERA Cloud, which mappings feed which XML tags, the traps that make AT reject a file, and how to check an export before it leaves the property. Verified September 2026.</p><div class="foot"><span>FISCAL AND COMPLIANCE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=spain-fiscal-sii.md" class="tile span-6 module-tile"><div class="head"><h3>Spain Fiscal Configuration (SII and SAF-T ES)</h3></div><p class="desc">Configuration framework for OPERA Cloud properties operating in Spain. Covers SII real-time invoice submission, regional police exports, INE statistics, Modelo 347, and F1 through F6 invoice classifications per AEAT spec</p><div class="foot"><span>FISCAL AND COMPLIANCE</span><span class="badge">Read →</span></div></a>
 
-    <a href="opera-doc.html?file=cutover-guide.md" class="tile span-6 module-tile">
-      <div class="head">
-        <div class="icon teal">
-          <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
-        </div>
-        <h3>OPERA Cutover Guide</h3>
-      </div>
-      <p class="desc">Cutover process for OPERA Cloud and OPERA 5. Ledger transfer, balance forward transaction codes, AR Enter Old Balances workflow, go-live checklist. Source: Oracle OPERA Cutover Guide v1.02, January 2022. OSEM update included.</p>
-      <div class="foot">
-        <span>CUTOVER · MIGRATION · GO-LIVE</span>
-        <span class="badge">Read →</span>
-      </div>
-    </a>
+    <h3 class="span-12 lib-cat" style="grid-column:1/-1;margin:24px 0 4px;font-size:15px;letter-spacing:.08em;text-transform:uppercase">Integrations and OHIP · 16</h3>
+    <a href="opera-doc.html?file=06-exchange-integration-guide.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Cloud Exchange &amp; Integration Guide</h3></div><p class="desc">Complete reference for OPERA Cloud integrations with external systems.</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=certified-integrations-ohip.md" class="tile span-6 module-tile"><div class="head"><h3>Oracle-Certified Integrations for OPERA Cloud</h3></div><p class="desc">This document explains the Oracle Hospitality partner certification framework, the validation programmes that authorise an integration to be listed on Oracle Cloud Marketplace, and the typical partner ecosystem categorie</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=channel-manager-integration-overview.md" class="tile span-6 module-tile"><div class="head"><h3>Channel Manager Integration Overview</h3></div><p class="desc">A channel manager is a software platform that distributes a property's rates, availability and inventory to OTAs, GDS, metasearch and direct booking channels, while collecting reservations from those channels and returni</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=community-tooling.md" class="tile span-6 module-tile"><div class="head"><h3>Community Tooling for OPERA Cloud</h3></div><p class="desc">This file catalogues third-party, community-maintained tools that interact with OPERA Cloud APIs. None of the tools listed here are certified, endorsed or supported by Oracle. They are included for engineer awareness onl</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=ideas-g3-continuous-pricing.md" class="tile span-6 module-tile"><div class="head"><h3>IDeaS G3 RMS Continuous Pricing — OPERA Cloud Configuration</h3></div><p class="desc">Source: partner RMS integration documentation for IDeaS G3 Continuous Pricing, 2022. Authored for OPERA Cloud PMS integration.</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=ifc8-controller-installation.md" class="tile span-6 module-tile"><div class="head"><h3>IFC Controller and IFC8 Installation for OPERA Cloud</h3></div><p class="desc">Step-by-step installation of the OPERA IFC Controller and IFC8 at a property connected to OPERA Cloud.</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=ifc8-guides-index.md" class="tile span-6 module-tile"><div class="head"><h3>IFC8 Interface Guides</h3></div><p class="desc">Step-by-step guides for connecting hotel systems to OPERA Cloud through IFC8. Start with the controller installation, then follow the guide for the interface type.</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=ifc8-interface-architecture.md" class="tile span-6 module-tile"><div class="head"><h3>IFC8 Interface Architecture</h3></div><p class="desc">IFC8 is Oracle Hospitality's generic interface gateway for property-level integrations. It is a locally-installed application that mediates between OPERA and devices or systems within the property network, including POS,</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=ifc8-key-card.md" class="tile span-6 module-tile"><div class="head"><h3>IFC8 Key Card Systems</h3></div><p class="desc">Step-by-step setup of a key card system with OPERA Cloud through IFC8: encoders, new and duplicate keys, key expiry, room moves and mobile keys.</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=ifc8-pbx-call-accounting.md" class="tile span-6 module-tile"><div class="head"><h3>IFC8 PBX and Call Accounting (Voxtel and Similar)</h3></div><p class="desc">Step-by-step setup of a telephone switch or call accounting system, such as Voxtel, with OPERA Cloud through IFC8. Covers check-in and check-out, name and language, room status from the phone, wake-up calls, do not distu</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=ifc8-pos.md" class="tile span-6 module-tile"><div class="head"><h3>IFC8 POS Interfaces</h3></div><p class="desc">Step-by-step setup of a third-party point of sale system posting to OPERA Cloud through IFC8: guest lookup, room charges, revenue centre mapping and posting control.</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=ohip-api-reference.md" class="tile span-6 module-tile"><div class="head"><h3>Oracle OHIP REST API Reference</h3></div><p class="desc">Curated pointers to the official Oracle Hospitality Integration Platform sources and their accompanying tooling. All material referenced here is published by Oracle under the Universal Permissive License v 1.0 unless sta</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=ohip-business-events-reference.md" class="tile span-6 module-tile"><div class="head"><h3>OHIP Business Events Reference</h3></div><p class="desc">Business Events are real-time notifications published by OPERA Cloud when operational changes occur . Integration partners subscribe via OHIP and consume these events to keep their systems in sync without polling.</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=oxi-overview.md" class="tile span-6 module-tile"><div class="head"><h3>OXI (OPERA Xchange Interface) Overview</h3></div><p class="desc">OXI is the legacy XML-based message broker that handles bidirectional interface communication for OPERA. It predates OHIP and is being progressively superseded by OHIP REST APIs and Business Events for OPERA Cloud integr</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=revenue-management-integration-overview.md" class="tile span-6 module-tile"><div class="head"><h3>Revenue Management System (RMS) Integration Overview</h3></div><p class="desc">A Revenue Management System generates forward-looking rate and inventory recommendations based on demand, competitor pricing, historical patterns and strategic constraints. The RMS integrates with OPERA Cloud to receive </p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=ssd-interface-service-account.md" class="tile span-6 module-tile"><div class="head"><h3>SSD Interface Service Account — Manage and Troubleshooting Guide</h3></div><p class="desc">Source: Oracle Hospitality Shared Security Domain Interface Service Account: Manage and Troubleshooting Guide, SSD 20.1, October 2021. Revision history: May 2020 initial, August 2021 End Date description revised.</p><div class="foot"><span>INTEGRATIONS AND OHIP</span><span class="badge">Read →</span></div></a>
 
-    <a href="opera-doc.html?file=ideas-g3-continuous-pricing.md" class="tile span-6 module-tile">
-      <div class="head">
-        <div class="icon orange">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        </div>
-        <h3>IDeaS G3 Continuous Pricing</h3>
-      </div>
-      <p class="desc">IDeaS G3 RMS integration with OPERA Cloud. License requirements, yield categories, hurdle rates, LRV, DAILY rate code as dynamic base rate, yield adjustment codes. Source: partner RMS integration documentation, 2022.</p>
-      <div class="foot">
-        <span>IDEAS · RMS · CONTINUOUS PRICING</span>
-        <span class="badge">Read →</span>
-      </div>
-    </a>
+    <h3 class="span-12 lib-cat" style="grid-column:1/-1;margin:24px 0 4px;font-size:15px;letter-spacing:.08em;text-transform:uppercase">Delivery and go-live · 11</h3>
+    <a href="opera-doc.html?file=cutover-guide.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Cutover Guide — Reference Extract</h3></div><p class="desc">Source: Oracle OPERA Cutover Guide for OPERA Cloud / OPERA 5, v1.02, January 2022. Authors: N. Ferrara , M. Engel , N. Ferrara .</p><div class="foot"><span>DELIVERY AND GO-LIVE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=daily-night-audit-checklist.md" class="tile span-6 module-tile"><div class="head"><h3>Daily Night Audit Checklist</h3></div><p class="desc">Step-by-step checklist for the Night Auditor running OPERA Cloud end-of-day. Designed as a printable single-page reference for property staff. Each section must complete before the next begins.</p><div class="foot"><span>DELIVERY AND GO-LIVE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=hypercare-checklist.md" class="tile span-6 module-tile"><div class="head"><h3>Hypercare Checklist</h3></div><p class="desc">Hypercare is the period immediately following go-live where the implementation team remains in stand-by mode with elevated coverage to identify and resolve issues before steady-state support takes over. Standard hypercar</p><div class="foot"><span>DELIVERY AND GO-LIVE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=migration-tools-overview.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Cloud Migration Tools Overview</h3></div><p class="desc">Oracle ships several distinct tools for loading configuration and transactional data into OPERA Cloud. Each has a specific use case, owner, scope, and limit. This document maps what each one does, when to use which, and </p><div class="foot"><span>DELIVERY AND GO-LIVE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=monthly-financial-close-checklist.md" class="tile span-6 module-tile"><div class="head"><h3>Monthly Financial Close Checklist</h3></div><p class="desc">End-of-month procedures for OPERA Cloud properties. Covers AR reconciliation, statistics validation, fiscal export submission and back office reconciliation. Designed for Director of Finance and Night Audit teams to run </p><div class="foot"><span>DELIVERY AND GO-LIVE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=night-audit-procedures.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Cloud Night Audit Procedures</h3></div><p class="desc">The Night Audit is the daily closing process that transitions the system from one business date to the next. It validates revenue, posts recurring charges, advances the business date, and produces statistical and financi</p><div class="foot"><span>DELIVERY AND GO-LIVE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=opera5-to-opera-cloud-migration-overview.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA 5 to OPERA Cloud Migration Overview</h3></div><p class="desc">The global migration from OPERA 5 to OPERA Cloud is in progress across the Oracle Hospitality customer base. This document covers the migration pathway, the tools involved, data scope, training implications and the paral</p><div class="foot"><span>DELIVERY AND GO-LIVE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=piw-property-information-worksheet-guide.md" class="tile span-6 module-tile"><div class="head"><h3>Property Information Worksheet (PIW) Guide</h3></div><p class="desc">The PIW is the standard Oracle pre-implementation Excel workbook that captures the configuration choices for a property before any technical configuration begins. It is the authoritative source for the build phase. Error</p><div class="foot"><span>DELIVERY AND GO-LIVE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=pre-go-live-readiness-checklist.md" class="tile span-6 module-tile"><div class="head"><h3>Pre Go-Live Readiness Checklist</h3></div><p class="desc">Verification checklist for the days immediately preceding OPERA Cloud cutover. The checklist serves as the formal gate that authorises cutover execution.</p><div class="foot"><span>DELIVERY AND GO-LIVE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=support-troubleshooting-guide.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA PMS Support and Troubleshooting Guide</h3></div><p class="desc">Operational guide for diagnosing and resolving common OPERA PMS issues.</p><div class="foot"><span>DELIVERY AND GO-LIVE</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=workstation-setup-guide.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA PMS Workstation Setup and Configuration</h3></div><p class="desc">Complete guide for configuring Windows workstations to run OPERA PMS client applications .</p><div class="foot"><span>DELIVERY AND GO-LIVE</span><span class="badge">Read →</span></div></a>
 
-    <a href="opera-doc.html?file=ssd-interface-service-account.md" class="tile span-6 module-tile">
-      <div class="head">
-        <div class="icon purple">
-          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-        </div>
-        <h3>SSD Interface Service Account</h3>
-      </div>
-      <p class="desc">Service account lifecycle for OPERA Cloud interfaces. WSACCESS role assignment, backup account stagger strategy, expiry, lockout policies, troubleshooting 401 Unauthorized and OSB-386200. Source: Oracle SSD 20.1 guide, October 2021.</p>
-      <div class="foot">
-        <span>SSD · OAUTH · WSACCESS</span>
-        <span class="badge">Read →</span>
-      </div>
-    </a>
+    <h3 class="span-12 lib-cat" style="grid-column:1/-1;margin:24px 0 4px;font-size:15px;letter-spacing:.08em;text-transform:uppercase">Training · 5</h3>
+    <a href="opera-doc.html?file=01-user-guide-index.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Cloud Complete User Guide</h3></div><p class="desc">Comprehensive knowledge base for OPERA Cloud v24.2 / v25.x</p><div class="foot"><span>TRAINING</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=01a-getting-started.md" class="tile span-6 module-tile"><div class="head"><h3>Getting Started with OPERA Cloud</h3></div><p class="desc">Complete guide for accessing and using OPERA Cloud for the first time.</p><div class="foot"><span>TRAINING</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=07-glossary.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Cloud Glossary</h3></div><p class="desc">Complete terminology reference for OPERA Cloud system.</p><div class="foot"><span>TRAINING</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=training-catalogue.md" class="tile span-6 module-tile"><div class="head"><h3>Oracle OPERA Cloud Training Course Catalogue</h3></div><p class="desc">Source: Oracle OPERA Cloud Training Courses official list.</p><div class="foot"><span>TRAINING</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=training-schedule-40h.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Cloud PMS Training Schedule — 40 Hours / 5 Days</h3></div><p class="desc">Source: Official Oracle PMS Training and Q&amp;A schedule, 40-hour delivery over 5 consecutive days.</p><div class="foot"><span>TRAINING</span><span class="badge">Read →</span></div></a>
 
-    <a href="opera-doc.html?file=advance-deposit-city-tax-fiscal.md" class="tile span-6 module-tile">
-      <div class="head">
-        <div class="icon green">
-          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-        </div>
-        <h3>Portugal Fiscal · Deposits & City Tax</h3>
-      </div>
-      <p class="desc">Portugal Deposit Refund handling, Advanced Tax Handling Mode 4, City Tax (Taxa Municipal Turismo) full configuration. VAT 0% with M99 SAF-T exemption reason mapping. Field-tested in luxury Lisbon properties.</p>
-      <div class="foot">
-        <span>FISCAL · PORTUGAL · SAF-T</span>
-        <span class="badge">Read →</span>
-      </div>
-    </a>
-
-    <a href="opera-doc.html?file=training-catalogue.md" class="tile span-6 module-tile">
-      <div class="head">
-        <div class="icon teal">
-          <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-        </div>
-        <h3>OPERA Cloud Training Catalogue</h3>
-      </div>
-      <p class="desc">All 20 official Oracle OPERA Cloud training courses, role mapping, recommended sequencing for property go-live. Distinguishes configuration training from end-user training for proper sequencing during rollout.</p>
-      <div class="foot">
-        <span>TRAINING · ORACLE COURSES</span>
-        <span class="badge">Read →</span>
-      </div>
-    </a>
-
-    <a href="opera-doc.html?file=training-schedule-40h.md" class="tile span-6 module-tile">
-      <div class="head">
-        <div class="icon amber">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <h3>40-Hour Training Schedule</h3>
-      </div>
-      <p class="desc">Oracle's 40-hour 5-day PMS training schedule, day-by-day session breakdown, target audience per day, trainer and property responsibilities. Reference for project managers planning training week resources.</p>
-      <div class="foot">
-        <span>TRAINING · 5 DAYS · 40H</span>
-        <span class="badge">Read →</span>
-      </div>
-    </a>
-
+    <h3 class="span-12 lib-cat" style="grid-column:1/-1;margin:24px 0 4px;font-size:15px;letter-spacing:.08em;text-transform:uppercase">Configuration · 16</h3>
+    <a href="opera-doc.html?file=02-inventory-administration-complete.md" class="tile span-6 module-tile"><div class="head"><h3>Inventory Administration Complete Reference</h3></div><p class="desc">Comprehensive configuration procedures for room inventory, accommodation, function spaces, and facilities management in OPERA Cloud.</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=02b-booking-administration-complete.md" class="tile span-6 module-tile"><div class="head"><h3>Booking Administration Complete Reference</h3></div><p class="desc">Comprehensive configuration for reservations, blocks, rules, and guest communication in OPERA Cloud.</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=02c-front-desk-complete.md" class="tile span-6 module-tile"><div class="head"><h3>Front Desk Operations Complete Reference</h3></div><p class="desc">Comprehensive procedures for guest check-in, check-out, room assignment, and daily front desk management in OPERA Cloud.</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=03-financial-complete.md" class="tile span-6 module-tile"><div class="head"><h3>Financial Administration Complete Reference</h3></div><p class="desc">Comprehensive financial configuration and management procedures for OPERA Cloud.</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=03a-administration-complete.md" class="tile span-6 module-tile"><div class="head"><h3>Administration Complete Reference</h3></div><p class="desc">Comprehensive administration, configuration, and system management for OPERA Cloud across all modules.</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=04-role-manager-complete.md" class="tile span-6 module-tile"><div class="head"><h3>Role Manager &amp; Security - Complete Reference</h3></div><p class="desc">Comprehensive guide to user roles, permissions, and security in OPERA Cloud.</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=05-toolbox-complete.md" class="tile span-6 module-tile"><div class="head"><h3>Toolbox &amp; System Utilities - Complete Reference</h3></div><p class="desc">Comprehensive guide to OPERA Cloud system utilities, maintenance, and administrative tools.</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=bi-publisher-folio-customization.md" class="tile span-6 module-tile"><div class="head"><h3>BI Publisher Folio Customisation</h3></div><p class="desc">OPERA Cloud document outputs are produced from RTF templates processed by Oracle BI Publisher. Customisation involves editing the RTF template in Microsoft Word, inserting BI Publisher merge codes and conditional logic, </p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=loyalty-membership-configuration.md" class="tile span-6 module-tile"><div class="head"><h3>Loyalty and Membership Configuration</h3></div><p class="desc">OPERA Cloud Loyalty is the integrated loyalty programme module. It manages member profiles, tier structures, point accrual rules, redemption and award handling, and tier benefits. Properties can run their own programme v</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=mobile-configuration-guide.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Mobile Applications Configuration Guide</h3></div><p class="desc">Mobile applications extend OPERA PMS functionality to smartphones and tablets, enabling hotel staff to manage operations from anywhere.</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=opera-cloud-central.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Cloud Central — Enterprise Layer Reference</h3></div><p class="desc">OPERA Cloud Central is the above-property layer of the OPERA Cloud platform. It centralises data and functionality from OPERA Cloud modules under one unified user interface and one login, built on a central database shar</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=opera-cloud-release-notes-tracker.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Cloud Release Notes Tracker</h3></div><p class="desc">Index of OPERA Cloud quarterly releases with major changes per version. Living document. Use this as a starting reference and consult the official Oracle release notes for the authoritative detail per version.</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=opera-controls-reference.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Controls Reference</h3></div><p class="desc">OPERA Controls are the property-level functional toggles, parameters and settings that determine system behaviour across every module. Controls are organised in groups corresponding to functional areas. Each group contai</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=release-watch.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Cloud Release Watch</h3></div><p class="desc">What Oracle has published about OPERA Cloud, OHIP and the partner ecosystem, in one place. Verified 23 September 2026.</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=reporting-analytics-overview.md" class="tile span-6 module-tile"><div class="head"><h3>OPERA Cloud Reporting and Analytics Overview</h3></div><p class="desc">OPERA Cloud Reporting and Analytics is the integrated reporting platform built on Oracle BI Publisher and Oracle Analytics. It provides standard reports out of the box, custom report capability, ad hoc analyses and sched</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
+    <a href="opera-doc.html?file=sales-catering-osem-overview.md" class="tile span-6 module-tile"><div class="head"><h3>Sales and Event Management (OSEM) Overview</h3></div><p class="desc">OPERA Cloud Sales and Event Management is the module covering catering, event sales, function space management, banquet event orders and group sales workflow. It is a separately licensed module that integrates with OPERA</p><div class="foot"><span>CONFIGURATION</span><span class="badge">Read →</span></div></a>
   </div>
 
   <div class="disclaimer" style="margin-top: 24px;">

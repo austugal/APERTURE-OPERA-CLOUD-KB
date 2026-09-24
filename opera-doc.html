@@ -187,6 +187,10 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6 M16 13H8 M16 17H8"/></svg>
       XML Samples
     </a>
+    <a href="saft.html" class="menu-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      SAF-T Validator
+    </a>
     <a href="opera-library.html" class="menu-link active">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/><path d="M9 7h6 M9 11h6 M9 15h4"/></svg>
       Reference Library
@@ -230,15 +234,7 @@
     var body = document.getElementById('doc-body');
     var metaEl = document.getElementById('doc-meta');
 
-    var allowed = [
-      'README.md',
-      'cutover-guide.md',
-      'ideas-g3-continuous-pricing.md',
-      'ssd-interface-service-account.md',
-      'advance-deposit-city-tax-fiscal.md',
-      'training-catalogue.md',
-      'training-schedule-40h.md'
-    ];
+    var allowed = ["01-user-guide-index.md","01a-getting-started.md","02-inventory-administration-complete.md","02b-booking-administration-complete.md","02c-front-desk-complete.md","03-financial-complete.md","03a-administration-complete.md","04-role-manager-complete.md","05-toolbox-complete.md","06-exchange-integration-guide.md","07-glossary.md","advance-deposit-city-tax-fiscal.md","bi-publisher-folio-customization.md","certified-integrations-ohip.md","channel-manager-integration-overview.md","community-tooling.md","cutover-guide.md","daily-night-audit-checklist.md","emea-fiscal-watch.md","france-fiscal.md","hypercare-checklist.md","ideas-g3-continuous-pricing.md","ifc8-controller-installation.md","ifc8-guides-index.md","ifc8-interface-architecture.md","ifc8-key-card.md","ifc8-pbx-call-accounting.md","ifc8-pos.md","loyalty-membership-configuration.md","migration-tools-overview.md","mobile-configuration-guide.md","monthly-financial-close-checklist.md","night-audit-procedures.md","ohip-api-reference.md","ohip-business-events-reference.md","opera-cloud-26x-fiscal-changes.md","opera-cloud-central.md","opera-cloud-release-notes-tracker.md","opera-controls-reference.md","opera5-to-opera-cloud-migration-overview.md","oxi-overview.md","piw-property-information-worksheet-guide.md","portugal-fiscal-master.md","pre-go-live-readiness-checklist.md","release-watch.md","reporting-analytics-overview.md","revenue-management-integration-overview.md","saft-pt-export-customisation.md","sales-catering-osem-overview.md","spain-fiscal-sii.md","ssd-interface-service-account.md","support-troubleshooting-guide.md","training-catalogue.md","training-schedule-40h.md","workstation-setup-guide.md"];
 
     if (!file || allowed.indexOf(file) === -1) {
       body.innerHTML = '<div class="doc-error"><strong>Document not found.</strong>The requested reference is not in the library. <br><br><a href="opera-library.html">Return to the library index</a>.</div>';
