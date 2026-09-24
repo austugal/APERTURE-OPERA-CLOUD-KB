@@ -164,6 +164,8 @@ Controls Sales and Catering functionality. Requires OPERA Cloud Sales and Event 
 
 Controls membership programmes, tracking, awards, member ID generation.
 
+Key controls, per [Oracle 24.3](https://docs.oracle.com/en/industries/hospitality/opera-cloud/24.3/ocsuh/c_opera_controls_membership.htm): ENROLLMENT with DEFAULT ENROLLMENT CODE, DEFAULT MEMBERSHIP TYPE, LOYALTY MEMBERSHIP CONFIGURATION, MEMBERSHIP LINK, MASK MEMBERSHIP NUMBERS, MEMBER PROFILE UPDATE RESTRICTION. Full table and a field note on auto-enrollment in [loyalty-membership-configuration.md](loyalty-membership-configuration.md).
+
 ### General
 
 Controls system-wide behaviour including locale, date format, currency display, password policy, session timeout, audit retention.

@@ -18,8 +18,7 @@ for (const f of readdirSync('reference-docs').filter(f => f.endsWith('.md') && f
   index.push({ file: f, title, desc, cat: CATS.find(([, re]) => re.test(f))[0] });
 }
 writeFileSync('reference-docs/index.json', JSON.stringify(index, null, 1));
-let doc = readFileSync('opera-doc.html', 'utf8');
-writeFileSync('opera-doc.html', doc.replace(/var allowed = \[[\s\S]*?\];/, 'var allowed = ' + JSON.stringify(index.map(d => d.file)) + ';'));
+// opera-doc.html reads reference-docs/manifest.json. build.mjs publishes the full list in dist.
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 let tiles = '';
 for (const [cat] of CATS) {

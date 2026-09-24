@@ -17,6 +17,31 @@ Transaction code numbers used in examples are placeholders. Implementing propert
 
 ---
 
+## Verifactu — not yet in force. Spain in 2026 is an SII jurisdiction
+
+**Documented.** Real Decreto-ley 15/2025, de 2 de diciembre, BOE núm. 290 de 3 de diciembre de 2025,
+pp. 157601–157607. ELI https://www.boe.es/eli/es/rdl/2025/12/02/15
+
+Amending *disposición final cuarta* of Real Decreto 1007/2023:
+
+> los obligados tributarios a que se refiere el artículo 3.1.a) deberán tener adaptados los sistemas
+> informáticos […] antes del **1 de enero de 2027**. El resto de obligados tributarios mencionados
+> en el artículo 3.1 deberán tener operativos los citados sistemas informáticos antes del
+> **1 de julio de 2027**.
+
+This is the **second** deferral; Real Decreto 254/2025 of 1 April moved the dates once already. The
+previous deadline was 1 January 2026.
+
+**Consequence for configuration: nothing in this guide changes for 2026.** Spain remains governed by
+SII under Real Decreto 596/2016. Any plan, demo or checklist built on a 2026 Verifactu go-live is
+describing an obligation that does not exist yet.
+
+The article 3.1.a) group is widely reported as Corporate Income Tax contributors. That comes from
+commentary, not from the amending text. **Read article 3.1 of RD 1007/2023 before telling a customer
+which bucket applies to them.**
+
+---
+
 ## Configuration layers
 
 | Layer | Domain | Path root |

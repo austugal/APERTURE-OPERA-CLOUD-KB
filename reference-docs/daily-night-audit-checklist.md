@@ -72,7 +72,7 @@ Run only on properties subject to these obligations. Confirm post-audit because 
 
 | Export | Path | Verified |
 |---|---|---|
-| Police arrival export (e.g. SEF BA03, Mossos, etc.) | Miscellaneous > Exports > Country | ☐ |
+| Police arrival export (receiving authority confirmed in writing per property; e.g. Mossos in Catalonia. Portugal: SEF was dissolved in 2023, see `portugal-fiscal-master.md` 11.2) | Miscellaneous > Exports > Country | ☐ |
 | Submission confirmation received | Per authority | ☐ |
 | SAF-T (if running daily) | Miscellaneous > Exports > Country | ☐ |
 | SII submission (Spain, real-time) | Per AEAT | ☐ |

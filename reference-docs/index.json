@@ -216,6 +216,12 @@
   "cat": "Fiscal and compliance"
  },
  {
+  "file": "opera-cloud-26x-ohip-observability.md",
+  "title": "OPERA Cloud 26.x OHIP Observability",
+  "desc": "Across four releases Oracle made OHIP integration observable in a way it was not a year ago. Individually each change is small. As a set they change how an integration is troubleshooted, and that is worth knowing before ",
+  "cat": "Integrations and OHIP"
+ },
+ {
   "file": "opera-cloud-central.md",
   "title": "OPERA Cloud Central — Enterprise Layer Reference",
   "desc": "OPERA Cloud Central is the above-property layer of the OPERA Cloud platform. It centralises data and functionality from OPERA Cloud modules under one unified user interface and one login, built on a central database shar",
@@ -223,8 +229,8 @@
  },
  {
   "file": "opera-cloud-release-notes-tracker.md",
-  "title": "OPERA Cloud Release Notes Tracker",
-  "desc": "Index of OPERA Cloud quarterly releases with major changes per version. Living document. Use this as a starting reference and consult the official Oracle release notes for the authoritative detail per version.",
+  "title": "OPERA Release Tracker",
+  "desc": "Portfolio-level index. Per-release detail lives in one file per product per release under releases/. Restructured 2026-09-10; nothing was deleted, the per-release content moved into its own file and this page became the ",
   "cat": "Configuration"
  },
  {
@@ -262,6 +268,60 @@
   "title": "Pre Go-Live Readiness Checklist",
   "desc": "Verification checklist for the days immediately preceding OPERA Cloud cutover. The checklist serves as the formal gate that authorises cutover execution.",
   "cat": "Delivery and go-live"
+ },
+ {
+  "file": "pt-fiscal-migration-folio-stationery.md",
+  "title": "PT Migration: OPERA 5 to OPERA Cloud — Fiscal Live-Day Rules + Folio Stationery",
+  "desc": "Tier 1, documented. Our own configuration knowledge for Portugal OPERA 5 to OPERA Cloud fiscal migration, validated against the Oracle Hospitality OPERA Cloud Portugal fiscal reference guidance and direct guidance from t",
+  "cat": "Fiscal and compliance"
+ },
+ {
+  "file": "release-ifc8-8.17.md",
+  "title": "Hotel Property Interface (IFC8) 8.17.0.0",
+  "desc": "Everything below is quoted or closely paraphrased from Oracle's Release Notes. Commentary is separated and labelled.",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "release-opera-cloud-25.5.md",
+  "title": "OPERA Cloud Services 25.5",
+  "desc": "Roughly 120 features across 16 modules. Twenty relevant to fiscal, integrations, payments, cashiering, distribution and migration. Seven written up.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "release-opera-cloud-26.1.md",
+  "title": "OPERA Cloud Services 26.1",
+  "desc": "Eleven relevant features. Six are fiscal or country specific.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "release-opera-cloud-26.2.md",
+  "title": "OPERA Cloud Services 26.2",
+  "desc": "Fiscal and workflow reconciled. 26.2 pushed fiscal communication into Accounts Receivable for France and Mexico and extended stamp tax into North and West Africa.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "release-opera-cloud-26.3.md",
+  "title": "OPERA Cloud Services 26.3",
+  "desc": "Twelve features relevant to implementation, fiscal and integration work.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "release-opera-cloud-distribution-26.1.md",
+  "title": "OPERA Cloud Distribution 26.1",
+  "desc": "Six features, all under DISTRIBUTION CHANNELS, all API changes. This is the largest Distribution feature release of the three 26.x releases.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "release-opera-cloud-distribution-26.2.md",
+  "title": "OPERA Cloud Distribution 26.2",
+  "desc": "Three features, all under DISTRIBUTION CHANNELS, all API changes.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "release-opera-cloud-distribution-26.3.md",
+  "title": "OPERA Cloud Distribution 26.3",
+  "desc": "Scale: SMALL. Steps to enable: Yes.",
+  "cat": "Configuration"
  },
  {
   "file": "release-watch.md",

@@ -29,7 +29,8 @@
     return cache;
   }
   function search(question, records, limit) {
-    var q = tokens(question); if (!q.length) return [];
+    var q = tokens(question), versions = String(question || '').match(/\b\d{1,2}\.\d{1,2}\b/g) || [];
+    if (!q.length && !versions.length) return [];
     var idx = index(records), N = records.length, k1 = 1.4, b = 0.7;
     var weights = {};
     q.forEach(function (t) { weights[t] = Math.max(weights[t] || 0, 1); (ALIASES[t] || []).forEach(function (a) { weights[a] = Math.max(weights[a] || 0, 0.4); }); });
@@ -45,6 +46,7 @@
         if (weights[t] === 1) hits++;
       });
       phrases.forEach(function (p) { if (d.title.indexOf(p) >= 0) s += 3; else if (d.body.indexOf(p) >= 0) s += 1.5; });
+      versions.forEach(function (v) { if (d.title.indexOf(v) >= 0) s += 6; else if (d.body.indexOf(v) >= 0) s += 1.5; });
       s *= 1 + 0.25 * Math.max(0, hits - 1);
       return { r: d.r, s: s };
     }).filter(function (x) { return x.s > 1.2; }).sort(function (a, b) { return b.s - a.s; });

@@ -13,8 +13,35 @@ Transaction code numbers used in examples are placeholders. Implementing propert
 - Oracle Hospitality OPERA Cloud Reporting and Analytics User Guide
 - Autoridade Tributária e Aduaneira (AT) — Portal das Finanças technical specifications for SAF-T (PT) and ATCUD
 - Código do Imposto sobre o Valor Acrescentado (CIVA) — Article 36 invoice content requirements
-- Serviço de Estrangeiros e Fronteiras (SEF) file format BA03 for guest notification
+- Guest notification (boletim de alojamento) — **see the note in Layer 11.2 on the receiving authority.**
+  OPERA ships the `PT_POLICE_EXPORT_DAY` country export template; the legacy specification reference
+  is `BA03`
 - Decreto-Lei 28/2019 and Portaria 195/2020 governing invoice digital signature and ATCUD
+
+---
+
+## Regulatory horizon — 31 December 2026
+
+**Documented.** Lei n.º 73-A/2025, de 30 de dezembro, *Orçamento do Estado para 2026*, DR 1.ª série
+N.º 250, Suplemento. https://diariodarepublica.pt/dr/detalhe/lei/73-a-2025-993270096
+
+> 3 — Até 31 de dezembro de 2026 são aceites faturas em ficheiro PDF, sendo consideradas como
+> faturas eletrónicas para todos os efeitos previstos na legislação fiscal.
+
+From **1 January 2027** a PDF is no longer an electronic invoice in Portuguese tax law. The
+replacement is the structured **CIUS-PT** format with a qualified electronic signature or seal. The
+same budget law extends the B2G e-invoicing exemption for micro, small and medium enterprises to the
+same date.
+
+**Unchanged:** ATCUD, the invoice QR code and the digital signature are already mandatory and are
+not affected.
+
+**Citation warning.** Do not cite Decreto-Lei 13-A/2025 for the 2026 date — that instrument is the
+2025 budget execution decree and its text reads *"alargado até 31 de dezembro de 2025"*. These
+deadlines roll forward annually by each year's budget instrument. **Cite the budget law for the year
+the deadline sits in, and re-check every December.**
+
+*Inference, labelled:* four consecutive annual extensions make a fifth plausible. Do not plan on it.
 
 ---
 
@@ -250,13 +277,31 @@ Three bucket types map OPERA codes to fiscal partner classifications.
 
 Configure the SAF-T export per Oracle Portugal Fiscal Reference Guide. Export must include all transaction codes mapped to M-codes, all folios issued in the period, all payment records, and all customer records (NIF, fiscal name, address, country).
 
-Submission to AT is monthly by the 25th of the following month.
+Monthly communication of invoice data to AT (SAF-T PT invoicing file) is due by the **5th of the following month**. Corrected 2026-09-22 from "the 25th", which was wrong; the 5th is confirmed by the Ordem dos Contabilistas Certificados. This monthly invoicing communication is distinct from the SAF-T accounting file, which is annual.
 
-### 11.2 Police Export (SEF BA03)
+### 11.2 Police Export (guest notification, legacy spec BA03)
 
-Configure the SEF export for guest notification. Field structure follows SEF specification BA03. Country code uses the 3-letter ISO 3166-1 alpha-3 code, not the 2-letter code. Common error: filter excluding "PRT" but not "PT".
+**Receiving authority — open question, confirm per property before configuring.**
 
-Submission to SEF is per arrival.
+The **Serviço de Estrangeiros e Fronteiras (SEF) was extinguished on 29 October 2023** by
+Decreto-Lei n.º 41/2023, de 2 de junho (DR 1.ª série, N.º 107). The Agência para a Integração,
+Migrações e Asilo, I.P. (AIMA) succeeded to its administrative competences; enforcement moved to
+PSP, GNR and the Polícia Judiciária by subject matter.
+
+**The guest notification obligation itself persists.** The SIBA portal and the sanctions regime are
+reported as continuing. What ended is the agency named in earlier versions of this guide.
+
+**This guide does not name a successor, deliberately.** The competence is split and the practical
+question on a project is not who holds it in law but which endpoint and credentials *this property*
+is registered with. **Obtain written confirmation from the property of its current submission
+channel before configuring the export.** Do not configure to a named authority on the strength of
+this document.
+
+What OPERA provides is unaffected: the `PT_POLICE_EXPORT_DAY` country export, pipe delimited, three
+record types, file name `<NIF><Establishment><file number>.DAT`, generated manually rather than at
+night audit.
+
+Country code uses the 3-letter ISO 3166-1 alpha-3 code, not the 2-letter code. Common error: filter excluding "PRT" but not "PT".
 
 ### 11.3 INE Statistics
 
@@ -281,6 +326,10 @@ Verification only. Do not configure further until each item below is true.
 - Digital signatures active and tested
 - SAF-T export produces non-zero rows for test period
 - Police Export accepts test arrival
+- [ ] **Receiving authority confirmed in writing by the property**, and the configured destination
+  matches it. *Producing a correctly formatted file is not evidence that it reaches anyone.* This
+  gate previously validated format only, which is how a reference to a body dissolved in 2023
+  survived in this guide.
 - Deposit handling tested end to end (deposit > check in > final folio)
 - City tax posts correctly on nights 1 through max
 - HB/FB VAT split posts correctly
@@ -290,7 +339,7 @@ Verification only. Do not configure further until each item below is true.
 
 ## Layer 14 — Post-go-live operations
 
-Procedures only. Cover monthly SAF-T submission, daily SEF Police Export, monthly INE submission, fiscal partner certificate renewal, and quarterly verification of ATCUD series sequence integrity.
+Procedures only. Cover monthly SAF-T submission, daily Police Export to the receiving authority confirmed per property (see 11.2), monthly INE submission, fiscal partner certificate renewal, and quarterly verification of ATCUD series sequence integrity.
 
 ---
 
@@ -324,4 +373,4 @@ Procedures only. Cover monthly SAF-T submission, daily SEF Police Export, monthl
 
 ---
 
-*Derived from publicly available Oracle documentation, Portuguese tax law (CIVA, Decreto-Lei 28/2019, Portaria 195/2020) and AT/SEF technical specifications. Not affiliated with Oracle Corporation. Licensed CC BY-NC-SA 4.0.*
+*Derived from publicly available Oracle documentation, Portuguese tax law (CIVA, Decreto-Lei 28/2019, Portaria 195/2020) and AT technical specifications. Not affiliated with Oracle Corporation. Licensed CC BY-NC-SA 4.0.*

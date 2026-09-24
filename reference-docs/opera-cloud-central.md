@@ -63,6 +63,7 @@ Central configuration governance.
 
 ## Adoption
 
+Oracle announcement 2025-06-16: 20 new hotel chains added OPERA Cloud Central in the past fiscal year, 3,500 properties on it. Accor selected OPERA Cloud for global PMS 2025-09-04. The product is shipping and scaling now, not a future roadmap item.
 
 ## What this means for an implementer (own expertise)
 

@@ -64,6 +64,22 @@ OXI translates between OPERA codes and partner-system codes via conversion table
 
 Conversion table maintenance is one of the most common sources of OXI integration issues.
 
+### Membership conversion
+
+**Field note, observed on a live OPERA Cloud property with a third-party booking engine, not Oracle-documented.** An inbound `<Membership>` block is resolved as two lookups in a fixed order:
+
+1. **Membership type**, from `<programCode>`, matched against the **external code** of the membership type conversion. The OPERA code is not used for the match
+2. **Membership level**, from `<mfMembershipCategory>`, matched against the membership level conversion. This only happens if step 1 succeeds
+
+If the type fails, the whole block is dropped and the level mapping is never read, however correct it is. Two failures seen in sequence on one integration:
+
+- The sender put the level name in `<programCode>`. OPERA returned *"Valid Membership Type not found in OPERA for <value>"* and created no membership
+- The sender sent the OPERA code (`CLUBX`) while the conversion's external code was an alias (`CLUBXX`). No match, membership dropped. Fixed by setting the external code to the exact value the sender transmits
+
+`<accountID>` landed as the membership card number, as sent. There was no conversion table for it.
+
+Open question from the same case, unresolved: after an enrollment default was cleared (see [loyalty-membership-configuration.md](loyalty-membership-configuration.md)), the level stopped populating although the type resolved and the mapped level value was still present. Whether OXI processes `mfMembershipCategory` as a level in every configuration is not confirmed.
+
 ---
 
 ## Queue management

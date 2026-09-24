@@ -88,16 +88,28 @@ Configure programme-related communications: enrolment confirmation, tier upgrade
 
 ---
 
-## OPERA Controls relevant to Loyalty
+## OPERA Controls relevant to Membership
 
-Loyalty-specific controls become visible when the module is licensed.
+The Membership group in OPERA Controls ([Oracle, OPERA Controls — Membership, 24.3](https://docs.oracle.com/en/industries/hospitality/opera-cloud/24.3/ocsuh/c_opera_controls_membership.htm)). Names and codes as Oracle lists them. Several are global controls.
 
-- Loyalty programme active
-- Auto-enrolment at check-in (configurable)
-- Member ID generation pattern
-- Tier qualification recalculation frequency
-- Point expiry policy
-- Membership merge rules
+| Control | Type | What it does, per Oracle |
+|---|---|---|
+| ENROLLMENT `[ENROLLMENT]` | Function | Enrol guests and contacts in a membership programme managed in an external loyalty solution |
+| DEFAULT ENROLLMENT CODE `[DEFAULT_ENROLLMENT_CODE]` | Parameter, under ENROLLMENT | Default Enrollment Code identifying how the guest was enrolled. Displayed when enrolling or adding membership details to a profile |
+| ENROLLMENT TYPE `(ENROLLMENT_TYPE)` | Parameter, under ENROLLMENT | Enrollment types available: Loyalty, Gaming |
+| DEFAULT MEMBERSHIP TYPE `[DEFAULT_MEMBERSHIP_TYPE]` | Setting | The membership type that automatically populates in the Memberships panel when adding membership details to a profile, enrolling a profile, or linking a profile membership to a reservation |
+| LOYALTY MEMBERSHIP CONFIGURATION `[OCIS_MEM_CONF]` | Parameter | Configure membership class, types, status codes and qualifying rates for the primary loyalty membership type when integrated with an external loyalty solution |
+| MEMBERSHIP LINK `[MEMBERSHIP_LINK]` | Parameter | Link a profile membership of the Default Membership Type to a reservation with a different profile, informational only, no points generated |
+| MASK MEMBERSHIP NUMBERS `[MASK_MEMBERSHIP_NUMBERS]` | Parameter | Card numbers masked by default. Users with the View Membership Number task see them unmasked |
+| MEMBER PROFILE UPDATE RESTRICTION `[MEMBER_PROFILE_UPDATE_RESTRICTION]` | Parameter | Once a member has a reservation, name changes and profile merge are disabled |
+| PREFERRED CARD `[MEM_PREF_CARD]` | Parameter | Guest chooses which membership type earns points for the stay |
+| MEMBERSHIP RATE RULES `[MEMBERSHIP_RATES]` | Parameter | Link a rate code to a membership type or level |
+| AWARD POINTS REDEMPTION `[AWARD_REDEMPTION]` | Function | Redemption of loyalty awards: rate, upgrade, package, payment and other |
+| MEMBERSHIP CLAIMS `[MEMBERSHIP_CLAIMS]` | Function | Membership claims, adjustment limits, origins and types |
+
+Oracle repeats the Default Membership Type behaviour for loyalty enrollment in [Enrolling Guests in External Loyalty Programs, 24.3](https://docs.oracle.com/en/industries/hospitality/opera-cloud/24.3/ocsuh/t_managing_profiles_enrolling_guests_in_external_loyalty_programs.htm).
+
+**Field note, observed on a live OPERA Cloud property, not Oracle-documented.** The property's OPERA Controls screen showed three defaults side by side: Default Global Enrollment Code, Default Membership Type and **Default Property Enrollment Code**. A value in Default Property Enrollment Code caused every new profile to be enrolled automatically in the property's own programme, with the membership type pre-filled and locked. Staff could not add a second programme. Clearing it to blank fixed the behaviour. Oracle's 24.3 page names only DEFAULT_ENROLLMENT_CODE, so the "Global" and "Property" fields are read here as its two scopes. That reading is an inference.
 
 ---
 
@@ -163,6 +175,8 @@ Verify current Oracle Validated Integration status.
 - Duplicate memberships from incomplete profile merge logic
 - External programme out of sync due to missed Business Event
 - Point expiry not communicated, leading to member complaints
+- A membership nobody enrolled appears on every new profile and the type cannot be changed. Check the three membership defaults in OPERA Controls first, before membership class, sequence, primary flag or card number generation. See the field note above
+- A membership sent through OXI is dropped. Check the membership type conversion first. See [oxi-overview.md](oxi-overview.md#membership-conversion)
 - Cross-programme accrual (codeshare with airline) not configured
 
 ---

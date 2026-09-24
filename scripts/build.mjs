@@ -37,4 +37,12 @@ for(const f of readdirSync('.')) if(f.endsWith('.html') || f.endsWith('.zip') ||
 for(const d of ['assets','xml-library','reference-docs','samples']) if (existsSync(d)) cpSync(d,'dist/'+d,{recursive:true});
 writeFileSync('dist/_redirects', ['/docs /resources.html 301', '/library /resources.html 301', '/tutorials /videos.html 301'].join('\n') + '\n');
 writeFileSync('dist/_headers', ['/*', '  X-Frame-Options: SAMEORIGIN', '  X-Content-Type-Options: nosniff', '  Referrer-Policy: strict-origin-when-cross-origin'].join('\n') + '\n');
+// dist manifest: synced allowlist plus any other document in reference-docs/
+{
+  const synced = existsSync('reference-docs/manifest.json') ? JSON.parse(readFileSync('reference-docs/manifest.json', 'utf8')) : [];
+  const have = new Set(synced.map(d => d.file));
+  const lib = JSON.parse(readFileSync('reference-docs/index.json', 'utf8'));
+  const all = synced.concat(lib.filter(d => !have.has(d.file)).map(d => ({ file: d.file, title: d.title })));
+  writeFileSync('dist/reference-docs/manifest.json', JSON.stringify(all, null, 1));
+}
 console.log(`Built public site with ${records.length} reference sections.`);

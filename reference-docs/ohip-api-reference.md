@@ -93,7 +93,7 @@ Always avoid uploading API secrets or tokens to Postman cloud sync or to GitHub.
 
 Oracle publishes API specifications aligned to OPERA Cloud quarterly releases. Major version markers seen in recent releases.
 
-- OPERA Cloud 25.5 (current at time of writing)
+- OPERA Cloud 26.3, current as at 2 September 2026
 - OPERA Cloud 25.4 (Data APIs grouped resources introduced)
 - OPERA Cloud 25.1 (Distribution Onboarding API, Outbound Lookup, Content Notification)
 - OPERA Cloud 24.4 (Reporting and Analytics download Postman collection added)

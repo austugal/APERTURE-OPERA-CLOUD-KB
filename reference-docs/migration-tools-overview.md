@@ -91,6 +91,7 @@ Third-party accelerators built by Oracle partners and consultancies to speed mig
 
 Examples documented in Oracle partner ecosystem material.
 
+- HRS Data Migration Tool (HRS Hospitality and Retail Systems): transfers profiles, reservations and configurations via OHIP
 - THP migration utility
 - RobosizeME RPA automation for PIW completion
 - Redwood Migration Accelerator for QA observation and remediation
@@ -108,6 +109,7 @@ Partner tools augment, but do not replace, the Oracle-managed migration via OCMO
 | Multi-property rollout, template replication | Oracle Hospitality Consulting Accelerator (Oracle Consulting engagement) |
 | Profile import from legacy CRM | Native Data Import (CSV) |
 | Reservation backfill from legacy PMS | Native Data Import or OCMP depending on volume |
+| Partner-accelerated migration | Engage HRS, THP, RobosizeME or equivalent |
 
 ---
 
