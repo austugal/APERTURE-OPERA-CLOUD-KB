@@ -1,5 +1,5 @@
 import './library.mjs';
-import { readFileSync, writeFileSync, mkdirSync, readdirSync, cpSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync, cpSync, existsSync, rmSync } from 'node:fs';
 function clean(s) { return s.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ').replace(/<[^>]+>/g,' ').replace(/&amp;/g,'&').replace(/&nbsp;/g,' ').replace(/&[a-z]+;/g,' ').replace(/\s+/g,' ').trim(); }
 const records = [];
 
@@ -32,7 +32,7 @@ if (existsSync('reference-docs')) {
 
 writeFileSync('assets/copilot-data.json',JSON.stringify(records));
 writeFileSync('data/knowledge.json',JSON.stringify(records));
-mkdirSync('dist',{recursive:true});
+rmSync('dist',{recursive:true,force:true}); mkdirSync('dist',{recursive:true});
 for(const f of readdirSync('.')) if(f.endsWith('.html') || f.endsWith('.zip') || f === 'robots.txt' || f === 'sitemap.xml') cpSync(f,'dist/'+f);
 for(const d of ['assets','xml-library','reference-docs','samples']) if (existsSync(d)) cpSync(d,'dist/'+d,{recursive:true});
 writeFileSync('dist/_redirects', ['/docs /resources.html 301', '/library /resources.html 301', '/tutorials /videos.html 301'].join('\n') + '\n');
