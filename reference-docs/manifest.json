@@ -1,0 +1,170 @@
+[
+ {
+  "file": "portugal-fiscal-master.md",
+  "title": "Portugal Fiscal Master Configuration"
+ },
+ {
+  "file": "spain-fiscal-sii.md",
+  "title": "Spain Fiscal Configuration (SII and SAF-T ES)"
+ },
+ {
+  "file": "opera-cloud-26x-fiscal-changes.md",
+  "title": "OPERA Cloud 26.x Fiscal Changes"
+ },
+ {
+  "file": "pt-fiscal-migration-folio-stationery.md",
+  "title": "PT Migration: OPERA 5 to OPERA Cloud — Fiscal Live-Day Rules + Folio Stationery"
+ },
+ {
+  "file": "advance-deposit-city-tax-fiscal.md",
+  "title": "Advance Deposit Handling, Parameters, and City Tax Configuration — Portugal Fiscal"
+ },
+ {
+  "file": "opera-cloud-release-notes-tracker.md",
+  "title": "OPERA Release Tracker"
+ },
+ {
+  "file": "release-opera-cloud-26.3.md",
+  "title": "OPERA Cloud Services 26.3"
+ },
+ {
+  "file": "release-opera-cloud-26.2.md",
+  "title": "OPERA Cloud Services 26.2"
+ },
+ {
+  "file": "release-opera-cloud-26.1.md",
+  "title": "OPERA Cloud Services 26.1"
+ },
+ {
+  "file": "release-opera-cloud-25.5.md",
+  "title": "OPERA Cloud Services 25.5"
+ },
+ {
+  "file": "release-opera-cloud-distribution-26.3.md",
+  "title": "OPERA Cloud Distribution 26.3"
+ },
+ {
+  "file": "release-opera-cloud-distribution-26.2.md",
+  "title": "OPERA Cloud Distribution 26.2"
+ },
+ {
+  "file": "release-opera-cloud-distribution-26.1.md",
+  "title": "OPERA Cloud Distribution 26.1"
+ },
+ {
+  "file": "release-ifc8-8.17.md",
+  "title": "Hotel Property Interface (IFC8) 8.17.0.0"
+ },
+ {
+  "file": "oxi-overview.md",
+  "title": "OXI (OPERA Xchange Interface) Overview"
+ },
+ {
+  "file": "ifc8-interface-architecture.md",
+  "title": "IFC8 Interface Architecture"
+ },
+ {
+  "file": "ohip-api-reference.md",
+  "title": "Oracle OHIP REST API Reference"
+ },
+ {
+  "file": "ohip-business-events-reference.md",
+  "title": "OHIP Business Events Reference"
+ },
+ {
+  "file": "opera-cloud-26x-ohip-observability.md",
+  "title": "OPERA Cloud 26.x OHIP Observability"
+ },
+ {
+  "file": "certified-integrations-ohip.md",
+  "title": "Oracle-Certified Integrations for OPERA Cloud"
+ },
+ {
+  "file": "channel-manager-integration-overview.md",
+  "title": "Channel Manager Integration Overview"
+ },
+ {
+  "file": "revenue-management-integration-overview.md",
+  "title": "Revenue Management System (RMS) Integration Overview"
+ },
+ {
+  "file": "ideas-g3-continuous-pricing.md",
+  "title": "IDeaS G3 RMS Continuous Pricing — OPERA Cloud Configuration"
+ },
+ {
+  "file": "ssd-interface-service-account.md",
+  "title": "SSD Interface Service Account — Manage and Troubleshooting Guide"
+ },
+ {
+  "file": "opera-controls-reference.md",
+  "title": "OPERA Controls Reference"
+ },
+ {
+  "file": "loyalty-membership-configuration.md",
+  "title": "Loyalty and Membership Configuration"
+ },
+ {
+  "file": "reporting-analytics-overview.md",
+  "title": "OPERA Cloud Reporting and Analytics Overview"
+ },
+ {
+  "file": "bi-publisher-folio-customization.md",
+  "title": "BI Publisher Folio Customisation"
+ },
+ {
+  "file": "sales-catering-osem-overview.md",
+  "title": "Sales and Event Management (OSEM) Overview"
+ },
+ {
+  "file": "opera-cloud-central.md",
+  "title": "OPERA Cloud Central — Enterprise Layer Reference"
+ },
+ {
+  "file": "night-audit-procedures.md",
+  "title": "OPERA Cloud Night Audit Procedures"
+ },
+ {
+  "file": "daily-night-audit-checklist.md",
+  "title": "Daily Night Audit Checklist"
+ },
+ {
+  "file": "monthly-financial-close-checklist.md",
+  "title": "Monthly Financial Close Checklist"
+ },
+ {
+  "file": "cutover-guide.md",
+  "title": "OPERA Cutover Guide — Reference Extract"
+ },
+ {
+  "file": "pre-go-live-readiness-checklist.md",
+  "title": "Pre Go-Live Readiness Checklist"
+ },
+ {
+  "file": "hypercare-checklist.md",
+  "title": "Hypercare Checklist"
+ },
+ {
+  "file": "migration-tools-overview.md",
+  "title": "OPERA Cloud Migration Tools Overview"
+ },
+ {
+  "file": "opera5-to-opera-cloud-migration-overview.md",
+  "title": "OPERA 5 to OPERA Cloud Migration Overview"
+ },
+ {
+  "file": "piw-property-information-worksheet-guide.md",
+  "title": "Property Information Worksheet (PIW) Guide"
+ },
+ {
+  "file": "training-catalogue.md",
+  "title": "Oracle OPERA Cloud Training Course Catalogue"
+ },
+ {
+  "file": "training-schedule-40h.md",
+  "title": "OPERA Cloud PMS Training Schedule — 40 Hours / 5 Days"
+ },
+ {
+  "file": "07-glossary.md",
+  "title": "OPERA Cloud Glossary"
+ }
+]

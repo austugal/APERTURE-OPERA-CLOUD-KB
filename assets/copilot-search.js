@@ -5,8 +5,9 @@
     terms = terms.filter(function(t){return t.length>1 && !stop.test(t);});
     var aliases = {eod:['night','audit'],saft:['portugal','fiscal'],sii:['spain','fiscal'],billing:['cashiering','folio'],checkin:['front','desk'],checkout:['cashiering'],payment:['opi','payments'],reports:['analytics','reporting'],reservation:['reservations']};
     var expanded = terms.slice(); terms.forEach(function(t){if(aliases[t]) expanded=expanded.concat(aliases[t]);});
-    if(!terms.length)return [];
-    return records.map(function(r){var title=r.title.toLowerCase().replace(/saf[ -]?t/g,'saft'),body=r.text.toLowerCase().replace(/saf[ -]?t/g,'saft'); var score=0; expanded.forEach(function(t){ if(title.indexOf(t)>=0)score+=5;if(body.indexOf(t)>=0)score+=1; }); return {record:r,score:score};}).filter(function(r){return r.score>=2;}).sort(function(a,b){return b.score-a.score;}).slice(0,5).map(function(r){return r.record;});
+    var versions = question.match(/\b\d{1,2}\.\d{1,2}\b/g) || [];
+    if(!terms.length && !versions.length)return [];
+    return records.map(function(r){var title=r.title.toLowerCase().replace(/saf[ -]?t/g,'saft'),body=r.text.toLowerCase().replace(/saf[ -]?t/g,'saft'); var score=0; expanded.forEach(function(t){ if(title.indexOf(t)>=0)score+=5;if(body.indexOf(t)>=0)score+=1; }); versions.forEach(function(v){ if(title.indexOf(v)>=0)score+=8;else if(body.indexOf(v)>=0)score+=2; }); return {record:r,score:score};}).filter(function(r){return r.score>=2;}).sort(function(a,b){return b.score-a.score;}).slice(0,5).map(function(r){return r.record;});
   }
   root.ApertureSearch=search;
 })(typeof window!=='undefined'?window:globalThis);

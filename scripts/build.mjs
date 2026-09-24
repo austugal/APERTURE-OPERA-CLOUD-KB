@@ -18,9 +18,9 @@ if (existsSync('reference-docs')) {
   for (const f of readdirSync('reference-docs').filter(f => f.endsWith('.md') && f !== 'README.md')) {
     const md = readFileSync('reference-docs/' + f, 'utf8');
     const docTitle = (md.match(/^#\s+(.+)$/m) || [,''])[1].trim() || f;
-    const parts = md.split(/^(?=##\s)/m);
+    const parts = md.split(/^(?=#{2,3}\s)/m);
     for (const part of parts) {
-      const head = (part.match(/^##\s+(.+)$/m) || [,''])[1].trim();
+      const head = (part.match(/^#{2,3}\s+(.+)$/m) || [,''])[1].trim();
       const text = part.replace(/[#*`>|_-]+/g,' ').replace(/\s+/g,' ').trim();
       if (text.length < 60) continue;
       const links = [...part.matchAll(/(https:\/\/docs\.oracle\.com\/[^\s)>\]"]+)/g)].map(x=>x[1]);
