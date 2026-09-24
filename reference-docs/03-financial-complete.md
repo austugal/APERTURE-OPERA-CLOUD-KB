@@ -35,12 +35,14 @@ Financial Administration controls: accounts, codes, rates, commissions, cashieri
 
 ### Commission Hierarchy
 
-Commission is calculated using this **4-level priority** (first match wins):
+Oracle lists the hierarchy in this order, from the fallback upwards ([Oracle, Commission Codes, 24.3](https://docs.oracle.com/en/industries/hospitality/opera-cloud/24.3/ocsuh/c_configuration_codes_commission_codes.htm)):
 
-1. **Rate Code** - Specific rate "SPAPKG" = "NON" commission (zero payment)
-2. **Negotiated Rate** - Special negotiated rates override rate code
-3. **Sales Account** - Specific travel agent/source profile commission
-4. **Default** - Global default commission code (fallback)
+1. **Default** - the code selected in the Default Commission OPERA Control, for example 10% of eligible revenue
+2. **Sales Account** - a code on the travel agent or source profile, used when it differs from the default
+3. **Rate Code** - a code on the rate code, which "overrides the Default and the Sales Account". Example: rate code SPAPKG with commission code NON pays zero to any agent
+4. **Negotiated Rate** - the negotiated rate code on the sales account or the rate code's negotiated profiles. Oracle lists it last but the page does not state its precedence over the rate code in words
+
+Commission is calculated after the reservation is checked out. Properties must configure a NON or ZERO commission code for non-eligible agents or rate codes.
 
 ### Commission Code Types
 
@@ -176,6 +178,8 @@ Each code identifies:
 
 ### Common Transaction Codes
 
+*Illustrative codes only. Transaction codes are defined per property. None of these is an Oracle standard.*
+
 | Code | Description | Commissionable | Tax |
 |------|-------------|-----------------|-----|
 | ROOM | Room revenue | Yes | Yes |
@@ -258,14 +262,14 @@ Each code identifies:
 
 ---
 
-## Key OPERA Controls (Global Overrides)
+## Key OPERA Controls and settings
 
-These settings override everything else:
+See [OPERA Controls — Commissions, 24.3](https://docs.oracle.com/en/industries/hospitality/opera-cloud/24.3/ocsuh/c_opera_controls_commissions.htm).
 
-- **Auto Calculate VAT:** Automatically compute tax on commissions
-- **Default Commission Code:** Fallback if no other commission matches
-- **Default Prepaid Commission:** Prepaid commission setting
-- **AR Settlement Trn Code:** Which code indicates direct bill A/R
+- **Default Commission:** the lowest level of the hierarchy, used only if the travel agent or source has no commission code
+- **DEFAULT TRANSACTION CODE FOR PREPAID COMMISSIONS [DEFAULT_PREPAID_COMM]:** the transaction code for prepaid commissions
+- **Auto Calculate VAT:** a commission code option that computes tax on the commission
+- **AR Settlement Trn Code:** a Cashiering application setting, not an OPERA Control in the Commissions group
 
 ---
 
@@ -295,10 +299,10 @@ If tax is 10%:
 
 ## Automated Commission Processing
 
-OPERA processes commissions in batch:
+Commission is calculated after a reservation is checked out (Oracle, Commission Codes). The steps below are a working summary, not an Oracle-documented batch sequence:
 
-1. **Nightly:** After night audit close, identify commissionable transactions
-2. **Classification:** Apply hierarchy (rate code → negotiated → sales account → default)
+1. **After check-out:** identify commissionable revenue on the stay
+2. **Classification:** apply the hierarchy above
 3. **Calculation:** Apply commission % or flat amount
 4. **Tax:** Auto-calculate if enabled
 5. **Hold Processing:** Check hold status rules

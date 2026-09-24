@@ -105,8 +105,8 @@ If issue persists → **Escalate to Level 3**
 
 **Troubleshooting:**
 1. Ping server: `ping <server_hostname>` (check <100ms response)
-2. Verify port: `telnet <server> 3050` for OPERA 5
-3. Check firewall: Verify port 3050 (or configured port) is open
+2. Verify the port: Oracle-hosted OPERA 5 and OPERA Cloud both need outbound TLS on TCP 443 ([Oracle, OPERA 5 network requirements](https://docs.oracle.com/cd/E98457_01/docs/E85652.pdf)). Test with `Test-NetConnection <host> -Port 443`
+3. Check firewall: confirm 443 outbound to the Oracle data centre is open
 4. Check server status: Log in to server console, verify OPERA process
 5. Review network trace if needed
 
@@ -257,25 +257,15 @@ If issue persists → **Escalate to Level 3**
 
 ### Integration Issues
 
-#### "IFC8 Interface File Not Generated"
-**Symptoms:** Export time passes but no file in drop directory  
-**Root Causes:**
-- IFC8 configuration not active
-- Scheduled export job failed
-- Insufficient permissions on file directory
-- Interface server down
+#### "Scheduled export file not generated"
+**Line-checked 2026-09-24:** an earlier version put this under IFC8. IFC8 is the live property interface to vendor systems (POS, PBX, key cards, over FIAS or XML), not a scheduled file export ([Oracle, Hotel Property Interface IFC8](https://docs.oracle.com/cd/E94145_01/index.html)). Scheduled files such as back-office or fiscal exports come from OPERA's export configuration.
 
+**Symptoms:** export time passes but no file arrives  
 **Troubleshooting:**
-1. Check IFC8 config: Verify export is scheduled and enabled
-2. Check directory: Verify file drop location is accessible
-3. Check logs: Review OPERA logs for IFC8 export errors
-4. Check interface server: Verify back-office system is running
-
-**Resolution:**
-- If config wrong: Update IFC8 interface configuration
-- If permissions issue: Fix directory ACLs (IT team)
-- If server down: Start interface server (Level 2+)
-- If file format issue: Verify expected file format matches config
+1. Check the export is active and scheduled in OPERA's export configuration
+2. Check the delivery target (SFTP or email) is reachable and the credentials are current
+3. Review the export's own generation history for errors
+4. For an IFC8 fault instead, check the interface status and the IFC8 Controller, not a file directory
 
 ---
 
@@ -305,9 +295,11 @@ If issue persists → **Escalate to Level 3**
 
 ### OPERA 5 Logs
 
-**Location:** `C:\Opera5\logs\`
+*Unverified, line-checked 2026-09-24:* the folder and file names below are not in any Oracle page found. Log locations depend on how the OPERA 5 installation was built. Confirm them on the server before relying on them.
 
-**Key Files:**
+**Location (example only):** `C:\Opera5\logs\`
+
+**Key Files (example names):**
 - `OPERA.log` - Main application log (DEBUG, INFO, WARN, ERROR)
 - `OPERA_database.log` - Database connectivity
 - `OPERA_interface.log` - IFC8, integration events
@@ -336,7 +328,7 @@ Get context: grep -B5 -A5 "error_message" OPERA.log
 ## Performance Tuning
 
 ### Application Tuning
-- **JVM heap:** `-Xmx512m -Xms256m` (adjust based on available RAM)
+- **JVM heap:** size to the server and Oracle's installation guide. No Oracle figure was found for the values an earlier version quoted here
 - **Connection pool:** Tune based on concurrent users
 - **Cache settings:** Increase for frequently accessed data
 - **Query timeout:** Balance responsiveness with report completion
@@ -349,7 +341,7 @@ Get context: grep -B5 -A5 "error_message" OPERA.log
 
 ### Network Optimization
 - **QoS:** Prioritize OPERA traffic on network
-- **Compression:** Enable OPERA protocol compression
+- **Compression:** no documented OPERA "protocol compression" setting was found. Use network-level optimisation only
 - **Caching:** Local caching at workstation level
 - **Bandwidth:** Monitor and allocate sufficient capacity
 
@@ -372,8 +364,7 @@ Get context: grep -B5 -A5 "error_message" OPERA.log
 4. Restart OPERA services
 5. Verify data integrity and business continuity
 
-**Recovery Time Objective (RTO):** <4 hours  
-**Recovery Point Objective (RPO):** <1 hour
+**RTO and RPO:** set these per property or per contract. They are not Oracle commitments. For OPERA Cloud, backup and recovery of the hosted service are Oracle's responsibility under the service agreement.
 
 ---
 

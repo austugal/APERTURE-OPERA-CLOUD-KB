@@ -1,32 +1,8 @@
 [
  {
-  "file": "01-user-guide-index.md",
-  "title": "OPERA Cloud Complete User Guide",
-  "desc": "Comprehensive knowledge base for OPERA Cloud v24.2 / v25.x",
-  "cat": "Training"
- },
- {
-  "file": "01a-getting-started.md",
-  "title": "Getting Started with OPERA Cloud",
-  "desc": "Complete guide for accessing and using OPERA Cloud for the first time.",
-  "cat": "Training"
- },
- {
   "file": "02-inventory-administration-complete.md",
   "title": "Inventory Administration Complete Reference",
   "desc": "Comprehensive configuration procedures for room inventory, accommodation, function spaces, and facilities management in OPERA Cloud.",
-  "cat": "Configuration"
- },
- {
-  "file": "02b-booking-administration-complete.md",
-  "title": "Booking Administration Complete Reference",
-  "desc": "Comprehensive configuration for reservations, blocks, rules, and guest communication in OPERA Cloud.",
-  "cat": "Configuration"
- },
- {
-  "file": "02c-front-desk-complete.md",
-  "title": "Front Desk Operations Complete Reference",
-  "desc": "Comprehensive procedures for guest check-in, check-out, room assignment, and daily front desk management in OPERA Cloud.",
   "cat": "Configuration"
  },
  {
@@ -34,30 +10,6 @@
   "title": "Financial Administration Complete Reference",
   "desc": "Comprehensive financial configuration and management procedures for OPERA Cloud.",
   "cat": "Configuration"
- },
- {
-  "file": "03a-administration-complete.md",
-  "title": "Administration Complete Reference",
-  "desc": "Comprehensive administration, configuration, and system management for OPERA Cloud across all modules.",
-  "cat": "Configuration"
- },
- {
-  "file": "04-role-manager-complete.md",
-  "title": "Role Manager & Security - Complete Reference",
-  "desc": "Comprehensive guide to user roles, permissions, and security in OPERA Cloud.",
-  "cat": "Configuration"
- },
- {
-  "file": "05-toolbox-complete.md",
-  "title": "Toolbox & System Utilities - Complete Reference",
-  "desc": "Comprehensive guide to OPERA Cloud system utilities, maintenance, and administrative tools.",
-  "cat": "Configuration"
- },
- {
-  "file": "06-exchange-integration-guide.md",
-  "title": "OPERA Cloud Exchange & Integration Guide",
-  "desc": "Complete reference for OPERA Cloud integrations with external systems.",
-  "cat": "Integrations and OHIP"
  },
  {
   "file": "07-glossary.md",
@@ -76,6 +28,12 @@
   "title": "BI Publisher Folio Customisation",
   "desc": "OPERA Cloud document outputs are produced from RTF templates processed by Oracle BI Publisher. Customisation involves editing the RTF template in Microsoft Word, inserting BI Publisher merge codes and conditional logic, ",
   "cat": "Configuration"
+ },
+ {
+  "file": "certification-and-training.md",
+  "title": "Certification and Training",
+  "desc": "Every consultant who configures OPERA Cloud for a client should hold a current Oracle Hospitality credential. This page sets the rule, the path and the renewal cycle. Verified 23 September 2026.",
+  "cat": "Training"
  },
  {
   "file": "certified-integrations-ohip.md",
@@ -168,6 +126,12 @@
   "cat": "Integrations and OHIP"
  },
  {
+  "file": "internal-pseudo-rooms-walkthrough.md",
+  "title": "Internal Use Rooms: Pseudo Room Walkthrough",
+  "desc": "Client meeting walkthrough for setting up internal-use rooms in OPERA Cloud so they show in the Room Diary without distorting commercial statistics.",
+  "cat": "Delivery and go-live"
+ },
+ {
   "file": "loyalty-membership-configuration.md",
   "title": "Loyalty and Membership Configuration",
   "desc": "OPERA Cloud Loyalty is the integrated loyalty programme module. It manages member profiles, tier structures, point accrual rules, redemption and award handling, and tier benefits. Properties can run their own programme v",
@@ -178,12 +142,6 @@
   "title": "OPERA Cloud Migration Tools Overview",
   "desc": "Oracle ships several distinct tools for loading configuration and transactional data into OPERA Cloud. Each has a specific use case, owner, scope, and limit. This document maps what each one does, when to use which, and ",
   "cat": "Delivery and go-live"
- },
- {
-  "file": "mobile-configuration-guide.md",
-  "title": "OPERA Mobile Applications Configuration Guide",
-  "desc": "Mobile applications extend OPERA PMS functionality to smartphones and tablets, enabling hotel staff to manage operations from anywhere.",
-  "cat": "Configuration"
  },
  {
   "file": "monthly-financial-close-checklist.md",
@@ -382,11 +340,5 @@
   "title": "OPERA Cloud PMS Training Schedule — 40 Hours / 5 Days",
   "desc": "Source: Official Oracle PMS Training and Q&A schedule, 40-hour delivery over 5 consecutive days.",
   "cat": "Training"
- },
- {
-  "file": "workstation-setup-guide.md",
-  "title": "OPERA PMS Workstation Setup and Configuration",
-  "desc": "Complete guide for configuring Windows workstations to run OPERA PMS client applications .",
-  "cat": "Delivery and go-live"
  }
 ]

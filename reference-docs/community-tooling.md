@@ -16,13 +16,13 @@ If a tool is not listed here, it does not mean it is unsafe. It means I have not
 | PyPI | https://pypi.org/project/opera-cloud-mcp/ |
 | Source | https://github.com/lesleslie/opera-cloud-mcp |
 | Licence | BSD 3-Clause |
-| Latest release at time of writing | 0.3.6, May 2026 |
-| Language | Python 3.13+ |
+| Latest release | 0.6.4, 4 September 2026 (checked 24 September 2026). The first version of this note described 0.3.6, May 2026 |
+| Language | Python 3.14+ (from the current PyPI page) |
 | Framework | FastMCP |
 
 ### What it does
 
-Exposes an MCP (Model Context Protocol) server over OHIP REST endpoints, allowing AI agents and MCP-compatible clients (Claude Desktop, Claude Code, others) to interact with OPERA Cloud via natural-language tool calls. Approximately 45 tools grouped across five domains.
+Exposes an MCP (Model Context Protocol) server over OHIP REST endpoints, allowing AI agents and MCP-compatible clients (Claude Desktop, Claude Code, others) to interact with OPERA Cloud via natural-language tool calls. The current PyPI README lists 56 tools across five domains (10, 9, 13, 12 and 9). The per-domain breakdown below is from 0.3.6 and is kept for history.
 
 | Domain | Tool count (approximate) | Coverage |
 |---|---|---|
@@ -69,9 +69,9 @@ Required environment variables.
 OPERA_CLOUD_BASE_URL=https://your-opera-instance.com/api/v1
 OPERA_CLOUD_CLIENT_ID=...
 OPERA_CLOUD_CLIENT_SECRET=...
-OPERA_CLOUD_USERNAME=...
-OPERA_CLOUD_PASSWORD=...
 ```
+
+The current PyPI README describes OAuth2 client credentials only, with `OPERA_` prefixed variables and no username or password. The GitHub README still shows the older `OPERA_CLOUD_USERNAME` and `OPERA_CLOUD_PASSWORD` pair. Check the package version you install.
 
 ### Security considerations
 

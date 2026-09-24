@@ -166,5 +166,65 @@
  {
   "file": "07-glossary.md",
   "title": "OPERA Cloud Glossary"
+ },
+ {
+  "file": "02-inventory-administration-complete.md",
+  "title": "Inventory Administration Complete Reference"
+ },
+ {
+  "file": "03-financial-complete.md",
+  "title": "Financial Administration Complete Reference"
+ },
+ {
+  "file": "support-troubleshooting-guide.md",
+  "title": "OPERA PMS Support and Troubleshooting Guide"
+ },
+ {
+  "file": "community-tooling.md",
+  "title": "Community Tooling for OPERA Cloud"
+ },
+ {
+  "file": "emea-fiscal-watch.md",
+  "title": "EMEA Country Fiscal Watch"
+ },
+ {
+  "file": "france-fiscal.md",
+  "title": "France Fiscal Reference for OPERA Cloud"
+ },
+ {
+  "file": "ifc8-controller-installation.md",
+  "title": "IFC Controller and IFC8 Installation for OPERA Cloud"
+ },
+ {
+  "file": "ifc8-guides-index.md",
+  "title": "IFC8 Interface Guides"
+ },
+ {
+  "file": "ifc8-key-card.md",
+  "title": "IFC8 Key Card Systems"
+ },
+ {
+  "file": "ifc8-pbx-call-accounting.md",
+  "title": "IFC8 PBX and Call Accounting (Voxtel and Similar)"
+ },
+ {
+  "file": "ifc8-pos.md",
+  "title": "IFC8 POS Interfaces"
+ },
+ {
+  "file": "saft-pt-export-customisation.md",
+  "title": "SAF-T (PT) Export: Build, Mapping and Customisation in OPERA Cloud"
+ },
+ {
+  "file": "certification-and-training.md",
+  "title": "Certification and Training"
+ },
+ {
+  "file": "internal-pseudo-rooms-walkthrough.md",
+  "title": "Internal Use Rooms: Pseudo Room Walkthrough"
+ },
+ {
+  "file": "release-watch.md",
+  "title": "OPERA Cloud Release Watch"
  }
 ]

@@ -31,7 +31,7 @@ if (existsSync('reference-docs')) {
 }
 
 writeFileSync('assets/copilot-data.json',JSON.stringify(records));
-writeFileSync('netlify/functions/_knowledge.json',JSON.stringify(records));
+writeFileSync('data/knowledge.json',JSON.stringify(records));
 mkdirSync('dist',{recursive:true});
 for(const f of readdirSync('.')) if(f.endsWith('.html') || f.endsWith('.zip') || f === 'robots.txt' || f === 'sitemap.xml') cpSync(f,'dist/'+f);
 for(const d of ['assets','xml-library','reference-docs','samples']) if (existsSync(d)) cpSync(d,'dist/'+d,{recursive:true});

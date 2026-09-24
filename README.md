@@ -3,7 +3,9 @@
 Independent OPERA Cloud reference library and consulting site.
 
 ## Deploy
-Git-linked to Netlify. Every push to `main` deploys to https://aperture-operacloud.netlify.app. `netlify.toml` sets `publish = "."`. Do not drag and drop: a manual deploy is overwritten by the next push.
+Cloudflare Pages project `aperture-operacloud`, https://aperture-operacloud.pages.dev. Build `node scripts/build.mjs`, publish `dist/`, then `npx wrangler pages deploy dist --project-name aperture-operacloud`. Netlify is retired.
+
+Reference documents in `reference-docs/` are generated from the private repo austugal/OPERA-CLOUD-REFERENCES by `scripts/sync-sites.mjs aperture <this checkout>`. Edit them there, not here.
 
 ## Files
 - index.html · Homepage with intro overlay + dashboard
@@ -25,6 +27,6 @@ Independent. Not affiliated with Oracle. ORACLE® and OPERA® are registered tra
 
 ## Public Copilot
 
-`/copilot.html` uses the same-origin `/api/copilot` Netlify Function. It searches public module/documentation summaries, then requests a grounded answer using the Netlify AI Gateway. No browser keys, local services or visitor accounts are needed. If AI is unavailable, clearly labelled reference search remains available in the browser. The gateway uses existing Netlify AI credits; the function limits requests to 12 per minute per IP/domain and caps prompt and output size.
+`/copilot.html` uses the same-origin `/api/copilot` Cloudflare Pages Function (`functions/api/copilot.js`), with Workers AI and a daily cap held in KV.
 
 Build: `node scripts/build.mjs`. Only `dist/` is published; backend and build files stay outside the published directory. The script regenerates the reference index from modules.html and resources.html. Agent Hub is an illustrative demo, not a connection to live hotel systems.

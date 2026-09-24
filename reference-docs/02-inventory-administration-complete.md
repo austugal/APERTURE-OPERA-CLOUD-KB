@@ -103,11 +103,7 @@ When 1 King Suite is booked:
 - PARLOR: 1 available (of 3)
 - KING SUITE: 0 available (of 1)
 
-**Component Verification Control:**
-
-When active: Tracks availability at room number level
-- Once a room comprising suite is assigned, component suite is deducted
-- Prevents double-booking of component rooms
+*Line-checked 2026-09-24:* an earlier version described a "Component Verification" OPERA Control here. It is not in Oracle's Room Management or Inventory Management control tables ([Room Management controls, 24.3](https://docs.oracle.com/en/industries/hospitality/opera-cloud/24.3/ocsuh/c_opera_controls_room_management.htm)), so the description was removed until a source is found.
 
 ---
 
@@ -249,7 +245,7 @@ Space configured for events such as:
 
 **Key Features:**
 
-- No inventory tracking (unlimited event capacity via rental codes)
+- Function space is deducted from inventory when the block or event status is of type DED INV ([Oracle, Block Status](https://docs.oracle.com/en/industries/hospitality/opera-cloud/24.3/ocsuh/c_blocks_blockstatus.htm))
 - Can be combined (combo spaces)
 - Setup styles (theater, classroom, banquet)
 - Rental codes track revenue by rate/package
@@ -407,24 +403,21 @@ Access: Administration → Inventory → Function Space Management → Rental Co
 
 ### Room Pools
 
-**Purpose:** Group rooms for availability control and management.
+**Purpose:** Group room *types* into a pool so sales agents can book a generic room type in block room grids ([Oracle, Configuring Room Pools](https://docs.oracle.com/en/industries/hospitality/opera-cloud/24.3/ocsuh/t_admin_inventory_configuring_room_pool.htm)).
 
-**Menu Path:** Administration → Inventory → Accommodation Management → Room Pools
-
-**Use Cases:**
-- Assign 50 rooms to "Front Wing Pool" for housekeeping
-- Assign 40 rooms to "Executive Floor Pool" for premium service
-- Control room availability by pool
+**Menu Path:** Administration → Inventory → Accommodation Management → Room Pool Codes
 
 **Configuration:**
 
 1. Click **New**
 2. Enter:
-   - **Code:** Pool identifier
-   - **Description:** Purpose
-   - **Sell Limit:** Max rooms available for sale from pool
-   - **Close Out:** Set to closed when needed
+   - **Property**
+   - **Room Pool:** pool code
+   - **Description**
+   - **Sequence:** display order
 3. **Save**
+
+*Line-checked 2026-09-24:* an earlier version described pools as groups of physical rooms for housekeeping, with Sell Limit and Close Out fields. Oracle documents neither.
 
 ### Room Hierarchy Mapping
 
@@ -486,8 +479,10 @@ Controls:
 **Menu Path:** Administration → Inventory → Accommodation Management → Out of Order/Out of Service Codes
 
 **Difference:**
-- **Out of Order:** Rooms sold but unavailable (broken bed, leak)
-- **Out of Service:** Rooms not sold (maintenance, renovation)
+- **Out of Order:** removed from room inventory and not available for assignment. Occupancy is calculated on inventory minus OO rooms
+- **Out of Service:** stays in room inventory and can still be reserved and assigned, typically for a temporary maintenance issue
+
+Source: [Oracle, Out of Order and Out of Service Reason Codes, 24.3](https://docs.oracle.com/en/industries/hospitality/opera-cloud/24.3/ocsuh/c_configuration_codes_out_of_order_out_of_service.htm). When the Unit Status OPERA Control is active, unit statuses replace this configuration.
 
 **Examples:**
 - "LEAK" - Water leak
@@ -510,11 +505,10 @@ Controls:
 
 ## OPERA Controls (Global Configuration)
 
-These settings override local configuration:
+OPERA Controls switch functionality on or off. They are not overrides of local configuration:
 
 - **Room Class Control:** Activate room class functionality
 - **Component Suites Control:** Enable virtual suite room types
-- **Component Verification Control:** Track component rooms at room number level
 - **Room Rotation Control:** Enable owner room assignment
 - **Owner Room Grade Control:** Assign grades to owner rooms
 - **Alternate Space Control:** Require backup space for outdoor events
