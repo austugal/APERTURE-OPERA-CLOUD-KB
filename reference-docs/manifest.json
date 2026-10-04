@@ -234,5 +234,9 @@
  {
   "file": "report-schedules-machine-consumed-failures.md",
   "title": "Four ways a machine-consumed OPERA Cloud report schedule fails without raising an error"
+ },
+ {
+  "file": "prologic-first-webprolific.md",
+  "title": "Prologic First — Web Prol’IFIC"
  }
 ]
