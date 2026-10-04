@@ -2,6 +2,7 @@
 // from whatever markdown sits in reference-docs/. Add a document, run the build, done.
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 const CATS = [
+  ['Back-office systems', /prologic|webprolific/],
   ['Fiscal and compliance', /fiscal|saf|sii|france|emea|city-tax/],
   ['Integrations and OHIP', /ohip|oxi|ifc8|interface|exchange|channel|revenue-management|ideas|certified|ssd|community|opi/],
   ['Delivery and go-live', /cutover|hypercare|go-live|migration|piw|workstation|opera5|night-audit|checklist|support|walkthrough/],
