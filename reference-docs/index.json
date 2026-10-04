@@ -234,6 +234,12 @@
   "cat": "Delivery and go-live"
  },
  {
+  "file": "prologic-first-webprolific.md",
+  "title": "Prologic First — Web Prol’IFIC",
+  "desc": "Web Prol’IFIC is Prologic First's hospitality back-office product. Its published scope includes accounting, purchasing, inventory control and F&B costing. This entry covers that product, rather than the vendor's separate",
+  "cat": "Back-office systems"
+ },
+ {
   "file": "pt-fiscal-migration-folio-stationery.md",
   "title": "PT Migration: OPERA 5 to OPERA Cloud — Fiscal Live-Day Rules + Folio Stationery",
   "desc": "Tier 1, documented. Our own configuration knowledge for Portugal OPERA 5 to OPERA Cloud fiscal migration, validated against the Oracle Hospitality OPERA Cloud Portugal fiscal reference guidance and direct guidance from t",
