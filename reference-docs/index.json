@@ -168,6 +168,12 @@
   "cat": "Integrations and OHIP"
  },
  {
+  "file": "ohip-connection-approval-ownership.md",
+  "title": "Who approves an OHIP connection, and what they are actually approving",
+  "desc": "Every factual claim below is sourced to a page fetched from docs.oracle.com on 2026-09-08 and quoted verbatim. Inference and field observation are labelled where they appear.",
+  "cat": "Integrations and OHIP"
+ },
+ {
   "file": "opera-cloud-26x-fiscal-changes.md",
   "title": "OPERA Cloud 26.x Fiscal Changes",
   "desc": "Fiscal and country-specific changes across OPERA Cloud 26.1, 26.2 and 26.3.",
@@ -285,6 +291,12 @@
   "file": "release-watch.md",
   "title": "OPERA Cloud Release Watch",
   "desc": "What Oracle has published about OPERA Cloud, OHIP and the partner ecosystem, in one place. Verified 23 September 2026.",
+  "cat": "Configuration"
+ },
+ {
+  "file": "report-schedules-machine-consumed-failures.md",
+  "title": "Four ways a machine-consumed OPERA Cloud report schedule fails without raising an error",
+  "desc": "Every Oracle claim below was fetched from docs.oracle.com and quoted verbatim on 2026-09-08. Field observations are labelled as such and carry no customer, property or vendor identifiers.",
   "cat": "Configuration"
  },
  {

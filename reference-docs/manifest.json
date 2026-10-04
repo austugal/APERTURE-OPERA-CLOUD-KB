@@ -226,5 +226,13 @@
  {
   "file": "release-watch.md",
   "title": "OPERA Cloud Release Watch"
+ },
+ {
+  "file": "ohip-connection-approval-ownership.md",
+  "title": "Who approves an OHIP connection, and what they are actually approving"
+ },
+ {
+  "file": "report-schedules-machine-consumed-failures.md",
+  "title": "Four ways a machine-consumed OPERA Cloud report schedule fails without raising an error"
  }
 ]
