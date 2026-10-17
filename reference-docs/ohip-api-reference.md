@@ -25,9 +25,11 @@ The Oracle repository contains three primary folders relevant to OPERA Cloud wor
 
 ### rest-api-specs
 
-Holds the OpenAPI 3.0 JSON specifications for each subject area. Aligned to OPERA Cloud release 25.5.0.0 at time of writing.
+Holds the OpenAPI 3.0 JSON specifications for each subject area. Use a published release tag for
+production baselines rather than treating `main` as a fixed version. Oracle's latest public GitHub
+release is **26.3**, published 4 September 2026 and rechecked 11 October 2026.
 
-Subject areas published as of the 25.5 release include:
+Representative Property subject areas include:
 
 - `crm.json` — Customer Relationship Management (profiles)
 - `csh.json` — Cashiering and financial transactions
@@ -91,9 +93,15 @@ Always avoid uploading API secrets or tokens to Postman cloud sync or to GitHub.
 
 ## Versioning
 
-Oracle publishes API specifications aligned to OPERA Cloud quarterly releases. Major version markers seen in recent releases.
+Oracle publishes versioned API specification bundles, but the API-repository tag can lag the
+OPERA Cloud Services documentation release. As at 11 October 2026, Services 26.4 documentation is
+published while the latest [hospitality-api-docs release](https://github.com/oracle/hospitality-api-docs/releases/tag/26.3)
+is still 26.3. Do not infer availability of a 26.4 OpenAPI or Postman bundle from the Services
+feature summary.
 
-- OPERA Cloud 26.3, current as at 2 September 2026
+Major version markers seen in recent releases.
+
+- OPERA Cloud API bundle 26.3, published 4 September 2026
 - OPERA Cloud 25.4 (Data APIs grouped resources introduced)
 - OPERA Cloud 25.1 (Distribution Onboarding API, Outbound Lookup, Content Notification)
 - OPERA Cloud 24.4 (Reporting and Analytics download Postman collection added)
@@ -102,9 +110,65 @@ For any production integration, lock to a specific release of the API spec and r
 
 ---
 
+## Upcoming major changes reviewed 2026-10-07
+
+Oracle's [OHIP User Guide Release 26.3](https://docs.oracle.com/en/industries/hospitality/integration-platform/ohipu/index.html)
+(G58754-04, September 2026) contains August and September 2026 ReadMes with forward-looking
+changes. These notices describe target versions; confirm the connected environment's deployed
+version and gateway details before treating a change as live.
+
+- **Reporting and Analytics 26.4 profile scope:** `profilesIndividuals` will return only
+  Individual/Guest profiles. Consumers that need Company, Travel Agent or Source profiles must use
+  `profilesAccounts`.
+- **Reporting and Analytics 26.4 export pagination:** GraphQL Data API export requests containing
+  `limit` or `offset` will be rejected. Oracle directs consumers to remove those parameters and
+  use streaming export, for example with `@stream`. This notice applies to export pagination, not
+  unrelated Data API operations.
+- **Streaming event payloads:** Oracle's August notice says the `detail` array will contain only
+  business data elements selected as filters and will omit unchanged values. The September update
+  also says an element is omitted when both old and new values are null. Oracle identifies OHIP
+  26.2 as the target and states that polling is unaffected.
+- **Legacy GET and DELETE operations:** the February notice maps affected operations to POST-based
+  `/searches` and `/deletions` replacements with parameters in JSON request bodies. The
+  September update says most affected legacy operations will be unavailable from OPERA 27.3.
+  During deprecation, monitor the `deprecated: true` response header; after sunset, Oracle says
+  affected legacy calls return HTTP 404 with no response body.
+
+Sources: [September 2026 ReadMe](https://docs.oracle.com/en/industries/hospitality/integration-platform/ohipu/c_september_2026_readme.htm),
+[August 2026 ReadMe](https://docs.oracle.com/en/industries/hospitality/integration-platform/ohipu/c_august_2026_readme.htm)
+and [February 2026 ReadMe](https://docs.oracle.com/en/industries/hospitality/integration-platform/ohipu/c_february_2026_readme.htm).
+
+Operational inference: inventory integrations using these APIs now. Regression-test profile type
+coverage, large exports and streaming payload parsing before the relevant tenant upgrade, and
+replace affected legacy endpoints well before 27.3.
+
+---
+
+## OPERA Cloud Services 26.4 integration changes reviewed 2026-10-11
+
+Oracle's September 2026
+[Services 26.4 feature summary](https://docs.oracle.com/en/industries/hospitality/opera-cloud/26.4/oprnc/c_feature_summary.htm)
+documents integration behaviour that is not yet represented by a public 26.4
+`oracle/hospitality-api-docs` bundle. Confirm the deployed tenant version and exact specification
+before implementation.
+
+| Area | Documented change | Required engineering control |
+|---|---|---|
+| Block create | `postBlock` can replace missing or invalid mandatory values with six configured property defaults. | Read back and compare the created block; log every substitution; alert rather than treating transport success as semantic success. |
+| Block update | `putBlock` accepts `x-applyDeltaChanges=true` for partial updates; default `false` retains full-overlay behaviour. | Test omitted fields, explicit nulls, concurrent edits and replay in both modes. |
+| Block/catering async writes | Start/status/info or result operations are added for status and catering-package changes. | Persist correlation IDs, poll to a terminal state, bound retries and reconcile partial/unknown outcomes. |
+| Reservation rules | Auto Attachment Rules can generate a Business Event after API reservation create/update. | Correlate and deduplicate the initiating request and follow-on event. |
+| Rate strategy | Central adds `BookingLimitReaches` and `BookingLimitIsLess`. | Update strict enum parsers and test subscription/control prerequisites. |
+| Housekeeping query | `getHousekeepingOverview` adds discrepancy-status and queue-only filters. | Use for deterministic exception views; do not infer housekeeping write permissions. |
+
+These are documentation-supported release-to-test cases, not sandbox-validated behaviours. No
+production write, hotel connection or autonomous recovery action is authorized by this reference.
+
 ## OPI (Oracle Payment Interface) APIs
 
 The `openPaymentBulkTokenExchange` API allows partners to exchange raw credit card numbers, typically received via third-party channels, for tokens stored in OPERA Cloud against the reservation. Requires the hotel to have Oracle Payment Interface Cloud Service purchased and enabled. Without it, the API returns a configuration error.
+
+Oracle's [August 2026 ReadMe](https://docs.oracle.com/en/industries/hospitality/integration-platform/ohipu/c_august_2026_readme.htm) announces that OPI Cloud 26.4 API traffic moves from the OHIP Gateway Endpoint to a dedicated OPI Cloud Gateway Endpoint. Oracle describes a six-month deprecation period beginning when OHIP 26.4.0 is released; this notice does not establish a calendar deadline. Check Chain Environment details for the new endpoint, update routing and test token exchange before the old route is withdrawn.
 
 ---
 
@@ -121,7 +185,7 @@ Pre-arrival upsell APIs secured the same way as Hospitality Property APIs. Out o
 3. Import the matching Postman collection
 4. Configure your environment with hotel code, gateway URL, client ID, client secret, integration user credentials
 5. Authenticate against the OAuth token endpoint
-6. Test against the partner sandbox (hotel code `SAND01`) before requesting access to UAT or PRD tenants
+6. Test against the partner sandbox before requesting access to UAT or PRD tenants. Hotel code `SAND01` on the SSD sandbox, `OHIPSB02` on the OCIM sandbox ([ohip-getting-started.md](ohip-getting-started.md))
 7. Track release notes for each OPERA Cloud quarterly version
 
 ---
@@ -131,3 +195,4 @@ Pre-arrival upsell APIs secured the same way as Hospitality Property APIs. Out o
 The Oracle hospitality-api-docs repository is licensed under the Universal Permissive License v 1.0. This reference file in `austugal/opera-references` is licensed under CC BY-NC-SA 4.0 as per the parent repository.
 
 This file is maintained by Tiago Fitas and is not affiliated with or endorsed by Oracle Corporation.
+

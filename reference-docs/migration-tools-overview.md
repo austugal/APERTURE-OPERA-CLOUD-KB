@@ -20,18 +20,29 @@ Oracle ships several distinct tools for loading configuration and transactional 
 
 **Path:** Toolbox > System Setup > Import Data
 
-The customer-facing utility built into OPERA Cloud. Used by property staff and consultants for loading configuration and transactional data via CSV templates.
+The customer-facing utility built into OPERA Cloud for importing flat-file CSV data from external
+systems or OPERA 5 into a **fully configured** property. Oracle states that input must match the
+target configuration and that Data Import performs no transformation or profile match-and-merge.
 
 | Attribute | Value |
 |---|---|
-| Owner | Customer (property or chain) |
-| Maximum file size | 15 MB per file |
-| Import window | 14-day rolling cycle per template |
-| Supported scopes | Profiles, accounts, reservations, blocks, room and rate grid, events |
-| Validation | Built-in CSV column and reference checks |
-| Output | Success/error log per row |
+| Owner | Customer (property or chain), subject to OPERA task and control access |
+| File size | Oracle's 26.4 page is internally inconsistent: the overview says 15 MB maximum, while the preparation procedure says 10 MB. Use 10 MB as the conservative operating limit and confirm the tenant-generated templates/readme before a load. |
+| Import window | 14 days from the first successful upload for one import cycle per property |
+| Documented 26.4 scopes | Guest/contact and sales-account profiles, relationships, membership transactions, reservations, ledgers, blocks and room/rate grid, catering budgets/events, sales activities, stay records, selected Rooms Management records, Track It, export mappings and Data Value Mappings |
+| Validation | Target configuration, column width, mandatory fields and primary/foreign-key relationships; reservation inventory checks also apply |
+| Output | Per-file status and downloadable error files; activity is recorded in the changes log |
+| Duplicate handling | No match-and-merge with existing profiles; source keys must be controlled before import |
 
-Typical use: loading initial profile data, supplier accounts, future reservations imported from a legacy system, or block bookings ahead of go-live.
+Important scope limits in Oracle's 26.4 guide include: reservations are current/future only; imported
+reservations cannot pick up block rooms; several data types require the relevant OPERA Control or
+subscription; block imports exclude master/sub blocks, packages, attachments, production data and
+change-log data; event imports exclude resources and packaged events. This list is not proof that
+every field or migration scenario is supported.
+
+Typical use: controlled, template-based loading after configuration is complete. A migration
+assistant can validate files, reference keys and mapping decisions before upload, but import
+execution should remain an authorised human action with a dry-run/error-review gate.
 
 ### Oracle Hospitality Consulting Accelerator
 
@@ -115,11 +126,25 @@ Partner tools augment, but do not replace, the Oracle-managed migration via OCMO
 
 ## Common pitfalls
 
-- Native Data Import: 15 MB file size limit forces splitting of large datasets
+- Native Data Import: split files to a conservative 10 MB maximum until Oracle resolves the
+  conflicting 10 MB/15 MB statements in the 26.4 guide; use unique filenames per data type.
 - OCMO data extract requires source OPERA 5 to be at a supported version
 - PIW completion is the single biggest risk to implementation timeline; allocate sufficient customer time
 - Partner accelerators require partner certification and Oracle awareness
 
 ---
 
+## Public source verification
+
+Reviewed 2026-10-09:
+
+- Oracle OPERA Cloud 26.4 User Guide,
+  [About Data Import](https://docs.oracle.com/en/industries/hospitality/opera-cloud/26.4/ocsuh/c_system_setup_importing_data.htm).
+  This is the primary public source for the Native Data Import scope and limitations above.
+- OCMO, OCMP, Consulting Accelerator and partner-tool statements rely on the separately listed
+  migration documents or vendor material. Their current availability, licensing and exact object
+  scope were not revalidated in this focused review and require Oracle or vendor confirmation
+  before inclusion in a statement of work.
+
 *Derived from Oracle Hospitality OPERA Cloud migration documentation. Not affiliated with Oracle Corporation. Partner tools mentioned remain trademarks of their respective owners. Licensed CC BY-NC-SA 4.0.*
+

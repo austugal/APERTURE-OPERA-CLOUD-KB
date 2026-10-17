@@ -122,7 +122,7 @@ For a new consumer subscription.
 - Consumer code defined per external system and hotel set
 - Event subscriptions defined for each event type of interest
 - Hotel integration manager has granted access to the consumer
-- Sandbox testing complete (use `SAND01` hotel for partner sandbox)
+- Sandbox testing complete (`SAND01` on the SSD partner sandbox, `OHIPSB02` on the OCIM partner sandbox)
 - Production monitoring and alerting configured
 - Acknowledgement handling tested under failure scenarios
 
@@ -139,3 +139,4 @@ For a new consumer subscription.
 ---
 
 *Derived from Oracle Hospitality Integration Platform documentation and the publicly available OHIP REST API specifications. Not affiliated with Oracle Corporation. Licensed CC BY-NC-SA 4.0.*
+

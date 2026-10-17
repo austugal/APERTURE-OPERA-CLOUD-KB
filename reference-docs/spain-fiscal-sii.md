@@ -17,28 +17,34 @@ Transaction code numbers used in examples are placeholders. Implementing propert
 
 ---
 
-## Verifactu — not yet in force. Spain in 2026 is an SII jurisdiction
+## VERI*FACTU — binding 2027 dates and announced October 2028 postponement
 
-**Documented.** Real Decreto-ley 15/2025, de 2 de diciembre, BOE núm. 290 de 3 de diciembre de 2025,
-pp. 157601–157607. ELI https://www.boe.es/eli/es/rdl/2025/12/02/15
+**Binding position reviewed 13 October 2026.** Real Decreto-ley 15/2025, de 2 de diciembre, amended
+the *disposición final cuarta* of Real Decreto 1007/2023. The AEAT still states that Corporate Income
+Tax filers must adapt their invoicing systems before **1 January 2027** and the remaining covered
+taxpayers before **1 July 2027**:
 
-Amending *disposición final cuarta* of Real Decreto 1007/2023:
+- https://www.boe.es/eli/es/rdl/2025/12/02/15
+- https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/nota-informativa-ampliacion-plazo-adaptacion-facturacion.html
+- https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu/preguntas-frecuentes.html
 
-> los obligados tributarios a que se refiere el artículo 3.1.a) deberán tener adaptados los sistemas
-> informáticos […] antes del **1 de enero de 2027**. El resto de obligados tributarios mencionados
-> en el artículo 3.1 deberán tener operativos los citados sistemas informáticos antes del
-> **1 de julio de 2027**.
+**Announced policy change, not yet treated here as enacted law.** On 5 October 2026, Spain's Ministry
+of Finance announced its intention to postpone the pending obligations under Real Decreto 1007/2023
+until **October 2028**, aligning them with mandatory electronic invoicing for businesses and
+professionals with annual turnover not exceeding EUR 8 million. The announcement says the existing
+integrity, conservation, accessibility, legibility, traceability and immutability safeguards would
+remain substantially equivalent. Source:
+https://www.hacienda.gob.es/sgt/gabsehacienda/nota-informativa-verifactu.pdf
 
-This is the **second** deferral; Real Decreto 254/2025 of 1 April moved the dates once already. The
-previous deadline was 1 January 2026.
+The Ministry describes a planned modification. The AEAT implementation note and FAQ still publish
+the 2027 dates. Until an amending measure is published in the BOE, project plans must retain the
+2027 statutory dates as the compliance baseline and track the October 2028 date as a pending change.
+Do not defer an implementation solely on the press notice.
 
-**Consequence for configuration: nothing in this guide changes for 2026.** Spain remains governed by
-SII under Real Decreto 596/2016. Any plan, demo or checklist built on a 2026 Verifactu go-live is
-describing an obligation that does not exist yet.
-
-The article 3.1.a) group is widely reported as Corporate Income Tax contributors. That comes from
-commentary, not from the amending text. **Read article 3.1 of RD 1007/2023 before telling a customer
-which bucket applies to them.**
+**OPERA consequence.** Spain remains an SII jurisdiction in 2026. The announcement does not prove
+that Oracle's OPERA Cloud 26.x responsible declaration, Spain country guide, fiscal integration or
+tenant configuration has changed. Continue SII operation and test the documented VERI*FACTU path
+against the property's exact legal scope, OPERA release and Oracle country guidance.
 
 ---
 
@@ -199,3 +205,4 @@ Verification gate. Do not approve go-live until each is true.
 ---
 
 *Derived from publicly available Oracle documentation, Spanish tax law (Real Decreto 596/2016, Ley General Tributaria), AEAT technical specifications and INE EOH methodology. Not affiliated with Oracle Corporation. Licensed CC BY-NC-SA 4.0.*
+

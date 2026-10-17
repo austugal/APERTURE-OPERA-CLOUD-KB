@@ -68,7 +68,7 @@
  {
   "file": "emea-fiscal-watch.md",
   "title": "EMEA Country Fiscal Watch",
-  "desc": "Country-by-country OPERA Cloud fiscal changes that change how a property is configured, migrated or upgraded. Verified against Oracle release readiness guides, September 2026. Oracle's country Fiscal Reference Guides sit",
+  "desc": "Country-by-country OPERA Cloud fiscal changes that change how a property is configured, migrated or upgraded. Verified against Oracle release readiness guides through September 2026; Spain deadline watch reviewed 13 Octo",
   "cat": "Fiscal and compliance"
  },
  {
@@ -171,6 +171,18 @@
   "file": "ohip-connection-approval-ownership.md",
   "title": "Who approves an OHIP connection, and what they are actually approving",
   "desc": "Every factual claim below is sourced to a page fetched from docs.oracle.com on 2026-09-08 and quoted verbatim. Inference and field observation are labelled where they appear.",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "ohip-environments-and-credentials.md",
+  "title": "OHIP environments and credentials: every credential event is an outage for someone",
+  "desc": "Every factual claim below is sourced to a page of the Oracle Hospitality Integration Platform User Guide, chapter 6, Environments with Client Credentials Authentication Scheme , fetched from docs.oracle.com on 2026-10-17",
+  "cat": "Integrations and OHIP"
+ },
+ {
+  "file": "ohip-getting-started.md",
+  "title": "Getting onto OHIP: the blockers that come before any configuration",
+  "desc": "Every factual claim below is sourced to a page of the Oracle Hospitality Integration Platform User Guide fetched from docs.oracle.com on 2026-10-17. Inference is labelled where it appears.",
   "cat": "Integrations and OHIP"
  },
  {
@@ -296,7 +308,7 @@
  {
   "file": "release-watch.md",
   "title": "OPERA Cloud Release Watch",
-  "desc": "What Oracle has published about OPERA Cloud, OHIP and the partner ecosystem, in one place. Verified 23 September 2026.",
+  "desc": "What Oracle has published about OPERA Cloud, OHIP and the partner ecosystem, in one place. Release index rechecked 13 October 2026. Historical 26.3 highlights below retain their earlier review scope.",
   "cat": "Configuration"
  },
  {

@@ -232,6 +232,14 @@
   "title": "Who approves an OHIP connection, and what they are actually approving"
  },
  {
+  "file": "ohip-getting-started.md",
+  "title": "Getting onto OHIP: the blockers that come before any configuration"
+ },
+ {
+  "file": "ohip-environments-and-credentials.md",
+  "title": "OHIP environments and credentials: every credential event is an outage for someone"
+ },
+ {
   "file": "report-schedules-machine-consumed-failures.md",
   "title": "Four ways a machine-consumed OPERA Cloud report schedule fails without raising an error"
  },

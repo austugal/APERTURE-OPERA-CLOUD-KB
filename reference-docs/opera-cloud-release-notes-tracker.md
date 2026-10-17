@@ -4,8 +4,8 @@ Portfolio-level index. **Per-release detail lives in one file per product per re
 [`releases/`](releases/_INDEX.md).** Restructured 2026-09-10; nothing was deleted, the per-release
 content moved into its own file and this page became the index.
 
-Current as at **10 September 2026**. Every entry was read from Oracle's own documentation. Nothing
-here is inferred.
+Current-release index checked **4 October 2026** against Oracle's Hotels index. This date applies
+to the release table, not every historical feature claim. Per-release files state their own review scope.
 
 > **Do not hardcode a release number when answering.** Oracle ships OPERA Cloud roughly every two
 > months. Check the release index before asserting what is current:
@@ -29,13 +29,14 @@ release has not been captured yet, say so rather than answering from the nearest
 
 | Product | Current | Doc root |
 |---|---|---|
-| OPERA Cloud Services | **26.3** | `/en/industries/hospitality/opera-cloud/26.3/` |
-| OPERA Cloud Distribution | **26.3** | `/en/industries/hospitality/opera-cloud-distribution/26.3/` |
+| OPERA Cloud Services | **26.4** | `/en/industries/hospitality/opera-cloud/26.4/` |
+| OPERA Cloud Distribution | **26.4** | `/en/industries/hospitality/opera-cloud-distribution/26.4/` |
 | OPERA Property Management (V5) | 5.6 | `/cd/E98457_01/` |
 | Hotel Property Interface (IFC8) | 8.17 | `/en/industries/hospitality/hotel-property/8.17/` |
+| OPERA Fiscal Integration Solution | **26.4** | `/en/industries/hospitality/opera-fiscal-integration-solution/26.4/` |
 | OPERA Cloud Mobile Guest Experience | 24.3 | `/en/industries/hospitality/mobile-guest-experience/24.3/` |
 
-Base: `https://docs.oracle.com`. Verified against the Oracle index 2026-09-10 — **no 26.4 yet.**
+Base: `https://docs.oracle.com`. Verified 2026-10-12: Services, Distribution and OPERA Fiscal Integration Solution each publish 26.4 documentation; IFC8 remains 8.17.
 
 ---
 
@@ -43,20 +44,24 @@ Base: `https://docs.oracle.com`. Verified against the Oracle index 2026-09-10 �
 
 | Product | Release | Doc ID | Published | File |
 |---|---|---|---|---|
+| OPERA Cloud Services | 26.4 | G58711-02 | September 2026 | [releases/opera-cloud-26.4.md](releases/opera-cloud-26.4.md), selected highlights only |
 | OPERA Cloud Services | 26.3 | G55991-02 | August 2026 | [releases/opera-cloud-26.3.md](releases/opera-cloud-26.3.md) |
 | OPERA Cloud Services | 26.2 | G50860-02 | April 2026 | [releases/opera-cloud-26.2.md](releases/opera-cloud-26.2.md) |
+| OPERA Cloud Services | 25.5 | G43592-02 | December 2025 | [releases/opera-cloud-25.5.md](releases/opera-cloud-25.5.md), captured 2026-09-14 |
 | OPERA Cloud Services | 26.1 | G48601-01 | February 2026 | [releases/opera-cloud-26.1.md](releases/opera-cloud-26.1.md) |
+| Distribution | 26.4 | G61052-03 | September 2026 | [releases/opera-cloud-distribution-26.4.md](releases/opera-cloud-distribution-26.4.md), existing capture verified 2026-09-28 |
 | Distribution | 26.3 | G57921-01 | July 2026 | [releases/opera-cloud-distribution-26.3.md](releases/opera-cloud-distribution-26.3.md) |
 | Distribution | 26.2 | G55487-01 | April 2026 | [releases/opera-cloud-distribution-26.2.md](releases/opera-cloud-distribution-26.2.md) |
 | Distribution | 26.1 | G53143-01 | March 2026 | [releases/opera-cloud-distribution-26.1.md](releases/opera-cloud-distribution-26.1.md) |
 | IFC8 | 8.17.0.0 | G55566-01 | April 2026 | [releases/ifc8-8.17.md](releases/ifc8-8.17.md) |
+| OPERA Fiscal Integration Solution | 26.4.0.0 | G60422-01 | September 2026 | [releases/opera-fiscal-integration-solution-26.4.md](releases/opera-fiscal-integration-solution-26.4.md) |
 
 ## Not yet captured — backfill queue, newest-first
 
 Releases still live on Oracle's Help Center that have **not** been read. A release with no file has
 not been read, and that is stated rather than glossed.
 
-- **OPERA Cloud Services:** 25.5, 25.4, 25.3, 25.2, 25.1, 24.4, 24.3, 24.2, 24.1, 21.5
+- **OPERA Cloud Services:** 25.4, 25.3, 25.2, 25.1, 24.4, 24.3, 24.2, 24.1, 21.5
 - **OPERA Cloud Distribution:** 25.5, 23.2
 - **IFC8:** 8.16, 8.15, 8.14, 8.13, 8.12, 8.11, 8.10
 - **OPERA V5:** 5.5, 5.0.04
@@ -104,9 +109,9 @@ features.
 
 ## Cadence
 
-OPERA Cloud ships roughly every two months: 26.1 February, 26.2 April, 26.3 August. **Expect 26.4
-around October 2026.** Distribution tracks the same numbering on its own dates. IFC8 is far slower —
-8.17 is April 2026.
+Publication dates vary: Services 26.1 February, 26.2 April, 26.3 August and 26.4 September 2026.
+Do not forecast a release date from numbering. Distribution uses its own publication dates.
+IFC8 8.17 is April 2026.
 
 ## Method note
 
@@ -124,4 +129,6 @@ articles behind MOS cannot be read programmatically and are never guessed at.
 Deeper notes per feature, including what Oracle did **not** state, live in the Second Brain under
 `10-OPERA-Cortex`.
 
-*Maintained by the vault-curator agent. Last verified 2026-09-10.*
+*Release table reviewed 2026-10-04. Historical narrative retains its original review scope.*
+
+

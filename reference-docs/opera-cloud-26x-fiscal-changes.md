@@ -2,10 +2,9 @@
 
 Fiscal and country-specific changes across OPERA Cloud 26.1, 26.2 and 26.3.
 
-Every claim below comes from Oracle's Release Readiness Guides. Where Oracle did not state
-something, this guide says so rather than filling the gap.
+Release changes are drawn from Oracle's Release Readiness Guides. Operational commentary and inferences require property and country verification; release notes alone do not establish legal compliance.
 
-Verified 2 September 2026.
+Original review: 2 September 2026. Fiscal checkout and settlement wording corrected against Oracle's 26.1 and 26.3 feature summaries on 15 October 2026. Other sections retain their earlier review scope.
 
 | Release | Oracle doc | Published | Feature Summary |
 |---|---|---|---|
@@ -15,48 +14,23 @@ Verified 2 September 2026.
 
 ---
 
-## The headline: a compliance gap on any release below 26.1
+## 26.1: fiscal checkout capabilities and verification boundary
 
-Two entries in 26.1, both under Cashiering and Financials:
+**Documented:** Oracle adds Auto Check Out Fiscal Folios, which can operate simultaneously with Auto Check Out. Quick Check Out supports the fiscal workflow for zero-balance departures and sends a fiscal payload to the configured fiscal partner.
 
-- **Auto Check Out Fiscal Folios** added, configured to operate simultaneously with Auto Check Out
-- **Quick Check Out** updated to support the fiscal workflow for **zero balance departures**,
-  generating a fiscal payload sent to the Fiscal Partner during checkout
+**Inference:** These additions warrant reviewing older automated checkout workflows at fiscalised properties. The release notes alone do not prove that every earlier property was non-compliant, that every earlier integration omitted a required document, or that a failure was invisible. Confirm the installed release, country requirements and actual integration behaviour.
 
-Read together, these close two holes where a fiscalised property silently stopped being compliant.
+**Documented failure handling for zero-balance Quick Check Out:** if the fiscal service does not respond, the process stops and displays "No response from fiscal service". Oracle also documents the Offline Folio option for manual billing checkout when the fiscal service is unavailable. Confirm its country and property applicability before use. This specific documented case must not be generalized to every fiscal workflow.
 
-Automated checkout ran without producing a fiscal folio, so any property using it departed guests
-without the document the regime requires. Zero balance departures were the same problem from the
-other direction: no money moved, so no payload was generated, even though the stay still had to be
-reported.
-
-**Neither failure is visible at the front desk. Both surface at audit.**
-
-If a property is fiscalised, uses Auto Check Out or Quick Check Out, and runs below 26.1, this is
-worth raising as a gap to close rather than a feature to sell.
-
-**Not documented by Oracle:** which regimes are covered, whether the zero balance payload differs
-in content, and what happens if the Fiscal Partner is unreachable at that moment. Failure handling
-at checkout is the question to ask.
+The release summary does not establish every country's legal coverage or the complete payload schema. Read the corresponding country and cashiering documentation.
 
 ---
 
-## 26.3: settlement speed and fiscal printing stop competing
+## 26.3: simplified settlement and fiscal folio printing
 
-**Simplified Settlement Workflow OPERA Control updated to work with the Fiscal Folio Printing
-OPERA Control simultaneously.**
+**Documented:** Simplified Settlement Workflow and Fiscal Folio Printing OPERA Controls can operate simultaneously from 26.3.
 
-These two previously pulled against each other. Simplified Settlement exists to shorten checkout.
-Fiscal Folio Printing exists because a regime demands a specific document at a specific moment. On
-a fiscalised property that meant choosing between a faster checkout and a compliant one.
-
-Directly relevant to Portugal, Spain, Poland and every regime where folio printing is a legal event
-rather than a convenience.
-
-**Not documented:** what the combined workflow looks like at the desk, whether the fiscal document
-is produced before or after settlement completes, and whether any regime is excluded. Sequence is
-the whole question in fiscal printing. Read the 26.3 cashiering and country documentation before
-configuring this anywhere live.
+This establishes a supported combined configuration. It does not, by itself, establish that every earlier property had to choose between compliant checkout and faster settlement, or that every country's fiscal requirements are satisfied. Verify the deployed release, enabled controls, country guidance and resulting document sequence.
 
 ### Also in 26.3
 
@@ -169,3 +143,4 @@ reflected here.
 
 *Sources: Oracle Hospitality OPERA Cloud Release Readiness Guides, documents G48601-01, G50860-02
 and G55991-02. Verified 2026-09-02.*
+

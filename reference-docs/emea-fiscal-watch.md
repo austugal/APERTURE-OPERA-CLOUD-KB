@@ -1,12 +1,21 @@
 # EMEA Country Fiscal Watch
 
-Country-by-country OPERA Cloud fiscal changes that change how a property is configured, migrated or upgraded. Verified against Oracle release readiness guides, September 2026. Oracle's country Fiscal Reference Guides sit on My Oracle Support behind a login: read the release-specific guide before configuring.
+Country-by-country OPERA Cloud fiscal changes that change how a property is configured, migrated or upgraded. Verified against Oracle release readiness guides through September 2026; Spain deadline watch reviewed 13 October 2026. Oracle's country Fiscal Reference Guides sit on My Oracle Support behind a login: read the release-specific guide before configuring.
 
 ## Portugal and Spain
 
 See the dedicated references: [Portugal fiscal master](opera-doc.html?file=portugal-fiscal-master.md), [Portugal deposits and city tax](opera-doc.html?file=advance-deposit-city-tax-fiscal.md), [Spain SII](opera-doc.html?file=spain-fiscal-sii.md).
 
 Portugal in 26.x (documented): 26.1 blocks negative rate amounts on package split. 26.3 updates auto credit bill for deposit on check-in and stops displaying the Debit Folio parameter.
+
+Spain deadline watch: the binding AEAT pages still state 1 January 2027 for Corporate Income Tax
+filers and 1 July 2027 for the remaining covered taxpayers. A 5 October 2026 Ministry of Finance
+notice announces an intended postponement of pending SIF/VERI*FACTU obligations until October 2028.
+Treat October 2028 as pending policy, not an enacted replacement date, until the BOE publishes the
+amending measure. This announcement does not change current SII operation or prove an OPERA
+configuration change. Sources:
+https://www.hacienda.gob.es/sgt/gabsehacienda/nota-informativa-verifactu.pdf and
+https://sede.agenciatributaria.gob.es/Sede/iva/sistemas-informaticos-facturacion-verifactu.html
 
 ## France
 
@@ -51,3 +60,4 @@ See [France fiscal reference](opera-doc.html?file=france-fiscal.md). 26.2 adds f
 The Country Specific section is not a complete country index. Country behaviour also appears under Cashiering, Property APIs and Integrations, and some features exclude countries in their body text. Search the full feature summary for the country name and for "Country Mode".
 
 Related: [OPERA Cloud 26.x fiscal changes](opera-doc.html?file=opera-cloud-26x-fiscal-changes.md), [Release watch](opera-doc.html?file=release-watch.md)
+
