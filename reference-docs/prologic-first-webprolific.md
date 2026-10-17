@@ -54,4 +54,3 @@ Related references: [Monthly financial close](monthly-financial-close-checklist.
 - [Prologic First product page](https://prologicfirst.com/hotelsoftware/hotel-back-office-software/): product scope and general interface statements.
 - [Prologic First](https://prologicfirst.com/): vendor website.
 - User-supplied LinkedIn screenshot: rollout context only.
-

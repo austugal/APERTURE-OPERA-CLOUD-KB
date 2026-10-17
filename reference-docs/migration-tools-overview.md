@@ -147,4 +147,3 @@ Reviewed 2026-10-09:
   before inclusion in a statement of work.
 
 *Derived from Oracle Hospitality OPERA Cloud migration documentation. Not affiliated with Oracle Corporation. Partner tools mentioned remain trademarks of their respective owners. Licensed CC BY-NC-SA 4.0.*
-

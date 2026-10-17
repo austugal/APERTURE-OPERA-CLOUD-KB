@@ -143,4 +143,3 @@ reflected here.
 
 *Sources: Oracle Hospitality OPERA Cloud Release Readiness Guides, documents G48601-01, G50860-02
 and G55991-02. Verified 2026-09-02.*
-

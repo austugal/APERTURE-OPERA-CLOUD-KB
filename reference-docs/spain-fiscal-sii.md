@@ -205,4 +205,3 @@ Verification gate. Do not approve go-live until each is true.
 ---
 
 *Derived from publicly available Oracle documentation, Spanish tax law (Real Decreto 596/2016, Ley General Tributaria), AEAT technical specifications and INE EOH methodology. Not affiliated with Oracle Corporation. Licensed CC BY-NC-SA 4.0.*
-

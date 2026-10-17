@@ -195,4 +195,3 @@ Pre-arrival upsell APIs secured the same way as Hospitality Property APIs. Out o
 The Oracle hospitality-api-docs repository is licensed under the Universal Permissive License v 1.0. This reference file in `austugal/opera-references` is licensed under CC BY-NC-SA 4.0 as per the parent repository.
 
 This file is maintained by Tiago Fitas and is not affiliated with or endorsed by Oracle Corporation.
-

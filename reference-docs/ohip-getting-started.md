@@ -172,4 +172,3 @@ services from the Oracle shop, or a Systems Integrator listed in Oracle Cloud Ma
 
 *Inference.* The forum is not a support queue. A partner waiting there for an Oracle answer is in the
 wrong place.
-

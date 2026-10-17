@@ -124,4 +124,3 @@ Rule: confirm a partner's current listing and the OPERA Cloud version it was val
 - [EMEA country fiscal watch](opera-doc.html?file=emea-fiscal-watch.md)
 - [Portugal fiscal master](opera-doc.html?file=portugal-fiscal-master.md) and [Spain SII](opera-doc.html?file=spain-fiscal-sii.md)
 
-

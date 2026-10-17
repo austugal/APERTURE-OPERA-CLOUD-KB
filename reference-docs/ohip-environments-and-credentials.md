@@ -117,4 +117,3 @@ unsubscribing after testing. Sandbox hotel IDs are in [ohip-getting-started.md](
 
 *Inference.* Filter sandbox assertions to records you created, and do not size queues or monitors on
 sandbox event volume.
-

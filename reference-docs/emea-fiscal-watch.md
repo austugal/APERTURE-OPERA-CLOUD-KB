@@ -60,4 +60,3 @@ See [France fiscal reference](opera-doc.html?file=france-fiscal.md). 26.2 adds f
 The Country Specific section is not a complete country index. Country behaviour also appears under Cashiering, Property APIs and Integrations, and some features exclude countries in their body text. Search the full feature summary for the country name and for "Country Mode".
 
 Related: [OPERA Cloud 26.x fiscal changes](opera-doc.html?file=opera-cloud-26x-fiscal-changes.md), [Release watch](opera-doc.html?file=release-watch.md)
-

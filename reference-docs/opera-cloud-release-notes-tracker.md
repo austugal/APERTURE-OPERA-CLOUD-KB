@@ -131,4 +131,3 @@ Deeper notes per feature, including what Oracle did **not** state, live in the S
 
 *Release table reviewed 2026-10-04. Historical narrative retains its original review scope.*
 
-

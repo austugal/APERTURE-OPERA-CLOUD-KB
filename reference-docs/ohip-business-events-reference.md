@@ -139,4 +139,3 @@ For a new consumer subscription.
 ---
 
 *Derived from Oracle Hospitality Integration Platform documentation and the publicly available OHIP REST API specifications. Not affiliated with Oracle Corporation. Licensed CC BY-NC-SA 4.0.*
-
